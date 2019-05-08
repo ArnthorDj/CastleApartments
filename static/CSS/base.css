@@ -17,6 +17,10 @@ a {
     text-align: center;
 }
 
+.dropdown {
+    display: inline-block;
+}
+
 .navbar-default {
     text-align: center;
 }
@@ -28,7 +32,8 @@ a {
 }
 
 .tab {
-    padding: 50px;
+    padding: 70px;
+    margin: 15px;
 }
 
 .form {

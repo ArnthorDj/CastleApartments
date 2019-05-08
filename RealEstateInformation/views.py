@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello from the index function within the RealEstateInformation app!")
+    return render(request, 'RealEstateInformation/index.html')
