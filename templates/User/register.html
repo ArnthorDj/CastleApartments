@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block New_real_estate %}
+
+    <h3>Sign Up</h3>
+    <form method = "post">
+        {% csrf_token %}
+        {{form}}
+        <input type = "submit" value="Sign Up!">
+    </form>
+
+{% endblock %}

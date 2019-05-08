@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Confirmation.apps.ConfirmationConfig',
     'Employees.apps.EmployeesConfig',
     'Home.apps.HomeConfig',
+    'User.apps.UserConfig',
     'Login.apps.LoginConfig',
     'PaymentInformation.apps.PaymentInformationConfig',
     'PendingInformation.apps.PendingInformationConfig',
