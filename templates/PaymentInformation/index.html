@@ -1,42 +1,12 @@
 {% extends 'base_2.html' %}
 
-
-
-<!--
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="login-form">
-    <form action="" >
-  <br>
-  <input type="text" value="Username"><br>
-  <br>
-  <input type="text" value="Password"><br><br>
-  <input type="submit" value="Submit">
-</form>
-    </div>
-     <br>
-    <br>
-    <br>
-    <br>
-    -!>
-
-
-    <h3>Sign Up</h3>
-    <form method = "post">
-        {% csrf_token %}
-        {{form}}
-        <input type = "text" placeholder = "First Name"><br />
-        <input type = "text" placeholder = "Last Name"><br />
-        <input type = "text" placeholder = "Email"><br />
-        <input type = "text" placeholder = "Password"><br />
-        <input type = "text" placeholder = "Confirm Password"><br />
-        <button type = "submit">Sign Up</button>
+ <h3>Payment Information</h3>
+    <form class="payment-form" method = "post" action="{% url 'payment_information' %}">
+    {% csrf_token %}
+    <input type="submit" value="pay" class="btn btn-primary pull-right"/>
+    {{ form }}
     </form>
-
 {% endblock %}
 
 
-{% endblock %}
