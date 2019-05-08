@@ -32,7 +32,7 @@
                     <ul class="nav navbar-nav">
                         <li><a class="home" href="{% url 'home_index' %}">Home</a></li>
                         <li><a class="real_estate" href="{% url 'real_estate_index' %}">Real Estate</a></li>
-                        <li><a class="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
+                        <li><a class="employees" href="{% url 'employees-index' %}">Staff Members</a></li>
                         <li><img class="logo" src="{% static 'Images/logo.png' %}" alt="logo"></li>
                         <li><a href="#">{% block profile_contact %} {% endblock %}</a></li>
                         <li><a class="pending_real_estate" href="#">{% block Your_real_estate_pending %} {% endblock %}</a></li>
@@ -65,7 +65,7 @@
             </div>
         </header>
 
-        {% block New_real_estate %}
+        {% block header %}
         {% endblock %}
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
