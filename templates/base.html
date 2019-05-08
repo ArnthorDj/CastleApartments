@@ -43,29 +43,13 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <header class="search_bar" >
-          <div class="overlay"></div>
-            <div class="container1">
-                <div class="row">
-                    <div class="hallo">
-                    </div>
-                    <div class="bla"
-                         <form class="form">
-                            <div class="form-row">
-                              <div class="col-14">
-                                <input type="search" class="form-control" placeholder="Search...">
-                              </div>
-                              <div class="col-12">
-                                  <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate_index' %}">Search</a></button>
-                              </div>
-                            </div>
-                         </form>
-                    </div>
-                </div>
-            </div>
-        </header>
 
-        {% block New_real_estate %}
+        {% block search_bar %}
+
+        {% endblock %}
+
+
+        {% block content %}
 
         {% endblock %}
 
