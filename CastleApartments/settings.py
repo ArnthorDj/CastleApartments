@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Confirmation.apps.ConfirmationConfig',
     'Employees.apps.EmployeesConfig',
     'Home.apps.HomeConfig',
+    'User.apps.UserConfig',
     'Login.apps.LoginConfig',
     'PaymentInformation.apps.PaymentInformationConfig',
     'PendingInformation.apps.PendingInformationConfig',
@@ -142,3 +143,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+LOGIN_URL = "/user/login"
+LOGIN_REDIRECT_URL = "/"
