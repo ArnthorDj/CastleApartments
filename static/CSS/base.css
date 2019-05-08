@@ -1,21 +1,64 @@
+a:hover {
+    text-decoration: none;
+    color: white;
 
-.header {
-    position: relative;
+}
+
+a {
+    color: white;
+}
+
+.search_bar {
   background-color: #343a40;
   background: url("../Images/mountain.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
+    text-align: center;
+}
+
+.dropdown {
+    display: inline-block;
 }
 
 .navbar-default {
-  margin-left:auto;
-  margin-right:auto;
+    text-align: center;
 }
 
-.logo{
-  margin-left:auto;
-  margin-right:auto;
+.navbar-nav {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.tab {
+    padding: 70px;
+    margin: 15px;
+}
+
+.form {
+    margin: auto;
+    float: inside;
+}
+
+.col-14 {
+    width: 30%;
+    display: inline-block;
+    height: 5%;
+}
+
+.col-12 {
+    width: 10%;
+    display: inline-block;
+    height: 5%;
+}
+
+
+
+.col-13 {
+    margin-left:auto;
+    margin-right:auto;
+    width: 10%;
 }
 
 .image {
@@ -35,50 +78,8 @@
     margin-bottom: 20px;
     text-align: center;
     display: inline-block;
-    background-color: #D3D4C4;
     border-radius: 10px;
     border: 2px solid #000000;
     padding:5px;
     color: aqua;
 }
-
-
-
-@media only screen and (max-width: 1200px) {
-    .foodBox {
-        width:46%;
-        display: inline-block;
-        margin-bottom:20px;
-        text-align:center;
-    }
-
-    .footerBox {
-        width:100%;
-        float:left;
-    }
-}
-
-@media only screen and (max-width: 850px) {
-    .foodBox {
-        width:95%;
-        display: inline-block;
-        margin-bottom:20px;
-        text-align:center;
-    }
-
-    .footerBox {
-        width:100%;
-        float:left;
-    }
-
-    .headerItem {
-        display:none;
-    }
-
-    .headerAlt {
-        display:inline;
-        margin-left:auto;
-        margin-right:auto;
-        font-size:4em;
-    }
-  }

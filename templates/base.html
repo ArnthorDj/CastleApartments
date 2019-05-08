@@ -19,17 +19,12 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button> -->
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
+<<<<<<< HEAD
                         <li><a class="home" href="{% url 'home_index' %}">Home</a></li>
                         <li><a class="real_estate" href="{% url 'real_estate_index' %}">Real Estate</a></li>
                         <li><a class="employees" href="{% url 'employees-index' %}">Staff Members</a></li>
@@ -37,35 +32,40 @@
                         <li><a href="#">{% block profile_contact %} {% endblock %}</a></li>
                         <li><a class="pending_real_estate" href="#">{% block Your_real_estate_pending %} {% endblock %}</a></li>
                         <li><a href="{% url 'login_index' %}">{% block Login_logout %} {% endblock %}</a></li>
+=======
+                        <li><a class="tab" id="home" href="{% url 'home_index' %}">Home</a></li>
+                        <li><a class="tab" id="real_estate" href="{% url 'real_estate_index' %}">Real Estate</a></li>
+                        <li><a class="tab" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
+                        <li><img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo"></li>
+                        <li><a class="tab" id="profile_none" href="#">{% block profile_contact %} {% endblock %}</a></li>
+                        <li><a class="tab" id="pending_real_estate" href="#">{% block Your_real_estate_pending %} {% endblock %}</a></li>
+                        <li><a class="tab" id="login_logout" href="{% url 'login_index' %}">{% block Login_logout %} {% endblock %}</a></li>
+>>>>>>> 633dc34409e05aa53d259c4f90c1c0d27f3ccbb9
                     <!-- </ul>
                     <ul class="nav navbar-nav navbar-right"> -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <header class="header" >
-          <div class="overlay"></div>
+
+        <header class="search_bar" >
+            <div class="overlay"></div>
             <div class="container1">
                 <div class="row">
                     <div class="hallo">
                     </div>
-                    <div class="bla"
-                         <form>
-                            <div class="form-row">
-                              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                <input type="search" class="form-control form-control-lg" placeholder="Search...">
-                              </div>
-                              <div class="col-12 col-md-3">
-                                <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
-                              </div>
-                            </div>
-                         </form>
-                    </div>
+                    {% block search_bar %}
+                    {% endblock %}
                 </div>
             </div>
         </header>
 
+<<<<<<< HEAD
         {% block header %}
+=======
+
+        {% block content %}
+>>>>>>> 633dc34409e05aa53d259c4f90c1c0d27f3ccbb9
         {% endblock %}
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

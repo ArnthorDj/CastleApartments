@@ -2,10 +2,6 @@
 {% load static %}
 
 
-{% block content %}
-<h3>Hello from Home</h3>
-{% endblock %}
-
 {% block profile_contact %}
         Profile
     {% endblock %}
@@ -18,7 +14,7 @@
     Logout
 {% endblock %}
 
-    {% block New_real_estate %}
+    {% block content %}
         <div class="container2">
             <h2 class="red">New Real Estate</h2>
         </div>
@@ -26,43 +22,118 @@
         <main id="main">
 
             <div class="images">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Soup">
-                <h3 class="soup">Soup</h3>
-                <p>A soup version with some curry.</p>
-                <p>6.60</p>
+                <a href="{% url 'real_estate_index' %}">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Paella">
-                <h3>Paella</h3>
-                <p>A Spanish rice dish.</p>
-                <p>8.80</p>
+                <a href="{% url 'real_estate_index' %}">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Chicken">
-                <h3>Chicken with a light salad</h3>
-                <p>Low on fat, high on taste.</p>
-                <p>7.67</p>
+                <a href="{% url 'real_estate_index' %}">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
 
             <div class="images">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish">
-                <h3>Fish with lemon</h3>
-                <p>Looks sad, tastes good.</p>
-                <p>2</p>
+                <a href="{% url 'real_estate_index' %}">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Salad">
-                <h3>Salad</h3>
-                <p>Feeling healthy today?</p>
-                <p>12</p>
+                <a href="{% url 'real_estate_index' %}">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Sausages">
-                <h3>Sausages and egg</h3>
-                <p>Almost an English breakfast.</p>
-                <p>4</p>
+                <a href="{% url 'real_estate_index' %}">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
         </main>
+        <div class="col-13">
+            <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate_index' %}">See more</a></button>
+        </div>
 
         <!-- Latest compiled and minified JavaScript -->
     {% endblock %}
+
+{% block search_bar %}
+
+<header class="search_bar" >
+            <!-- <div class="overlay"></div>
+            <div class="container1">
+                <div class="row">
+                    <div class="hallo">
+                    </div> -->
+                    <div class="bla"
+                         <form class="form">
+                            <div class="form-row">
+                              <div class="col-14">
+                                <input type="search" class="form-control" placeholder="Search...">
+                              </div>
+                              <div class="col-12">
+                                  <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate_index' %}">Search</a></button>
+                              </div>
+                            </div>
+                         </form>
+
+                        <form class="dropdown" action="/action_page.php">
+                            <select name="prize">
+                                <option value="prize">Prize</option>
+                                <option value="0-30.000.000kr">0-30.000.000kr</option>
+                                <option value="30.000.001-90.000.000kr">30.000.001-90.000.000kr</option>
+                                <option value="90.000.001-120.000.000kr">90.000.001-120.000.000kr</option>
+                                <option value="120.000.000kr+">120.000.000kr+</option>
+                            </select>
+                        </form>
+                        <form class="dropdown" action="/action_page.php">
+                            <select name="zip">
+                                <option value="zip">Zip</option>
+                                <option value="101">101</option>
+                                <option value="fiat">102</option>
+                                <option value="audi">103</option>
+                                <option value="audi">104</option>
+                                <option value="audi">105</option>
+                                <option value="audi">106</option>
+                                <option value="audi">107</option>
+                                <option value="audi">108</option>
+                                <option value="audi">109</option>
+                                <option value="audi">110</option>
+                                <option value="audi">111</option>
+                                <option value="audi">112</option>
+                                <option value="audi">113</option>
+                                <option value="audi">114</option>
+                                <option value="audi">115</option>
+                                <option value="audi">116</option>
+                            </select>
+                        </form>
+                        <form class="dropdown" action="/action_page.php">
+                          <select name="size">
+                              <option value="Size">Size</option>
+                              <option value="0-500m^2">0-500m^2</option>
+                              <option value="501-3000m^2">501-3000m^2</option>
+                              <option value="3001-7000m^2">3001-7000m^2</option>
+                              <option value="7000m^2+">7000m2 +</option>
+                          </select>
+                        </form>
+                    <!-- </div>
+                </div>
+            </div>
+        </header> -->
+
+        {% endblock %}
