@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block content %}
 <h3>Hello from Home</h3>
@@ -9,9 +11,58 @@
     {% endblock %}
 
 {% block Your_real_estate_pending %}
-    <h3 class="red">Pending </h3>
+    Pending
 {% endblock %}
 
 {% block Login_logout %}
     Logout
 {% endblock %}
+
+    {% block New_real_estate %}
+        <div class="container2">
+            <h2 class="red">New Real Estate</h2>
+        </div>
+
+        <main id="main">
+
+            <div class="images">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Soup">
+                <h3 class="soup">Soup</h3>
+                <p>A soup version with some curry.</p>
+                <p>6.60</p>
+            </div>
+            <div class="images">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Paella">
+                <h3>Paella</h3>
+                <p>A Spanish rice dish.</p>
+                <p>8.80</p>
+            </div>
+            <div class="images">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Chicken">
+                <h3>Chicken with a light salad</h3>
+                <p>Low on fat, high on taste.</p>
+                <p>7.67</p>
+            </div>
+
+            <div class="images">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish">
+                <h3>Fish with lemon</h3>
+                <p>Looks sad, tastes good.</p>
+                <p>2</p>
+            </div>
+            <div class="images">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Salad">
+                <h3>Salad</h3>
+                <p>Feeling healthy today?</p>
+                <p>12</p>
+            </div>
+            <div class="images">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Sausages">
+                <h3>Sausages and egg</h3>
+                <p>Almost an English breakfast.</p>
+                <p>4</p>
+            </div>
+        </main>
+
+        <!-- Latest compiled and minified JavaScript -->
+    {% endblock %}
