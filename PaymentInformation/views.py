@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello from the index function within the PaymentInformation app!")
+    return render(request, 'PaymentInformation/index.html')
