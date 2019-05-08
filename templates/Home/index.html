@@ -27,45 +27,46 @@
 
             <div class="images">
                 <img class="image" src="{% static 'Images/dog.png' %}" alt="Soup">
-                <h3 class="soup">Soup</h3>
-                <p>A soup version with some curry.</p>
-                <p>6.60</p>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
                 <img class="image" src="{% static 'Images/dog.png' %}" alt="Paella">
-                <h3>Paella</h3>
-                <p>A Spanish rice dish.</p>
-                <p>8.80</p>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
                 <img class="image" src="{% static 'Images/dog.png' %}" alt="Chicken">
-                <h3>Chicken with a light salad</h3>
-                <p>Low on fat, high on taste.</p>
-                <p>7.67</p>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
 
             <div class="images">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish">
-                <h3>Fish with lemon</h3>
-                <p>Looks sad, tastes good.</p>
-                <p>2</p>
+                <a href="{% url 'real_estate_index' %}">
+                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
                 <img class="image" src="{% static 'Images/dog.png' %}" alt="Salad">
-                <h3>Salad</h3>
-                <p>Feeling healthy today?</p>
-                <p>12</p>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
             <div class="images">
                 <img class="image" src="{% static 'Images/dog.png' %}" alt="Sausages">
-                <h3>Sausages and egg</h3>
-                <p>Almost an English breakfast.</p>
-                <p>4</p>
+                <h3>Address: xxx</h3>
+                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
+                <p>Price: #kr</p>
             </div>
         </main>
         <div class="col-13">
-                                <button type="submit" class="btn btn-block btn-lg btn-primary">See more</button>
-                              </div>
+            <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate_index' %}">See more</a></button>
+        </div>
 
         <!-- Latest compiled and minified JavaScript -->
     {% endblock %}

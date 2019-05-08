@@ -3,7 +3,7 @@
 {% block New_real_estate %}
 
     <h3>Sign Up</h3>
-    <form method = "post" action = "{% url 'signup_user' %}">
+    <form method = "post">
         {% csrf_token %}
         {{form}}
         <input type = "text" placeholder = "First Name"><br />
