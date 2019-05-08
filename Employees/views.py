@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from Employees.models import Employees
 
-# Create your views here.
 
 def index(request):
-    return render(request, 'Employees/index.html')
+    context = {'employees': Employees.objects.all().order_by('first_name')}
+    return render(request, 'Employees/index.html', context)
