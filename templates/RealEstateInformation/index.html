@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block New_real_estate %}
-<h3>Hello from Information about one apartment</h3>
+{% block content %}
+    <button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate_index' %}">Back</a></button>
+
+    <div class="info_image"> MYNDIR MYNDIR MYNDIR MYNDIR </div>
+
+        <textarea disabled rows="5" cols="10" class="moreinfobox1"> Information about one apartment comes here! </textarea>
+
+
+    <textarea disabled rows="10" cols="30" class="moreinfobox2">Detailed infor about apartment </textarea>
+
+        <button id="buy-button" type="submit" class="btn btn-block btn-lg btn-primary"><a href="">Buy</a></button>
+
+    <div class="recentlyviewed">
+        <p>Recently viewed</p>
+        <p> MYNDIR MYNDIR MYNDIR MYNDIR </p>
+    </div>
 {% endblock %}
+
 

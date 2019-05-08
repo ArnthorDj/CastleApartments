@@ -24,6 +24,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
+
                         <li><a class="tab" id="home" href="{% url 'home_index' %}">Home</a></li>
                         <li><a class="tab" id="real_estate" href="{% url 'real_estate_index' %}">Real Estate</a></li>
                         <li><a class="tab" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
@@ -50,6 +51,9 @@
             </div>
         </header>
 
+
+        {% block header %}
+        {% endblock %}
 
         {% block content %}
         {% endblock %}

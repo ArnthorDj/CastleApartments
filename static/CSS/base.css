@@ -21,6 +21,13 @@ a {
     display: inline-block;
 }
 
+#back-button{
+    width: 7%;
+    height: 7%;
+    margin: 3%;
+}
+
+
 .navbar-default {
     text-align: center;
 }
@@ -82,4 +89,40 @@ a {
     border: 2px solid #000000;
     padding:5px;
     color: aqua;
+}
+
+
+.moreinfobox2{
+    border-color: #222222;
+    width: 50%;
+    height: 50%;
+    resize: none;
+    margin-left: 30px;
+
+}
+
+.info_image{
+    display: inline-block;
+}
+
+.moreinfobox1{
+     border-color: #222222;
+    width: 20%;
+    height: 20%;
+    resize: none;
+    display: block;
+    float: right;
+
+}
+
+.recentlyviewed {
+  background-color: #f1f1f1;
+  padding: 70px;
+}
+
+#buy-button{
+    float: right;
+    width: 7%;
+    height: 7%;
+    margin: 3%;
 }
