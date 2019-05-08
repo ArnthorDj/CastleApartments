@@ -1,0 +1,21 @@
+/* hér er base css fyrir Login, Register og add real estate */
+
+.background_base {
+    background-image: url("../Images/mountain.jpg");
+    background-color: #343a40;
+    height: 100%;
+    width: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.login-form{
+    border: 3px;
+    position: relative;
+}
+
