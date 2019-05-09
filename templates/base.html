@@ -31,6 +31,11 @@
                         <li><a class="tab" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
                         <li><img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo"></li>
                         <li><a class="tab" id="profile_none" href="#">{% block profile_contact %} {% endblock %}</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a class="tab" id="profile_none" href="#"> You are logged in !!!!</a></li>
+                        {% else %}
+                            <li><a class="tab" id="profile_none" href="% url 'login %}"> Login??</a></li>
+                        {% endif %}
                         <li><a class="tab" id="pending_real_estate" href="#">{% block Your_real_estate_pending %} {% endblock %}</a></li>
                         <li><a class="tab" id="login_logout" href="{% url 'login_index' %}">{% block Login_logout %} {% endblock %}</a></li>
                     <!-- </ul>
