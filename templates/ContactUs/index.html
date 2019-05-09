@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
+    <div class="contact">
     <h2>Contact Us</h2>
     <form action="mailto:castleapt@hotmail.com" method="post" enctype="text/plain">
         Your name:<br>
@@ -15,4 +16,5 @@
         <input type="submit" value="Send">
         <input type="reset" value="Reset">
     </form>
+    </div>
 {% endblock %}
