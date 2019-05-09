@@ -1,12 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'base_2.html' %}
 
 {% block content %}
  <h3>Payment Information</h3>
-    <form class="payment-form" method = "post" action="{% url 'payment_information' %}">
+    <div style="border: red 5px; display: inline-block; background-color: #5E5694; position: center; " >
+    <form class="payment-form" method = "post" action="{% url 'payment_information_index' %}" style="width: 70%;">
     {% csrf_token %}
-    <input type="submit" value="pay" class="btn btn-primary pull-right"/>
     {{ form }}
+
+        <input type="submit" value="Pay" class="btn btn-primary pull-right"/>
+
     </form>
+
+    </div>
 {% endblock %}
 
 
