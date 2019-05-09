@@ -1,16 +1,13 @@
-a:hover {
-    text-decoration: none;
-    color: white;
-
+a{
+    color:white;
+}
+#header{
+    background: url("../Images/mountain.jpg") no-repeat center center;
 }
 
-a {
-    color: white;
+#header_short{
+    background: url("../Images/mountain_short.jpg") no-repeat center center;
 }
-
-/*#header {
-  background: url("../Images/mountain.jpg") no-repeat center center;
-}*/
 
 .search_bar {
   padding-top: 8rem;
@@ -21,57 +18,13 @@ a {
 .dropdown {
     display: inline-block;
 }
-
-#back-button{
-    width: 7%;
-    height: 7%;
-    margin: 3%;
-}
-
-.navbar-default {
-    text-align: center;
-}
-
-.navbar-nav {
-    margin-left: 10%;
-    margin-right: 10%;
-
-}
-
-.tab {
-    padding: 70px;
-    margin: 15px;
-}
-
 .form {
     margin: auto;
     float: inside;
 }
-
-.col-14 {
-    width: 30%;
-    display: inline-block;
-    height: 5%;
-}
-
-.col-12 {
-    width: 10%;
-    display: inline-block;
-    height: 5%;
-}
-
-
-
-.col-13 {
-    margin-left:auto;
-    margin-right:auto;
-    width: 10%;
-}
-
 .image {
   width: 30%;
 }
-
 #main {
     width:100%;
     text-align:center;
@@ -79,7 +32,6 @@ a {
     margin-left:auto;
     margin-right:auto;
 }
-
 .images {
     width: 30%;
     margin-bottom: 20px;
@@ -90,8 +42,6 @@ a {
     padding:5px;
     color: slateblue;
 }
-
-
 .moreinfobox2{
     border-color: #222222;
     width: 50%;
@@ -100,7 +50,6 @@ a {
     margin-left: 30px;
 
 }
-
 .info_image{
     display: inline-block;
 }
@@ -177,4 +126,42 @@ a {
 .employee-img {
   width: 30%;
     height: 30%;
+}
+
+#back-button{
+    width: 7%;
+    height: 7%;
+    margin: 3%;
+}
+
+.navbar-default {
+    text-align: center;
+}
+
+.navbar-nav {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+
+
+.col-14 {
+    width: 30%;
+    display: inline-block;
+    height: 5%;
+}
+
+.col-12 {
+    width: 10%;
+    display: inline-block;
+    height: 5%;
+}
+
+
+
+.col-13 {
+    margin-left:auto;
+    margin-right:auto;
+    width: 10%;
 }

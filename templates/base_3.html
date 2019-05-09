@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
     </head>
     <body>
-    <div id="header">
+        <div id="header">
         <div style="text-align: center; padding-top: 25px;">
             <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
         </div>
@@ -40,65 +40,11 @@
                 <li><a id="login" href="{% url 'login' %}">Login</a></li>
             {% endif %}
         </ul>
-
-        <header class="search_bar center">
-            <form class="form">
-                <div class="form-row">
-                    <div class="col-14">
-                        <input type="search" class="form-control" placeholder="Search...">
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Search</a></button>
-                    </div>
-                </div>
-            </form>
-            <form class="dropdown" action="/action_page.php">
-                <select name="prize">
-                    <option value="prize">Prize</option>
-                    <option value="0-30.000.000kr">0-30.000.000kr</option>
-                    <option value="30.000.001-90.000.000kr">30.000.001-90.000.000kr</option>
-                    <option value="90.000.001-120.000.000kr">90.000.001-120.000.000kr</option>
-                    <option value="120.000.000kr+">120.000.000kr+</option>
-                </select>
-            </form>
-            <form class="dropdown" action="/action_page.php">
-                <select name="zip">
-                    <option value="zip">Zip</option>
-                    <option value="101">101</option>
-                    <option value="fiat">102</option>
-                    <option value="audi">103</option>
-                    <option value="audi">104</option>
-                    <option value="audi">105</option>
-                    <option value="audi">106</option>
-                    <option value="audi">107</option>
-                    <option value="audi">108</option>
-                    <option value="audi">109</option>
-                    <option value="audi">110</option>
-                    <option value="audi">111</option>
-                    <option value="audi">112</option>
-                    <option value="audi">113</option>
-                    <option value="audi">114</option>
-                    <option value="audi">115</option>
-                    <option value="audi">116</option>
-                </select>
-            </form>
-            <form class="dropdown" action="/action_page.php">
-                <select name="size">
-                    <option value="Size">Size</option>
-                    <option value="0-500m^2">0-500m^2</option>
-                    <option value="501-3000m^2">501-3000m^2</option>
-                    <option value="3001-7000m^2">3001-7000m^2</option>
-                    <option value="7000m^2+">7000m2 +</option>
-                </select>
-            </form>
-        </header>
-    </div>
-
-    {% block header %}
-    {% endblock %}
-    {% block content %}
-    {% endblock %}
-
+        <!--<div class="background_base">-->
+            {% block content %}
+            {% endblock %}
+        </div>
+         <!--</div>-->
 
         <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"

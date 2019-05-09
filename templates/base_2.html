@@ -13,54 +13,67 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
-        <link rel="stylesheet" href="{% static 'CSS/base_2.css' %}">
+        <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
     </head>
     <body>
-        <div style="text-align: center"><img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo"></div>
-        <nav class="navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="navbar-header">
-                </div>
-
-                <div class="navbar-collapse" id="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a class="tab" id="home" href="{% url 'home_index' %}">Home</a></li>
-                        <li><a class="tab" id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
-                        <li><a class="tab" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
-                        {% if user.is_authenticated %}
-                            <li><a class="tab" id="profile" href="{% url 'profile' %}">Profile</a></li>
-                            {% if user.is_staff %}
-                                <li><a class="tab" id="pending" href="{% url 'pending_index' %}">Pending</a></li>
-                            {% else %}
-                                <li><a class="tab" id="your_real_estate" href="{% url 'your_real_estate' %}">Your Real Estate</a></li>
-                            {% endif %}
-                        {% endif %}
-                        <li><a class="tab" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
-                        {% if user.is_authenticated %}
-                            <li><a class="tab" id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li>
-                            <li><a class="tab" id="logout" href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                            <li><a class="tab" id="login" href="{% url 'login' %}">Login</a></li>
-                        {% endif %}
-
-                    <!-- </ul>
-                    <ul class="nav navbar-nav navbar-right"> -->
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-        <div class="background_base">
+        <div id="header_short">
+        <div style="text-align: center; padding-top: 25px;">
+            <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
+        </div>
+        <ul>
+            <li><a id="home" href="{% url 'home_index' %}">Home</a></li>
+            <li><a id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
+            <li><a id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
+            {% if user.is_authenticated %}
+                <li><a id="profile" href="{% url 'profile' %}">Profile</a></li>
+                {% if user.is_staff %}
+                    <li><a id="pending" href="{% url 'pending_index' %}">Pending</a></li>
+                {% else %}
+                    <li><a id="your_real_estate" href="{% url 'your_real_estate' %}">Your Real Estate</a></li>
+                {% endif %}
+            {% endif %}
+            <li><a  id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
+            {% if user.is_authenticated %}
+                <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li>
+                <li><a id="logout" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a id="login" href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+        </div>
+        <!--<div class="background_base">-->
             {% block content %}
             {% endblock %}
-         </div>
+         <!--</div>-->
 
         <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-        <!-- Latest compiled and minified JavaScript -->
+
+        <footer class="footer">
+            <div class="footer_left">
+                <h3 class="footer_left"> Castle Apartments Ltd.</h3>
+                <p>Laugavegur 5, 101 Reykjavík </p>
+                <p>castleapt@hotmail.com</p>
+                <p>Kt: 123456-7890 </p>
+                <p>S: 123-3456</p>
+            </div>
+            <div class="footer_center">
+                <h3> </h3>
+                <p> </p>
+            </div>
+            <div class="footer_right">
+                <h3> About Us</h3>
+                <p>
+                    Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of computer science at Reykjavik University, Iceland.
+                    The main focus of the company is in selling high quality old fashion family homes, providing a platform for buyers and sellers to communicate in an easy and sufficient matter through our website service, guaranteeing a satisfying way to buy/sell properties.
+                    Our goals are to have our customers leaving satisfied with the service we provide, providing fast solutions to the modern day problems of finding your dream home and/or selling your real estate fast and easy.
+                    For further information, please contact us by email (castleapt@hotmail.com) or by phone at (+354) 123 3456.
+                </p>
+            </div>
+        </footer>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     </body>
