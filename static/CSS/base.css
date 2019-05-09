@@ -1,16 +1,14 @@
 a:hover {
     text-decoration: none;
-    color: blue;
+    color: white;
 
 }
 
 a {
-    color: chocolate;
+    color: white;
 }
 
-.text {
-    color: chartreuse;
-}
+
 
 .search_bar {
   background-color: #343a40;
@@ -136,13 +134,12 @@ a {
     padding: 55px 50px;
 	margin-top: 80px;
     color: crimson;
-    background-color: aquamarine;
+    background-color: #f1f1f1;
+    height: 10%;
 }
 
 .footer_left {
     display: inline-block;
-    color: blue;
-    background-color: hotpink;
 }
 
 .footer_center {
