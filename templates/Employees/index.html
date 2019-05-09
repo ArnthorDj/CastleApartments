@@ -1,8 +1,0 @@
-{% extends 'base_2.html' %}
-
-{% block content %}
-    <h2>Staff members of Castle Apartments Ltd.</h2>
-    {% for member in employees %}
-        {%  include 'Employees/single_employee.html' with employee=employee %}
-    {% endfor %}
-{% endblock %}
