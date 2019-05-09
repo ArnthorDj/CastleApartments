@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from RealEstate.models import RealEstates, RealEstateImages
 from django.http import HttpResponse
+from PaymentInformation.forms.payment_information_forms import CreatePaymentform
 
 
 def realEstate(request):
@@ -22,9 +23,19 @@ def addRealEstateCofirmation(request):
 
 
 def buyConfirmation(request):
-    return HttpResponse("Hello from the index function within the Confirmation app!")
+    return render(request, 'PaymentConfirmation/index.html')
 
 
 def yourRealEstate(request):
     return HttpResponse("Hello from the index function within the YourRealEstate app!")
 
+def payment_information(request):
+    form = CreatePaymentform(data=request.POST)
+    if form.is_valid():
+        payment = form.save()
+        return redirect('confirmation_index')
+    else:
+         form = CreatePaymentform()
+    return render(request, 'PaymentInformation/index.html', {
+         'form': form
+         })
