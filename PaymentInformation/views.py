@@ -3,9 +3,9 @@ from PaymentInformation.forms.payment_information_forms import CreatePaymentform
 # Create your views here.
 
 
-#def index(request):
+def index(request):
 
- #   return render(request, 'PaymentInformation/index.html')
+    return render(request, 'PaymentInformation/index.html')
 
 
 #def payment_information(request):
@@ -22,7 +22,7 @@ from PaymentInformation.forms.payment_information_forms import CreatePaymentform
 
 
 
-def index(request):
+def payment_information(request):
     form = CreatePaymentform(data=request.POST)
     if form.is_valid():
         payment = form.save()
