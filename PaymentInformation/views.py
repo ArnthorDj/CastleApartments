@@ -22,13 +22,13 @@ def index(request):
 
 
 
-def payment_information(request):
-    form = CreatePaymentform(data=request.POST)
-    if form.is_valid():
-        payment = form.save()
-        return redirect('confirmation_index')
-    else:
-         form = CreatePaymentform()
-    return render(request, 'PaymentInformation/index.html', {
-         'form': form
-         })
+#def payment_information(request):
+ #   form = CreatePaymentform(data=request.POST)
+  #  if form.is_valid():
+   #     payment = form.save()
+     #   return redirect('confirmation_index')
+    #else:
+    #     form = CreatePaymentform()
+   # return render(request, 'PaymentInformation/index.html', {
+    #     'form': form
+     #    })
