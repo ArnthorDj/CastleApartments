@@ -14,3 +14,4 @@ class NewRealEstate(models.Model):
     on_sale = models.BooleanField()
     seller_id = models.OneToOneField(User, on_delete=models.CASCADE)
 
+
