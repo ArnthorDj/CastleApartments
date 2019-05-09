@@ -25,12 +25,12 @@ urlpatterns = [
     path("sign_up/", include("Signup.urls")),
     path("employees/", include("Employees.urls")),
     path("real_estate/", include("RealEstate.urls")),
-    path("real_estate_information/", include("RealEstateInformation.urls")),            #taka út, komið inn í real estate url
-    path("add_real_estate/", include("AddRealEstate.urls")),                            #taka út komið inn í your_real_estate url
-    path("add_real_estate_confirmation/", include("AddRealEstateConfirmation.urls")),   # taka út komið í your_real_estate/add_real_estate
+    #path("real_estate_information/", include("RealEstateInformation.urls")),            #taka út, komið inn í real estate url
+    #path("add_real_estate/", include("AddRealEstate.urls")),                            #taka út komið inn í your_real_estate url
+    #path("add_real_estate_confirmation/", include("AddRealEstateConfirmation.urls")),   # taka út komið í your_real_estate/add_real_estate
     path("your_real_estate/", include("YourRealEstate.urls")),
-    path("payment_information/", include("PaymentInformation.urls")),
-    path("confirmation/", include("Confirmation.urls")),
+    #path("payment_information/", include("PaymentInformation.urls")),
+    #path("confirmation/", include("Confirmation.urls")),
     path("pending/", include("Pending.urls")),
     path('admin/', admin.site.urls),
 ]
