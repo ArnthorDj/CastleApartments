@@ -3,5 +3,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("Hello from the index function within the AddRealEstateConfirmation app!")
+#def index(request):
+ #   return HttpResponse("Hello from the index function within the AddRealEstateConfirmation app!")

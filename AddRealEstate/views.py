@@ -3,9 +3,9 @@ from AddRealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 # Create your views here.
 
-def index(request):
-    form = AddRealEstateForm(data=request.POST)
-    return render(request, 'AddRealEstate/index.html')
+#def index(request):
+ #   form = AddRealEstateForm(data=request.POST)
+  #  return render(request, 'AddRealEstate/index.html')
 
 #def index(request):
 #    form = AddRealEstateForm(data=request.POST)

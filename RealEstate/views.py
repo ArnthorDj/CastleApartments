@@ -22,7 +22,7 @@ def addRealEstateCofirmation(request):
     return HttpResponse("Hello from the index function within the AddRealEstateConfirmation app!")
 
 
-def buyConfirmation(request):
+def payment_confirmation(request):
     return render(request, 'PaymentConfirmation/index.html')
 
 
