@@ -15,7 +15,7 @@
                          </form>
 
                         <form class="dropdown" action="/action_page.php">
-                            <select name="prize">
+                            <select name="price">
                                 <option value="prize">Prize</option>
                                 <option value="0-30.000.000kr">0-30.000.000kr</option>
                                 <option value="30.000.001-90.000.000kr">30.000.001-90.000.000kr</option>
@@ -57,10 +57,19 @@
 
 {% block content %}
         <div class="container2">
-            <h2 class="red">Real Estate</h2>
+            <h2 class="red">Real Estates</h2>
         </div>
 
         <main id="main">
+
+        {% for house in real_estates %}
+        {% for image in real_estate_images %}
+            {% if image.real_estate_id_id == house.id %}
+                {% include 'RealEstate/single_real_estate.html' with real_estate_image=real_estate_image %}
+                {% include 'RealEstate/single_real_estate.html' with real_estates=real_estates %}
+            {% endif %}
+        {% endfor %}
+        {% endfor %}
 
 
         <!-- Dummy data: -->
