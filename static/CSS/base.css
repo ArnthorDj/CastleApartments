@@ -1,11 +1,15 @@
 a:hover {
     text-decoration: none;
-    color: white;
+    color: blue;
 
 }
 
 a {
-    color: white;
+    color: chocolate;
+}
+
+.text {
+    color: chartreuse;
 }
 
 .search_bar {
@@ -26,7 +30,6 @@ a {
     height: 7%;
     margin: 3%;
 }
-
 
 .navbar-default {
     text-align: center;
@@ -88,7 +91,7 @@ a {
     border-radius: 10px;
     border: 2px solid #000000;
     padding:5px;
-    color: aqua;
+    color: slateblue;
 }
 
 
@@ -126,3 +129,29 @@ a {
     height: 7%;
     margin: 3%;
 }
+
+.footer {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 55px 50px;
+	margin-top: 80px;
+    color: crimson;
+    background-color: aquamarine;
+}
+
+.footer_left {
+    display: inline-block;
+    color: blue;
+    background-color: hotpink;
+}
+
+.footer_center {
+    display: inline-block;
+    float: inside;
+}
+
+.footer_right {
+    display: inline-block;
+    float: right;
+}
+

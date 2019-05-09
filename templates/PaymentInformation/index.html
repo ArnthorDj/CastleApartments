@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h3>Payment Information</h3>
+    <form class="payment-form" method = "post" action="{% url 'payment_information' %}">
+    {% csrf_token %}
+    <input type="submit" value="pay" class="btn btn-primary pull-right"/>
+    {{ form }}
+    </form>
+{% endblock %}
+
+

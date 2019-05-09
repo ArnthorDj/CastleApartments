@@ -25,6 +25,7 @@
                 <div class="navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
 
+
                         <li><a class="tab" id="home" href="{% url 'home_index' %}">Home</a></li>
                         <li><a class="tab" id="real_estate" href="{% url 'real_estate_index' %}">Real Estate</a></li>
                         <li><a class="tab" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
@@ -62,6 +63,26 @@
 
         {% block content %}
         {% endblock %}
+
+        <p class="text">Hello</p>
+
+        <footer class="footer">
+            <div class="footer">
+            <div class="footer_left">
+                <h3 class="footer_left"> Castle Apartments Ltd.</h3>
+                <p>Laugavegur 5, 101 Reykjavík </p>
+                <p>castleapt@hotmail.com</p>
+                <p>Kt: 123456-7890 </p>
+                <p>S: 123-3456</p>
+            </div>
+            <div class="footer_center">
+                <h3> About Us</h3>
+                <p>Text about us.....</p>
+            </div>
+            <div class="footer_right">
+                <p>text</p>
+            </div></div>
+        </footer>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
