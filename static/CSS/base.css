@@ -134,8 +134,12 @@ a {
     padding: 55px 50px;
 	margin-top: 80px;
     color: crimson;
+    border: 2px solid black;
     background-color: #f1f1f1;
-    height: 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
 }
 
 .footer_left {
@@ -144,11 +148,34 @@ a {
 
 .footer_center {
     display: inline-block;
-    float: inside;
 }
 
 .footer_right {
     display: inline-block;
-    float: right;
 }
 
+.employee {
+    color: black;
+}
+
+
+.employee:hover {
+    color: black;
+}
+
+.well {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    padding:5px;
+    color: slateblue;
+    height: 30%;
+}
+
+.employee-img {
+  width: 30%;
+    height: 30%;
+}
