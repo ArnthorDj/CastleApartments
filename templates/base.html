@@ -15,29 +15,36 @@
         <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
     </head>
     <body>
+    <!-- Header -->
+    <div style="text-align: center"><img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo"></div>
         <nav class="navbar-default">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-header">
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
-
-
                         <li><a class="tab" id="home" href="{% url 'home_index' %}">Home</a></li>
                         <li><a class="tab" id="real_estate" href="{% url 'real_estate_index' %}">Real Estate</a></li>
                         <li><a class="tab" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
-                        <li><img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo"></li>
-                        <li><a class="tab" id="profile_none" href="#">{% block profile_contact %} {% endblock %}</a></li>
                         {% if user.is_authenticated %}
-                            <li><a class="tab" id="profile_none" href="#"> You are logged in !!!!</a></li>
-                        {% else %}
-                            <li><a class="tab" id="profile_none" href="% url 'login %}"> Login??</a></li>
+                            <li><a class="tab" id="profile" href="{% url 'profile' %}">Profile</a></li>
+                            {% if user.is_staff %}
+                                <li><a class="tab" id="pending" href="{% url 'pending_index' %}">Pending</a></li>
+                            {% else %}
+                                <li><a class="tab" id="your_real_estate" href="{% url 'your_real_estate_index' %}">Your Real Estate</a></li>
+                            {% endif %}
                         {% endif %}
-                        <li><a class="tab" id="pending_real_estate" href="#">{% block Your_real_estate_pending %} {% endblock %}</a></li>
-                        <li><a class="tab" id="login_logout" href="{% url 'login_index' %}">{% block Login_logout %} {% endblock %}</a></li>
+                        <li><a class="tab" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a class="tab" id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li>
+                            <li><a class="tab" id="logout" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a class="tab" id="login" href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+
                     <!-- </ul>
                     <ul class="nav navbar-nav navbar-right"> -->
                     </ul>
@@ -63,8 +70,6 @@
 
         {% block content %}
         {% endblock %}
-
-
 
 
         <script

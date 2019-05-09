@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Employees.apps.EmployeesConfig',
     'Home.apps.HomeConfig',
     'User.apps.UserConfig',
+    'ContactUs.apps.ContactusConfig',
     'Login.apps.LoginConfig',
     'PaymentInformation.apps.PaymentInformationConfig',
     'PendingInformation.apps.PendingInformationConfig',
