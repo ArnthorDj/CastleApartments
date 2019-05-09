@@ -8,6 +8,10 @@ a {
     color: white;
 }
 
+.text {
+    color: chartreuse;
+}
+
 .search_bar {
   background-color: #343a40;
   background: url("../Images/mountain.jpg") no-repeat center center;
@@ -126,3 +130,29 @@ a {
     height: 7%;
     margin: 3%;
 }
+
+.footer {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 55px 50px;
+	margin-top: 80px;
+    color: crimson;
+    background-color: aquamarine;
+}
+
+.footer_left {
+    display: inline-block;
+    color: blue;
+    background-color: aqua;
+}
+
+.footer_center {
+    display: inline-block;
+    float: inside;
+}
+
+.footer_right {
+    display: inline-block;
+    float: right;
+}
+
