@@ -6,8 +6,8 @@ from PaymentInformation.forms.payment_information_forms import CreatePaymentform
 
 def index(request):
     context = {'real_estates': RealEstates.objects.all().order_by('street')}
-    images = {'images': RealEstateImages.objects.all()}
-    return render(request, 'RealEstate/index.html', context)
+    images = {'real_estate_images': RealEstateImages.objects.all()}
+    return render(request, 'RealEstate/index.html', context, images)
 
 
 def realEstateInformation(request):
@@ -22,14 +22,15 @@ def addRealEstateCofirmation(request):
     return HttpResponse("Hello from the index function within the AddRealEstateConfirmation app!")
 
 
-def payment_confirmation(request):
+def payment_information(request):
     return render(request, 'PaymentConfirmation/index.html')
 
 
 def yourRealEstate(request):
     return HttpResponse("Hello from the index function within the YourRealEstate app!")
 
-def payment_information(request):
+
+def payment_confirmation(request):
     form = CreatePaymentform(data=request.POST)
     if form.is_valid():
         payment = form.save()
