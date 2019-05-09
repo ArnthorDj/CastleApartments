@@ -32,6 +32,5 @@ urlpatterns = [
     path("payment_information/", include("PaymentInformation.urls")),
     path("confirmation/", include("Confirmation.urls")),
     path("pending/", include("Pending.urls")),
-    path("pending_information/", include("PendingInformation.urls")),
     path('admin/', admin.site.urls),
 ]
