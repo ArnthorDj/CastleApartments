@@ -4,9 +4,9 @@ from django.http import HttpResponse
 from PaymentInformation.forms.payment_information_forms import CreatePaymentform
 
 
-def realEstate(request):
+def index(request):
     context = {'real_estates': RealEstates.objects.all().order_by('street')}
- #   images = {'images': RealEstateImages.objects.all()}
+    images = {'images': RealEstateImages.objects.all()}
     return render(request, 'RealEstate/index.html', context)
 
 

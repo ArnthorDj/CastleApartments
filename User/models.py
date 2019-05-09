@@ -1,11 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_image = models.CharField(max_length=999)
     phone = models.CharField(max_length=12)
-    profile_image = models.CharField(max_length=9999)
 
+
+class Purchases(models.Model):
+    buyer = models.CharField(max_length=99)
+    seller = models.CharField(max_length=99)
+    real_estate = models. CharField(max_length=99)
