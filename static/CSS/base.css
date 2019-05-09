@@ -1,11 +1,11 @@
 a:hover {
     text-decoration: none;
-    color: white;
+    color: blue;
 
 }
 
 a {
-    color: white;
+    color: crimson;
 }
 
 .text {
@@ -30,7 +30,6 @@ a {
     height: 7%;
     margin: 3%;
 }
-
 
 .navbar-default {
     text-align: center;
