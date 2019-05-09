@@ -1,13 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'base_2.html' %}
 
 {% block content %}
 
     <h3>Login</h3>
-    <form method = "post">
+    <div class="border-login" style=>
+    <form method = "post" class="form-login">
         {% csrf_token %}
         {{form}}
         <input type = "submit" value="Login">
     </form>
     <p>Dont have an account? Sign up <a style="color: blue" href="{% url 'register' %}">here</a></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
+</div>
 {% endblock %}

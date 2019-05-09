@@ -3,5 +3,8 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def index(request):
+def pending(request):
     return render(request, 'Pending/index.html')
+
+def pending_information(request):
+    return render(request, 'PendingInformation/index.html')

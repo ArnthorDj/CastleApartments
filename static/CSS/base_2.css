@@ -12,6 +12,23 @@
 
     padding-top: 15px;
     padding-bottom: 15px;
+
 }
 
 
+.form-login{
+     border: #19865C;
+    border-width: 200px;
+    background-color: #5E5694;
+    display: inline-block;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.pay-info{
+    border: red 5px;
+    display: inline-block;
+    background-color: #5E5694;
+    margin-left: 30px;
+    margin-right: 30px;
+}
