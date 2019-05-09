@@ -1,0 +1,172 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Castle Apartments</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+        <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
+    </head>
+    <body>
+    <div id="header">
+        <div style="text-align: center; padding-top: 25px;">
+            <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
+        </div>
+        <ul>
+            <li><a id="home" href="{% url 'home_index' %}">Home</a></li>
+            <li><a id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
+            <li><a id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
+            {% if user.is_authenticated %}
+                <li><a id="profile" href="{% url 'profile' %}">Profile</a></li>
+                {% if user.is_staff %}
+                    <li><a id="pending" href="{% url 'pending_index' %}">Pending</a></li>
+                {% else %}
+                    <li><a id="your_real_estate" href="{% url 'your_real_estate' %}">Your Real Estate</a></li>
+                {% endif %}
+            {% endif %}
+            <li><a  id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
+            {% if user.is_authenticated %}
+                <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li>
+                <li><a id="logout" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a id="login" href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+
+        <!-- Header -->
+
+            <!--<nav class="navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                    </div>
+
+                    <div class="navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav">
+                            <li><a class="tab" id="home" href="{% url 'home_index' %}">Home</a></li>
+                            <li><a class="tab" id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
+                            <li><a class="tab" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
+                            {% if user.is_authenticated %}
+                                <li><a class="tab" id="profile" href="{% url 'profile' %}">Profile</a></li>
+                                {% if user.is_staff %}
+                                    <li><a class="tab" id="pending" href="{% url 'pending_index' %}">Pending</a></li>
+                                {% else %}
+                                    <li><a class="tab" id="your_real_estate" href="{% url 'your_real_estate' %}">Your Real Estate</a></li>
+                                {% endif %}
+                            {% endif %}
+                            <li><a class="tab" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
+                            {% if user.is_authenticated %}
+                                <li><a class="tab" id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li>
+                                <li><a class="tab" id="logout" href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="tab" id="login" href="{% url 'login' %}">Login</a></li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>-->
+
+            <header class="search_bar center">
+                <form class="form">
+                    <div class="form-row">
+                        <div class="col-14">
+                            <input type="search" class="form-control" placeholder="Search...">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Search</a></button>
+                        </div>
+                    </div>
+                </form>
+                <form class="dropdown" action="/action_page.php">
+                    <select name="prize">
+                        <option value="prize">Prize</option>
+                        <option value="0-30.000.000kr">0-30.000.000kr</option>
+                        <option value="30.000.001-90.000.000kr">30.000.001-90.000.000kr</option>
+                        <option value="90.000.001-120.000.000kr">90.000.001-120.000.000kr</option>
+                        <option value="120.000.000kr+">120.000.000kr+</option>
+                    </select>
+                </form>
+                <form class="dropdown" action="/action_page.php">
+                    <select name="zip">
+                        <option value="zip">Zip</option>
+                        <option value="101">101</option>
+                        <option value="fiat">102</option>
+                        <option value="audi">103</option>
+                        <option value="audi">104</option>
+                        <option value="audi">105</option>
+                        <option value="audi">106</option>
+                        <option value="audi">107</option>
+                        <option value="audi">108</option>
+                        <option value="audi">109</option>
+                        <option value="audi">110</option>
+                        <option value="audi">111</option>
+                        <option value="audi">112</option>
+                        <option value="audi">113</option>
+                        <option value="audi">114</option>
+                        <option value="audi">115</option>
+                        <option value="audi">116</option>
+                    </select>
+                </form>
+                <form class="dropdown" action="/action_page.php">
+                    <select name="size">
+                        <option value="Size">Size</option>
+                        <option value="0-500m^2">0-500m^2</option>
+                        <option value="501-3000m^2">501-3000m^2</option>
+                        <option value="3001-7000m^2">3001-7000m^2</option>
+                        <option value="7000m^2+">7000m2 +</option>
+                    </select>
+                </form>
+            </header>
+
+
+
+        </div>
+
+
+        {% block header %}
+        {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+
+
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+        <footer class="footer">
+            <div class="footer_left">
+                <h3 class="footer_left"> Castle Apartments Ltd.</h3>
+                <p>Laugavegur 5, 101 Reykjavík </p>
+                <p>castleapt@hotmail.com</p>
+                <p>Kt: 123456-7890 </p>
+                <p>S: 123-3456</p>
+            </div>
+            <div class="footer_center">
+                <h3> </h3>
+                <p> </p>
+            </div>
+            <div class="footer_right">
+                <h3> About Us</h3>
+                <p>
+                    Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of computer science at Reykjavik University, Iceland.
+                    The main focus of the company is in selling high quality old fashion family homes, providing a platform for buyers and sellers to communicate in an easy and sufficient matter through our website service, guaranteeing a satisfying way to buy/sell properties.
+                    Our goals are to have our customers leaving satisfied with the service we provide, providing fast solutions to the modern day problems of finding your dream home and/or selling your real estate fast and easy.
+                    For further information, please contact us by email (castleapt@hotmail.com) or by phone at (+354) 123 3456.
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    </body>
+</html>

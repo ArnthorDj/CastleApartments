@@ -1,0 +1,180 @@
+a:hover {
+    text-decoration: none;
+    color: white;
+
+}
+
+a {
+    color: white;
+}
+
+/*#header {
+  background: url("../Images/mountain.jpg") no-repeat center center;
+}*/
+
+.search_bar {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  text-align: center;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+#back-button{
+    width: 7%;
+    height: 7%;
+    margin: 3%;
+}
+
+.navbar-default {
+    text-align: center;
+}
+
+.navbar-nav {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.tab {
+    padding: 70px;
+    margin: 15px;
+}
+
+.form {
+    margin: auto;
+    float: inside;
+}
+
+.col-14 {
+    width: 30%;
+    display: inline-block;
+    height: 5%;
+}
+
+.col-12 {
+    width: 10%;
+    display: inline-block;
+    height: 5%;
+}
+
+
+
+.col-13 {
+    margin-left:auto;
+    margin-right:auto;
+    width: 10%;
+}
+
+.image {
+  width: 30%;
+}
+
+#main {
+    width:100%;
+    text-align:center;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.images {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    padding:5px;
+    color: slateblue;
+}
+
+
+.moreinfobox2{
+    border-color: #222222;
+    width: 50%;
+    height: 50%;
+    resize: none;
+    margin-left: 30px;
+
+}
+
+.info_image{
+    display: inline-block;
+}
+
+.moreinfobox1{
+     border-color: #222222;
+    width: 20%;
+    height: 20%;
+    resize: none;
+    display: block;
+    float: right;
+
+}
+
+.recentlyviewed {
+  background-color: #f1f1f1;
+  padding: 70px;
+}
+
+#button{
+    float: right;
+    width: 7%;
+    height: 7%;
+    margin: 3%;
+}
+
+.footer {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 55px 50px;
+	margin-top: 80px;
+    color: crimson;
+    border: 2px solid black;
+    background-color: #f1f1f1;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+.footer_left {
+    display: inline-block;
+}
+
+.footer_center {
+    display: inline-block;
+}
+
+.footer_right {
+    display: inline-block;
+}
+
+.employee {
+    color: black;
+}
+
+
+.employee:hover {
+    color: black;
+}
+
+.well {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    padding:5px;
+    color: slateblue;
+    height: 30%;
+}
+
+.employee-img {
+  width: 30%;
+    height: 30%;
+}
