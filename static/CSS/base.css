@@ -190,18 +190,21 @@ a{
 
 /* CSS for Login */
 
-.border-login{
-    border-width: 2px;
-    border-radius: 5px;
-    display: flex;
+.login-form{
+    background-color: #7FA2CA;
+    width: 30%;
     margin: auto;
-    width: 300px;
-    height: 300px;
+    border-radius: 20px;
 
 }
 
-.form-login{
+.form-control{
+    margin: auto;
+    color: #5E5694;
 }
 
 
+.login-btn{
+    position: center;
 
+}
