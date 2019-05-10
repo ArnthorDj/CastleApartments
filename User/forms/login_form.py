@@ -12,5 +12,3 @@ class LoginForm(AuthenticationForm):
         attrs={
             'class': 'form-control', 'placeholder': 'Password', 'style': 'max-width: 16em'}))
 
-
-
