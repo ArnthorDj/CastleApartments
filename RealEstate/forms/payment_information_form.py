@@ -1,6 +1,6 @@
 from django.forms import ModelForm, widgets
 from django import forms
-from PaymentInformation.models import CreditCard
+from RealEstate.models import CreditCard
 
 MONTHS = {
     'january':('01'),
