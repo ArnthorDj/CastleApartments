@@ -2,11 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from User.models import Profile
-
 from User.forms.profile_form import ProfileForm
-
-from django.http import HttpResponse
-# Create your views here.
 
 
 def register(request):
