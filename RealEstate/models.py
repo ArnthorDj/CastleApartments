@@ -14,8 +14,8 @@ class RealEstates(models.Model):
     on_sale = models.BooleanField()
     more_info = models.CharField(max_length=999)
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    main_image = models.CharField(max_length=999)
 
 class RealEstateImages(models.Model):
-    real_estate_id = models.ForeignKey(RealEstates, on_delete=models.CASCADE)
+    real_estate = models.ForeignKey(RealEstates, on_delete=models.CASCADE)
     image = models.CharField(max_length=9999)

@@ -1,15 +1,20 @@
 from django.shortcuts import render, redirect
-from RealEstate.models import RealEstates, RealEstateImages
+from RealEstate.models import RealEstates
 from django.http import HttpResponse
 from PaymentInformation.forms.payment_information_forms import CreatePaymentform
 from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 
 
+
 def index(request):
-    context = {'real_estates': RealEstates.objects.all().order_by('street')}
-    images = {'real_estate_images': RealEstateImages.objects.all()}
-    return render(request, 'RealEstate/index.html', context, images)
+    #print(RealEstates.objects.)
+
+    #print("Above is the main thing")
+    real_estates = {"real_estates":  RealEstates.objects.all()}
+    return render(request, 'RealEstate/index.html',
+                  real_estates
+    )
 
 
 def realEstateInformation(request):

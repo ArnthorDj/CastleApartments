@@ -61,15 +61,10 @@
         </div>
 
         <main id="main">
-
         {% for house in real_estates %}
-            {% for image in real_estate_images %}
-                {% if image.real_estate_id_id == house.id %}
-                    {% include 'RealEstate/single_real_estate.html' with real_estate_image=real_estate_image %}
-                    {% include 'RealEstate/single_real_estate.html' with real_estates=real_estates %}
-                {% endif %}
-            {% endfor %}
+            {% include 'RealEstate/single_real_estate.html' with real_estates=real_estates %}
         {% endfor %}
+
 
 
         <!-- Dummy data: -->
