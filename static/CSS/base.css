@@ -90,17 +90,6 @@ a{
     border-radius: 10px;
 }
 
-.footer_left {
-    display: inline-block;
-}
-
-.footer_center {
-    display: inline-block;
-}
-
-.footer_right {
-    display: inline-block;
-}
 
 .employee {
     color: black;
@@ -166,14 +155,36 @@ a{
     width: 10%;
 }
 
+/*Here is CSS for Footer*/
+
 .container-footer{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: #7FA2CA;
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-width: 3rem;
     margin-top: 30px;
 }
+
+
+.social_media_logo{
+    width: 7%;
+    display: inline-block;
+
+}
+
+.footer_left{
+    text-align: left;
+}
+
+.footer_center{
+    text-align: center;
+}
+
+.footer_right{
+    text-align: right;
+}
+
 
