@@ -5,12 +5,22 @@
         <div class="container2">
             <h2 class="red">Pending Real Estate</h2>
         </div>
-
+<form class="dropdown" action="/action_page.php">
+              <select name="size">
+                  <option value="order_by">Order by</option>
+                  <option value="zip">Zip</option>
+                  <option value="street">Street Name</option>
+                  <option value="size">Size</option>
+                  <option value="price">Price</option>
+              </select>
+        </form>
+            <button href="#">Go</button>
         <main id="main">
 
 
+
         <!-- Dummy data: -->
-<!--            <div class="images">
+           <div class="images">
                 <a href="{% url 'real_estate_information' %}">
                 <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
                 <h3>Address: xxx</h3>
@@ -73,8 +83,7 @@
                 <h3>Address: xxx</h3>
                 <p>Bed: #, Bathrooms: #, Size: #m^2</p>
                 <p>Price: #kr</p>
-            </div>    -->
-
+            </div>
         </main>
         <div class="col-13">
             <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'pending_index' %}">Load more</a></button>
