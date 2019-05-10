@@ -29,7 +29,7 @@
                 {% if user.is_staff %}
                     <li><a id="pending" href="{% url 'pending_index' %}">Pending</a></li>
                 {% else %}
-                    <li><a id="your_real_estate" href="{% url 'your_real_estate' %}">Your Real Estate</a></li>
+                    <li><a id="your_real_estate" href="{% url 'your_real_estate_index' %}">Your Real Estate</a></li>
                 {% endif %}
             {% endif %}
             <li><a  id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
