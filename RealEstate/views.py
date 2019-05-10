@@ -33,7 +33,15 @@ def addRealEstateCofirmation(request):
 
 
 def payment_information(request):
-    return render(request, 'PaymentInformation/index.html')
+    form = CreatePaymentform(data=request.POST)
+    if form.is_valid():
+        payment = form.save()
+        return redirect('confirmation_index')
+    else:
+        form = CreatePaymentform()
+    return render(request, 'PaymentInformation/index.html', {
+        'form': form
+    })
 
 
 def yourRealEstate(request):
@@ -41,12 +49,4 @@ def yourRealEstate(request):
 
 
 def payment_confirmation(request):
-    form = CreatePaymentform(data=request.POST)
-    if form.is_valid():
-        payment = form.save()
-        return redirect('confirmation_index')
-    else:
-         form = CreatePaymentform()
-    return render(request, 'PaymentInformation/index.html', {
-         'form': form
-         })
+    return render(request, 'PaymentConfirmation/index.html')

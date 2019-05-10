@@ -2,4 +2,10 @@
 
 {% block content %}
 
+    <h3>Confirmation step</h3>
+
+    <textarea disabled rows="10" cols="30" class="moreinfobox2">Info about the real estate + payment info </textarea>
+
+        <button id="button" type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'payment_information_index' %}">Confirm Purchase</a></button>
+    <button id="button" type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'payment_information_index' %}">Go Back</a></button>
 {% endblock %}
