@@ -18,5 +18,6 @@ def add_real_estate(request):
         'form': form
     })
 
+
 def add_real_estate_confirmation(request):
     return render(request, "AddRealEstateConfirmation/index.html")

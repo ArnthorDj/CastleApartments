@@ -7,10 +7,10 @@ class LoginForm(AuthenticationForm):
         super(LoginForm, self).__init__(*args, **kwargs)
 
     username = forms.EmailField(widget=forms.TextInput(
-        attrs={'class': 'form-control','placeholder': 'Username', 'style':'max-width: 16em'}))
+        attrs={'class': 'form-control', 'placeholder': 'Username', 'style': 'max-width: 16em'}))
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={
-            'class': 'form-control','placeholder': 'Password','style':'max-width: 16em'}))
+            'class': 'form-control', 'placeholder': 'Password', 'style': 'max-width: 16em'}))
 
 
 

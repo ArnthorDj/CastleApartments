@@ -2,6 +2,7 @@ from django.forms import ModelForm, widgets
 from RealEstate.models import RealEstates
 from django import forms
 
+
 class AddRealEstateForm(ModelForm):
     class Meta:
         #image = forms.CharField(required=True, widgets=forms.TextInput(attrs={'class':'form-control'}))
