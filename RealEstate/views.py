@@ -23,7 +23,7 @@ def addRealEstateCofirmation(request):
 
 
 def payment_information(request):
-    return render(request, 'PaymentConfirmation/index.html')
+    return render(request, 'PaymentInformation/index.html')
 
 
 def yourRealEstate(request):
