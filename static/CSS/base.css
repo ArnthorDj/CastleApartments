@@ -188,3 +188,23 @@ a{
 }
 
 
+/* CSS for Login */
+
+.login-form{
+    background-color: #7FA2CA;
+    width: 30%;
+    margin: auto;
+    border-radius: 20px;
+
+}
+
+.form-control{
+    margin: auto;
+    color: #5E5694;
+}
+
+
+.login-btn{
+    position: center;
+
+}
