@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
 
 {% block content %}
 
-    <h3>Sign Up</h3>
-    <form method = "post">
+
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+
+    <form method = "post" class="sign-up-form">
         {% csrf_token %}
-        {{form}}
-        <input type = "submit" value="Sign Up!">
+        {{form|crispy}}
+        <input type="submit"  class="signup-btn is-primary" value="Sign Up!">
     </form>
+
 
 {% endblock %}

@@ -4,20 +4,23 @@ from django.shortcuts import render, redirect
 from User.models import Profile
 from User.forms.profile_form import ProfileForm, AuthUser
 from django.contrib.auth.models import User
+from User.forms.sign_up_form import UserRegisterForm
+from django.contrib import messages
 
 
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm(data=request.POST)
+        form = UserRegisterForm(data=request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}!')
             return redirect("login")
-        else:
-            print(2)
+    else:
+        form = UserRegisterForm()
+    return render(request, 'User/register.html', {"form": form })
 
-    return render(request, 'User/register.html', {
-        "form": UserCreationForm()
-    })
+
 
 
 def profile(request):
