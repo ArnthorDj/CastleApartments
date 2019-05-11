@@ -22,17 +22,21 @@ def register(request):
 
 def profile(request):
     profile = Profile.objects.filter(user=request.user).first()
-    user_form = User.objects.filter(id=request.user.id).first()
+    user = User.objects.filter(id=request.user.id).first()
     if request.method == "POST":
-        form = ProfileForm(instance=profile, data=request.POST)
-        form2 = AuthUser(instance=user_form,   data=request.POST)
-        if form.is_valid():
-            profile = form.save(commit=False)
+        profile_form = ProfileForm(instance=profile, data=request.POST)
+        auth_user_form = AuthUser(instance=user,   data=request.POST)
+        if profile_form.is_valid() and auth_user_form.is_valid():
+
+            profile = profile_form.save(commit=False)
             profile.user = request.user
             profile.save()
+
+            user = auth_user_form.save()
+
             return redirect("profile")
 
     return render(request, "User/profile.html", {
-        "form": ProfileForm(instance=profile),
-        "form2": AuthUser(instance=user_form)
+        "profile_form": ProfileForm(instance=profile),
+        "auth_user_form": AuthUser(instance=user)
     })
