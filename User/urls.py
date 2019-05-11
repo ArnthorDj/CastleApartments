@@ -11,10 +11,6 @@ urlpatterns = [
     path("profile", views.profile, name="profile"),
 
     path(
-        'login/',
-        LoginView.as_view(
-            template_name="User/login.html",
-            authentication_form=LoginForm
-        ),
+        'login/', LoginView.as_view( template_name="User/login.html", authentication_form=LoginForm),
         name='login')
     ]
