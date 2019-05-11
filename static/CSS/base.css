@@ -190,21 +190,6 @@ a{
 
 /* CSS for Login */
 
-.login-form{
+.card-body {
     background-color: #7FA2CA;
-    width: 30%;
-    margin: auto;
-    border-radius: 20px;
-
-}
-
-.form-control{
-    margin: auto;
-    color: #5E5694;
-}
-
-
-.login-btn{
-    position: center;
-
 }

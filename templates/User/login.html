@@ -1,15 +1,57 @@
 {% extends 'base_3.html' %}
-{#{% load static %}#}
+{% load static %}
 
 {% block content %}
+{##}
+{#    <div class="login-col">#}
+{#        <div class="login-col-2">#}
+{#            <h3 id="login-header">Login</h3>#}
+{#            <form class="login-form" method="post" action="{% url 'login' %}">#}
+{#                {% csrf_token %}#}
+{#              {{ form }} #}
+{#                {% for field in form %}#}
+{#                    <div class="field"> </div>#}
+{#                    <label {#  for="{{ field.id_for_label }} " {# class="label" ></label>#}
+{#                {{ field }}#}
+{#            {% endfor %}#}
+{#            <input type="submit" class="login-btn btn-primary" value="Login">#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
 
-    <h3>Login</h3>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="login-form" autocomplete="off" method="post" action="{% url 'login' %}">
 
-    <form class="login-form" method="post">
-        {% csrf_token %}
-        {{ form }}
-    <input type="submit" class="login-btn btn-block btn-lg btn-primary">
-    </form>
+                            {% csrf_token %}
+                            {{ form.as_p}}
+{#                            {% for field in form %}#}
+{#                                <div class="field"> </div>#}
+{#                                <label></label>#}
+{#                                <label for="{{ field.id_username}} " class="username" >{{ field.html_name }}</label>#}
+                             {#  {{ field }} #}
+{#                                {% endfor %}#}
+
+{##}
+{#                            <div class="form-group">#}
+{#                                <input type="text" class="form-control" name="username">#}
+{#                            </div>#}
+{#                            <div class="form-group">#}
+{#                                <input type="password" class="form-control" name="password">#}
+{#                            </div>#}
+                            <input type="submit" class="login-btn btn-block btn-lg btn-primary" value="Login">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
 {% endblock %}
 

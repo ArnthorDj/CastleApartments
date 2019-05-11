@@ -40,3 +40,5 @@ def profile(request):
         "profile_form": ProfileForm(instance=profile),
         "auth_user_form": AuthUser(instance=user)
     })
+
+
