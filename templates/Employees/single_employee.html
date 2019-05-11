@@ -1,8 +1,8 @@
 <div class="well employee">
     <a class="employee" href="#">
         <img class="employee-img" src="{{ employee.profile_image }}" />
-        <h4>{{ employee.first_name }} {{ employee.last_name }}</h4>
-        <p>{{ employee.email }}</p>
+        <h4>{{ employee.user__first_name }} {{ employee.user__last_name }}</h4>
+        <p>{{ employee.user__email }}</p>
         <p>(+354) {{ employee.phone }}</p>
     </a>
 </div>

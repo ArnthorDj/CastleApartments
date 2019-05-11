@@ -5,9 +5,9 @@
 
     <h3>Login</h3>
 
-     <form class="login-form">
-     {% csrf_token %}
-         {{ form }}
+    <form class="login-form" method="post">
+        {% csrf_token %}
+        {{ form }}
     <input type="submit" class="login-btn btn-block btn-lg btn-primary">
     </form>
 

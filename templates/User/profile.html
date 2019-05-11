@@ -5,8 +5,8 @@
     <h1>Profile</h1>
     <form method = "post">
         {% csrf_token %}
-        {{form}}
-        {{form2}}
+        {{profile_form}}
+        {{auth_user_form}}
         <input type = "submit" value="Update">
     </form>
 
