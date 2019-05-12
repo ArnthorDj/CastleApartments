@@ -21,8 +21,6 @@ def register(request):
     return render(request, 'User/register.html', {"form": form })
 
 
-
-
 def profile(request):
     profile = Profile.objects.filter(user=request.user).first()
     user = User.objects.filter(id=request.user.id).first()

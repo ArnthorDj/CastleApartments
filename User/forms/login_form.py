@@ -3,7 +3,6 @@ from django import forms
 from django.contrib.auth.models import User
 
 
-
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
