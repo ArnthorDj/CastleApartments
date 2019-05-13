@@ -5,10 +5,10 @@ from django import forms
 
 class AddRealEstateForm(ModelForm):
     class Meta:
-        #image = forms.CharField(required=True, widgets=forms.TextInput(attrs={'class':'form-control'}))
+        # image = forms.CharField(required=True, widgets=forms.TextInput(attrs={'class':'form-control'}))
         model = RealEstates
         exclude = ['id', 'on_sale', 'seller_id']
-        #fields = "__all__"
+        # fields = "__all__"
         widgets = {
             'street': widgets.TextInput(attrs={'class':'form-control','style':'max-width: 16em'}),
             'city': widgets.TextInput(attrs={'class':'form-control','style':'max-width: 16em'}),

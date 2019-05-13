@@ -166,25 +166,35 @@ a{
     padding-bottom: 3rem;
     border-width: 3rem;
     margin-top: 30px;
+    color: hotpink;
+    background-color: blue;
 }
 
 
 .social_media_logo{
     width: 7%;
     display: inline-block;
+    color: #4CAF50;
+    background-color: aqua;
 
 }
 
 .footer_left{
-    text-align: left;
+    display: inline-block;
+    color: #4CAF50;
+    background-color: aquamarine;
 }
 
 .footer_center{
-    text-align: center;
+    display: inline-block;
+    background-color: aquamarine;
+    color: beige;
 }
 
 .footer_right{
-    text-align: right;
+    display: inline-block;
+    background-color: aquamarine;
+    color: beige;
 }
 
 
