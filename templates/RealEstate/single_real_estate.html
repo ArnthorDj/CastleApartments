@@ -1,10 +1,10 @@
 <div class="well real estate">
-    <a href="{% url 'real_estate_information' %}">
-        <img src="{{ real_estate.main_image }}" height="200px" width="300px">
-        <h4 style="color:black">{{ real_estate.street }}, {{ real_estate.zip_code }} {{ real_estate.city }}</h4>
-        <p style="color:black">Bedrooms: {{ real_estate.bedrooms }}, Bathrooms: {{ real_estate.bedrooms }}, Size: {{ real_estate.size }} square meters</p>
-        <p style="color:black">Type: {{ real_estate.type }}</p>
-        <p style="color:black">{{ real_estate.price }} kr.</p>
+    <a href="/real_estate/info/{{ house.id }}">
+        <img src="{{ house.main_image }}" height="200px" width="300px">
+        <h4 style="color:black">{{ house.street }}, {{ house.zip_code }} {{ house.city }}</h4>
+        <p style="color:black">Bedrooms: {{ house.bedrooms }}, Bathrooms: {{ house.bedrooms }}, Size: {{ house.size }} square meters</p>
+        <p style="color:black">Type: {{ house.type }}</p>
+        <p style="color:black">{{ house.price }} kr.</p>
     </a>
 </div>
 
