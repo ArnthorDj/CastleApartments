@@ -36,20 +36,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'AddRealEstateConfirmation.apps.AddRealEstateConfirmationConfig',
-    #'AddRealEstate.apps.AddRealEstateConfig',
-    #'Confirmation.apps.ConfirmationConfig',
     'Employees.apps.EmployeesConfig',
     'Home.apps.HomeConfig',
     'User.apps.UserConfig',
+<<<<<<< HEAD
+    # 'crispy_forms',
+    'ContactUs.apps.ContactUsConfig',
+=======
     'crispy_forms',
     'ContactUs.apps.ContactusConfig',
     #'Login.apps.LoginConfig',
     #'PaymentInformation.apps.PaymentInformationConfig',
+>>>>>>> 3b00295e52db8a9b6835d0033405ee3471bd5f6d
     'Pending.apps.PendingConfig',
-    #'RealEstateInformation.apps.RealEstateInformationConfig',
     'RealEstate.apps.RealEstateConfig',
-    #'Signup.apps.SignupConfig',
     'YourRealEstate.apps.YourRealEstateConfig',
 
 ]
