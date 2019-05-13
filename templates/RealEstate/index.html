@@ -60,6 +60,17 @@
             <h2 class="red">Real Estates</h2>
         </div>
 
+    <form class="dropdown" action="/action_page.php">
+              <select name="size">
+                  <option value="order_by">Order by</option>
+                  <option value="zip">Zip</option>
+                  <option value="street">Street Name</option>
+                  <option value="size">Size</option>
+                  <option value="price">Price</option>
+              </select>
+        </form>
+            <button href="#">Go</button>
+
         <main id="main">
         {% for house in real_estates %}
             {% include 'RealEstate/single_real_estate.html' with real_estates=real_estates %}

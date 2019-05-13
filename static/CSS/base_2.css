@@ -26,9 +26,7 @@
 }
 
 .pay-info{
-    border: red 5px;
     display: inline-block;
-    background-color: #5E5694;
     margin-left: 30px;
     margin-right: 30px;
 }

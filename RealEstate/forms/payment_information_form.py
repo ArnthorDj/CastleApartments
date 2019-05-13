@@ -1,23 +1,24 @@
 from django.forms import ModelForm, widgets
-from django import forms
 from RealEstate.models import CreditCard
 
+
 MONTHS = {
-    'january':('01'),
-    'febuary':('02'),
-    'mars':('03'),
-    'april':('04'),
-    'may':('05'),
-    'june':('06'),
-    'july':('07'),
-    'august':('08'),
-    'september':('09'),
-    'october':('10'),
-    'november':('11'),
-    'december':('12')
+    'January': '01',
+    'February': '02',
+    'March': '03',
+    'April': '04',
+    'May': '05',
+    'June': '06',
+    'July': '07',
+    'August': '08',
+    'September': '09',
+    'October': '10',
+    'November': '11',
+    'December': '12'
     }
 
-class CreatePaymentform(ModelForm):
+
+class CreatePaymentForm(ModelForm):
     class Meta:
         model = CreditCard
         fields = '__all__'

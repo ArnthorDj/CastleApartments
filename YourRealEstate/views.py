@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from YourRealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 
@@ -10,7 +9,7 @@ def your_real_estate(request):
 def add_real_estate(request):
     form = AddRealEstateForm(data=request.POST)
     if form.is_valid():
-        new_real_estate = form.save()
+        form.save()
         return redirect('confirmation_index')
     else:
         form = AddRealEstateForm()
