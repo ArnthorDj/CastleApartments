@@ -1,7 +1,7 @@
 {% extends 'base_2.html' %}
 
 {% block content %}
-    <h2>Staff members of Castle Apartments Ltd.</h2>
+    <h2 style="text-align: center"><b>Staff members of Castle Apartments Ltd.</b></h2><br>
     {% for employee in employees %}}
         {% include 'Employees/single_employee.html' with employee=employee %}
     {% endfor %}
