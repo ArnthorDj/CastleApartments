@@ -176,17 +176,15 @@ a{
     float: left;
 }
 
-footer {
+footer [class ^= 'footer-'] {
     width: 33.3333%;
     display: inline-block;
     text-align: center;
     height: 20rem;
-    background-color: coral;
-    /* background-color: #7FA2CA; */
-
+    background-color: #7FA2CA;
     border-width: 3rem;
-    /* margin-top: 3rem;
-    padding-top: 3rem; */
+    margin-top: 3rem;
+    padding-top: 3rem;
 }
 
 footer .footer-left {
@@ -213,10 +211,10 @@ footer .footer-right {
 }
 
 #footer_picture {
-    width: 33.3333%;
+    width: 100%;
     display: inline-block;
     text-align: center;
     height: 20rem;
-    background-color: coral;
+    background-color: #7FA2CA;
     border-width: 3rem;
 }
