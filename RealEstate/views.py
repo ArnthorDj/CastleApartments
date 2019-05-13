@@ -5,18 +5,19 @@ from RealEstate.forms.payment_information_form import CreatePaymentForm
 
 
 def index(request):
-    real_estates = {"real_estates":  RealEstates.objects.all()}
-    return render(request, 'RealEstate/index.html',
-                  real_estates
-                  )
+    #real_estates = {"real_estates":  RealEstates.objects.all()}
+    return render(request, 'RealEstate/index.html', {
+        "real_estates":  RealEstates.objects.all()
+    })
 
 
-def real_estate_information(request):
-    return render(request, 'RealEstateInformation/index.html')
+#def real_estate_information(request):
+#    return render(request, 'RealEstateInformation/index.html')
 
 
 def get_real_estate_by_id(request, id):
-    return render(request, 'RealEstateInformation/index.html',{
+    print("this is the id:",id)
+    return render(request, 'RealEstateInformation/index.html', {
         'real_estate': get_list_or_404(RealEstates, pk=id)
     })
 
