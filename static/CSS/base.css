@@ -176,7 +176,7 @@ a{
     float: left;
 }
 
-footer [class ^= 'footer-'] {
+footer {
     width: 33.3333%;
     display: inline-block;
     text-align: center;
@@ -208,4 +208,13 @@ footer .footer-right {
     text-align: right;
     display: inline-block;
     margin-left: 90%;
+}
+
+#footer_picture {
+    width: 33.3333%;
+    display: inline-block;
+    text-align: center;
+    height: 20rem;
+    background-color: #7FA2CA;
+    border-width: 3rem;
 }
