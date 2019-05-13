@@ -12,7 +12,3 @@ class Purchases(models.Model):
     buyer = models.CharField(max_length=99)
     seller = models.CharField(max_length=99)
     real_estate = models.CharField(max_length=99)
-
-
-
-
