@@ -7,11 +7,11 @@
     {% csrf_token %}
     {{ form }}
 
-        <a href="{% url 'payment_confirmation' %}"><button type="submit" id="pay" class="btn btn-primary pull-right"> Pay </button></a>
-        <a href="{% url 'real_estate_information' %}"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Go Back</button></a>
-
     </form>
-
+        <div>
+            <a href="{% url 'payment_confirmation' %}"><button type="submit" id="pay" class="btn btn-primary pull-right" style="display: inline-block;"> Pay </button></a>
+            <a href="{% url 'real_estate_information' %}"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary" style="display: inline-block">Go Back</button></a>
+        </div>
     </div>
 {% endblock %}
 
