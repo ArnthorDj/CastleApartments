@@ -1,4 +1,4 @@
-from django.forms import ModelForm, widgets
+from django.forms import ModelForm, widgets, forms
 from django.contrib.auth.models import User
 from User.models import Profile
 

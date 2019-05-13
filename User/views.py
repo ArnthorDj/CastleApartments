@@ -4,21 +4,40 @@ from django.shortcuts import render, redirect
 from User.models import Profile
 from User.forms.profile_form import ProfileForm, AuthUser
 from django.contrib.auth.models import User
-from User.forms.sign_up_form import UserRegisterForm
+from User.forms.sign_up_form import UserProfile, ContactInformationForm
 from django.contrib import messages
 
 
 def register(request):
     if request.method == "POST":
-        form = UserRegisterForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
+        # form = AuthUserForm(data=request.POST)
+        auth_user_form = UserCreationForm(data=request.POST)
+        profile_user_form = UserProfile(data=request.POST)
+        contact_information_form = ContactInformationForm(data=request.POST)
+
+        if auth_user_form.is_valid() and profile_user_form.is_valid() and contact_information_form.is_valid():
+            auth_user_form.save()
+
+            profile = profile_user_form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+
+            contact_information = contact_information_form.save(commit=False)
+            contact_information.user = request.user
+            contact_information.save()
+
+            username = auth_user_form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
             return redirect("login")
     else:
-        form = UserRegisterForm()
-    return render(request, 'User/register.html', {"form": form })
+        auth_user_form = UserCreationForm()
+        profile_user_form = UserProfile()
+        contact_information_form = ContactInformationForm()
+    return render(request, 'User/register.html', {
+        "auth_user_form": auth_user_form,
+        "profile_user_form": profile_user_form,
+        "contact_information_form": contact_information_form
+    })
 
 
 def profile(request):
