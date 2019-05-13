@@ -1,16 +1,16 @@
-{% extends 'base_2.html' %}
+{% extends 'ekki_search_bar.html' %}
 {% load static %}
 {% block content %}
  <h3>Payment Information</h3>
-    <div class="pay-info" >
+    <div class="pay-info">
     <form class="payment-form" method = "post" action="{% url 'payment_information_index' %}" style="width: 70%;">
     {% csrf_token %}
     {{ form }}
 
     </form>
-        <div style="display:inline-block; margin-right: auto;">
+        <div style="display:inline-block;">
             <a href="{% url 'payment_confirmation' %}"><button type="submit" id="pay" class="btn btn-primary pull-right" style="display: inline-block;"> Pay </button></a>
-            <a href="{% url 'real_estate_information' %}"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary" style="display: inline-block">Go Back</button></a>
+            <a href="{% url 'real_estate_information' %}"><button type="submit" id="go-back" class="btn btn-primary pull-right" style="display: inline-block;"> Go Back </button></a>
         </div>
     </div>
 {% endblock %}
