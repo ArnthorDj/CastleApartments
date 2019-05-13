@@ -76,19 +76,6 @@ a{
     margin: 3%;
 }
 
-.footer {
-    box-sizing: border-box;
-    text-align: left;
-    padding: 55px 50px;
-	margin-top: 80px;
-    color: crimson;
-    border: 2px solid black;
-    background-color: #f1f1f1;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-}
 
 
 .employee {
@@ -160,12 +147,14 @@ a{
 .container-footer{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     background-color: #7FA2CA;
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-width: 3rem;
-    margin-top: 30px;
+    justify-content: center;
+    align-self:center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -175,16 +164,37 @@ a{
 
 }
 
-.footer_left{
-    text-align: left;
+.footer_self {
+    position: center;
 }
 
-.footer_center{
+.footer_right {
+    float: right;
+}
+
+.footer_left {
+    float: left;
+}
+
+footer [class ^= 'footer-'] {
+    width: 33.3333%;
+    display: inline-block;
     text-align: center;
+    height: 20rem;
+    background-color: #7FA2CA;
+    border-width: 3rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
 }
 
-.footer_right{
-    text-align: right;
+footer .footer-left {
+    float: left;
+    text-align: left;
+    padding-left: 3rem;
+}
+
+footer .footer-right {
+    float: right;
 }
 
 
@@ -192,4 +202,10 @@ a{
 
 .card-body {
     background-color: #7FA2CA;
+}
+
+#username {
+    text-align: right;
+    display: inline-block;
+    margin-left: 90%;
 }
