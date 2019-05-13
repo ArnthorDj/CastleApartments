@@ -1,30 +1,72 @@
-{% extends 'litill_search_bar.html' %}
 {% load static %}
 
-{% block search_bar %}
-        <div class="bla">
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Castle Apartments</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+        <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
+    </head>
+    <body>
+    <div id="header">
+        <div style="text-align: center; padding-top: 25px;">
+            <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
+            {% if user.is_authenticated %}
+                <p id="username">{{ user.username }}</p>
+            {% endif %}
+        </div>
+        <ul>
+            <li><a id="home" href="{% url 'home_index' %}">Home</a></li>
+            <li><a id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
+            <li><a id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
+            {% if user.is_authenticated %}
+                <li><a id="profile" href="{% url 'profile' %}">Profile</a></li>
+                {% if user.is_staff %}
+                    <li><a id="pending" href="{% url 'pending_index' %}">Pending</a></li>
+                {% else %}
+                    <li><a id="your_real_estate" href="{% url 'your_real_estate_index' %}">Your Real Estate</a></li>
+                {% endif %}
+            {% endif %}
+            <li><a  id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
+            {% if user.is_authenticated %}
+                <!-- <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li> -->
+                <li><a id="logout" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a id="login" href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+
+        <header class="search_bar center">
             <form class="form">
                 <div class="form-row">
                     <div class="col-14">
-                    <input type="search" class="form-control" placeholder="Search...">
-                  </div>
-                  <div class="col-12">
-                      <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Search</a></button>
-                  </div>
+                        <input type="search" class="form-control" placeholder="Search...">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Search</a></button>
+                    </div>
                 </div>
             </form>
-
             <form class="dropdown" action="/action_page.php">
-                <select name="price">
+                <select name="prize">
                     <option value="prize">Prize</option>
-                    <option value="0-30.000.000kr">0-30.000.000kr</option>
-                    <option value="30.000.001-90.000.000kr">30.000.001-90.000.000kr</option>
-                    <option value="90.000.001-120.000.000kr">90.000.001-120.000.000kr</option>
-                    <option value="120.000.000kr+">120.000.000kr+</option>
+                    <option value="0-30.000.000kr">0-30M kr</option>
+                    <option value="30.000.001-90.000.000kr">30M-90M kr</option>
+                    <option value="90.000.001-120.000.000kr">90M-120M kr</option>
+                    <option value="120.000.000kr+">120M kr+</option>
                 </select>
             </form>
             <form class="dropdown" action="/action_page.php">
                 <select name="zip">
+                    <option value="zip">Zip</option>
                     <option value="zip">Zip Code</option>
                     <option value="101">101 Reykjavík</option>
                     <option value="103">103 Reykjavík</option>
@@ -168,114 +210,65 @@
                     <option value="880">880 Kirkjubæjarklaustur</option>
 
                     <option value="900">900 Vestmannaeyjar</option>
-
                 </select>
             </form>
             <form class="dropdown" action="/action_page.php">
-              <select name="size">
-                  <option value="Size">Size</option>
-                  <option value="0-500m^2">0-500m^2</option>
-                  <option value="501-3000m^2">501-3000m^2</option>
-                  <option value="3001-7000m^2">3001-7000m^2</option>
-                  <option value="7000m^2+">7000m2 +</option>
-              </select>
+                <select name="size">
+                    <option value="Size">Size</option>
+                    <option value="0-500fm">0-500fm</option>
+                    <option value="501-3000fm">501-3000fm</option>
+                    <option value="3001-7000fm">3001-7000fm</option>
+                    <option value="7000fm+">7000fm+</option>
+                </select>
             </form>
-        </div>
+        </header>
+    </div>
+
+    {% block header %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+    {% block content %}
     {% endblock %}
 
-{% block content %}
-        <div class="container2">
-            <h2 class="red">Real Estates</h2>
-        </div>
-
-    <form class="dropdown" action="/action_page.php">
-              <select name="size">
-                  <option value="order_by">Order by</option>
-                  <option value="zip">Zip</option>
-                  <option value="street">Street Name</option>
-                  <option value="size">Size</option>
-                  <option value="price">Price</option>
-              </select>
-        </form>
-            <button href="#">Go</button>
-
-        <main id="main">
-        {% for house in real_estates %}
-            {% include 'RealEstate/single_real_estate.html' with house=house %}
-        {% endfor %}
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
 
 
+    <footer>
+        <aside class="footer-left">
+            <h3 class="footer_left"> Castle Apartments Ltd.</h3><br><br><br>
+            <p>Laugavegur 5, 101 Reykjavík <br>
+            castleapt@hotmail.com <br>
+            Kt: 123456-7890 <br>
+            S: 123-3456</p>
+        </aside>
 
-        <!-- Dummy data: -->
-<!--            <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
-            <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
-            <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
+        <aside class="footer-right">
+            <h2 id="socialmedia-header">Social media</h2>
+            <img class="social_media_logo" id="snapchat_logo" src="{% static 'Images/snapchat_logo.png' %}" alt="snapchat_logo">
+                <img class="social_media_logo" id="instagram_logo" src="{% static 'Images/instagram_logo.png' %}" alt="instagram_logo">
+                <img class="social_media_logo" id="twitter_logo" src="{% static 'Images/twitter_logo.png' %}" alt="twitter_logo">
+                <img class="social_media_logo" id="facebook_logo" src="{% static 'Images/facebook_logo.png' %}" alt="facebook_logo">
+        </aside>
 
-            <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
-            <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
-            <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
-        <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
-        <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>
-        <div class="images">
-                <a href="{% url 'real_estate_information' %}">
-                <img class="image" src="{% static 'Images/dog.png' %}" alt="Fish"></a>
-                <h3>Address: xxx</h3>
-                <p>Bed: #, Bathrooms: #, Size: #m^2</p>
-                <p>Price: #kr</p>
-            </div>    -->
+        <aside class="footer-center">
+            <h2>About Us</h2>
+                <p>Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of computer science at Reykjavik University, Iceland.
+                    Our expertise is in selling high quality old fashion family homes.</p>
 
-        </main>
-        <div class="col-13">
-            <button type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Load more</a></button>
-        </div>
 
-        <!-- Latest compiled and minified JavaScript -->
-    {% endblock %}
+        </aside>
+    </footer>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    </body>
+</html>
