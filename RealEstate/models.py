@@ -16,6 +16,7 @@ class RealEstates(models.Model):
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
     main_image = models.CharField(max_length=999)
 
+
 class RealEstateImages(models.Model):
     real_estate = models.ForeignKey(RealEstates, on_delete=models.CASCADE)
     image = models.CharField(max_length=9999)
