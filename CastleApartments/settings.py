@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'User.apps.UserConfig',
     'ContactUs.apps.ContactUsConfig',
     'crispy_forms',
-    'ContactUs.apps.ContactUsConfig',
     'Pending.apps.PendingConfig',
     'RealEstate.apps.RealEstateConfig',
     'YourRealEstate.apps.YourRealEstateConfig',
