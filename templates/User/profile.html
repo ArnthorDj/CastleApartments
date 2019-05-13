@@ -1,5 +1,7 @@
 {% extends 'stor_mynd.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
+
 
 
 {% block content %}
@@ -20,12 +22,5 @@
     </div>
 
 
-{#    <h1>Profile</h1>#}
-{#    <form method = "post">#}
-{#        {% csrf_token %}#}
-{#        {{profile_form|crispy }}#}
-{#        {{auth_user_form|crispy }}#}
-{#        <input type = "submit" value="Update">#}
-{#    </form>#}
 
 {% endblock %}
