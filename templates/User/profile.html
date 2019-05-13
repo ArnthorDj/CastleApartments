@@ -1,12 +1,14 @@
 {% extends 'base_3.html' %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
 
     <h1>Profile</h1>
     <form method = "post">
         {% csrf_token %}
-        {{profile_form}}
-        {{auth_user_form}}
+        {{profile_form|crispy }}
+        {{auth_user_form|crispy }}
         <input type = "submit" value="Update">
     </form>
 
