@@ -133,8 +133,6 @@ a{
 
 }
 
-
-
 .col-14 {
     width: 30%;
     display: inline-block;
@@ -146,7 +144,6 @@ a{
     display: inline-block;
     height: 5%;
 }
-
 
 
 .col-13 {
@@ -166,35 +163,25 @@ a{
     padding-bottom: 3rem;
     border-width: 3rem;
     margin-top: 30px;
-    color: hotpink;
-    background-color: blue;
 }
 
 
 .social_media_logo{
     width: 7%;
     display: inline-block;
-    color: #4CAF50;
-    background-color: aqua;
 
 }
 
 .footer_left{
     display: inline-block;
-    color: #4CAF50;
-    background-color: aquamarine;
 }
 
 .footer_center{
     display: inline-block;
-    background-color: aquamarine;
-    color: beige;
 }
 
 .footer_right{
     display: inline-block;
-    background-color: aquamarine;
-    color: beige;
 }
 
 
@@ -202,7 +189,4 @@ a{
 
 .card-body {
     background-color: #7FA2CA;
-}
-ul li{
-    background-color: green;
 }
