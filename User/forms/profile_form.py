@@ -1,4 +1,4 @@
-from django.forms import ModelForm, widgets, forms
+from django.forms import ModelForm, widgets
 from django.contrib.auth.models import User
 from User.models import Profile
 
@@ -17,7 +17,8 @@ class ProfileForm(ModelForm):
 class AuthUser(ModelForm):
     class Meta:
         model = User
-        exclude = ['id', 'password', 'last_login', 'is_superuser', 'is_staff', 'is_active', 'date_joined', 'user_permissions', 'groups']
+        exclude = ['id', 'password', 'last_login', 'is_superuser', 'is_staff', 'is_active', 'date_joined',
+                   'user_permissions', 'groups']
         widgets = {
             "first_name": widgets.TextInput(),
             "last_name": widgets.TextInput(),
