@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+{% extends 'base_2.html' %}
+=======
 {% extends 'litill_search_bar.html' %}
+>>>>>>> a6a5f5f690459440c33aa6777896eb250489f41a
 {% load static %}
 
 {% block content %}
@@ -6,10 +10,10 @@
 
     <div class="info_image"> MYNDIR MYNDIR MYNDIR MYNDIR </div>
 
-        <textarea disabled rows="5" cols="10" class="moreinfobox1"> Information about one apartment comes here! </textarea>
+        <textarea disabled rows="5" cols="10" class="moreinfobox1"> </textarea>
 
 
-    <textarea disabled rows="10" cols="30" class="moreinfobox2">Detailed infor about apartment </textarea>
+    <textarea disabled rows="10" cols="30" class="moreinfobox2"> {{ real_estate.more_info }}    </textarea>
 
        <a href="{% url 'payment_information_index' %}"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Buy</button></a>
 

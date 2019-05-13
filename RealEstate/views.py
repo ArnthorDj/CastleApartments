@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_list_or_404
 from RealEstate.models import RealEstates
 from RealEstate.forms.payment_information_form import CreatePaymentForm
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
@@ -14,6 +14,11 @@ def index(request):
 def real_estate_information(request):
     return render(request, 'RealEstateInformation/index.html')
 
+
+def get_real_estate_by_id(request, id):
+    return render(request, 'RealEstateInformation/index.html',{
+        'real_estate': get_list_or_404(RealEstates, pk=id)
+    })
 
 # def addRealEstate(request):
 # form = AddRealEstateForm(data=request.POST)
