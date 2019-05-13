@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from User.models import Profile
 
 class RealEstates(models.Model):
     street = models.CharField(max_length=255)
@@ -20,6 +20,13 @@ class RealEstates(models.Model):
 class RealEstateImages(models.Model):
     real_estate = models.ForeignKey(RealEstates, on_delete=models.CASCADE)
     image = models.CharField(max_length=9999)
+
+class CreditCard(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    card_number = models.CharField(max_length=16)
+    month = models.CharField(max_length=2)
+    year = models.CharField(max_length=4)
+
 
 
 

@@ -1,31 +1,41 @@
 {% extends 'base_3.html' %}
+{% load static %}
 
 {% block content %}
 
-    <h3>Login</h3>
-    <div class="border-login" style=>
-    <form method = "post" class="form-login">
-        {% csrf_token %}
-        {{form}}
-        <input type = "submit" value="Login">
-    </form>
-    <p>Dont have an account? Sign up <a style="color: blue" href="{% url 'register' %}">here</a></p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="login-form" autocomplete="off" method="post" action="{% url 'login' %}">
 
-</div>
+                            {% csrf_token %}
+                            {{ form.as_p}}
+{#                            {% for field in form %}#}
+{#                                <div class="field"> </div>#}
+{#                                <label></label>#}
+{#                                <label for="{{ field.id_username}} " class="username" >{{ field.html_name }}</label>#}
+                             {#  {{ field }} #}
+{#                                {% endfor %}#}
+
+{##}
+{#                            <div class="form-group">#}
+{#                                <input type="text" class="form-control" name="username">#}
+{#                            </div>#}
+{#                            <div class="form-group">#}
+{#                                <input type="password" class="form-control" name="password">#}
+{#                            </div>#}
+                            <input type="submit" class="login-btn btn-block btn-lg btn-primary" value="Login">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 {% endblock %}
+

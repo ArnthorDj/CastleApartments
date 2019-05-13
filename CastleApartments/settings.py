@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Employees.apps.EmployeesConfig',
     'Home.apps.HomeConfig',
     'User.apps.UserConfig',
+    #'crispy_forms',
     'ContactUs.apps.ContactusConfig',
     'Login.apps.LoginConfig',
     'PaymentInformation.apps.PaymentInformationConfig',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'RealEstate.apps.RealEstateConfig',
     'Signup.apps.SignupConfig',
     'YourRealEstate.apps.YourRealEstateConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -136,6 +138,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+CRISPY_TEMPLATE_PACE = 'bootstrap4'
 
 LOGGING = {
     'version': 1,

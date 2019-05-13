@@ -5,7 +5,7 @@
         <div class="container2">
             <h2 class="red">Your Real Estate</h2>
         </div>
-<form class="dropdown" action="/action_page.php">
+<form class="dropdown" action="{% url 'your_real_estate_index' %}">
               <select name="size">
                   <option value="order_by">Order by</option>
                   <option value="zip">Zip</option>
@@ -13,8 +13,11 @@
                   <option value="size">Size</option>
                   <option value="price">Price</option>
               </select>
+<button>Go</button>
+
+
         </form>
-            <button href="#">Go</button>
+<a href="{% url 'add_real_estate_index' %}"><button >Add new</button></a>
         <main id="main">
 
 

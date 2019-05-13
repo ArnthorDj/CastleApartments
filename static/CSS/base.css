@@ -188,3 +188,8 @@ a{
 }
 
 
+/* CSS for Login */
+
+.card-body {
+    background-color: #7FA2CA;
+}

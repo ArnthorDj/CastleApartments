@@ -13,6 +13,7 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+        <link rel="stylesheet" href="{% static 'CSS/base_4.css' %}">
         <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
     </head>
     <body>
@@ -40,8 +41,7 @@
                 <li><a id="login" href="{% url 'login' %}">Login</a></li>
             {% endif %}
         </ul>
-
-        <header class="search_bar center">
+        <header class="search_bar center search">
             <form class="form">
                 <div class="form-row">
                     <div class="col-14">

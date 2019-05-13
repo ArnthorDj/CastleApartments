@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def contactUs(request):
+def contact_us(request):
     return render(request, 'ContactUs/index.html')
