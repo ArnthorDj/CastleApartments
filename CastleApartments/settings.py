@@ -39,18 +39,14 @@ INSTALLED_APPS = [
     'Employees.apps.EmployeesConfig',
     'Home.apps.HomeConfig',
     'User.apps.UserConfig',
-<<<<<<< HEAD
     'crispy_forms',
     'ContactUs.apps.ContactUsConfig',
-    # 'Login.apps.LoginConfig',
-    # 'PaymentInformation.apps.PaymentInformationConfig',
-=======
-    'ContactUs.apps.ContactUsConfig',
-    'crispy_forms',
->>>>>>> a3756d53f29cf1889919c7de08db915a3b5c09c7
+    #'Login.apps.LoginConfig',
+    #'PaymentInformation.apps.PaymentInformationConfig',
     'Pending.apps.PendingConfig',
     'RealEstate.apps.RealEstateConfig',
     'YourRealEstate.apps.YourRealEstateConfig',
+
 ]
 
 MIDDLEWARE = [
