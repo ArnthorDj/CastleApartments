@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_3.html' %}
 {% load static %}
 
 {% block search_bar %}
@@ -72,8 +72,8 @@
             <button href="#">Go</button>
 
         <main id="main">
-        {% for house in real_estates %}
-            {% include 'RealEstate/single_real_estate.html' with real_estates=real_estates %}
+        {% for real_estate in real_estates %}
+            {% include 'RealEstate/single_real_estate.html' with real_estate=real_estate %}
         {% endfor %}
 
 
