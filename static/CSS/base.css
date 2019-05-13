@@ -218,3 +218,11 @@ footer .footer-right {
     background-color: #7FA2CA;
     border-width: 3rem;
 }
+
+
+.formatted-btn{
+    margin: 20px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+}

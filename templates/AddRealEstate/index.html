@@ -6,7 +6,8 @@
     <form class="add-form" action="{% url 'add_real_estate_index' %}" method="post" style="/*display: inline-block;*/ display: flex; align-items: center; justify-content: center; flex-direction: column"/>
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Add" class="btn btn-primary pull-right" >
+{#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
+         <button type="submit" class="formatted-btn btn-primary">Add</button>
     </form>
     </div>
 {% endblock %}

@@ -4,14 +4,14 @@ from django.shortcuts import render, redirect
 from User.models import Profile
 from User.forms.profile_form import ProfileForm, AuthUser
 from django.contrib.auth.models import User
-from User.forms.sign_up_form import UserProfile, ContactInformationForm
+from User.forms.sign_up_form import UserProfile, ContactInformationForm, AuthUserForm
 from django.contrib import messages
-
+from django.forms import ModelForm
 
 def register(request):
     if request.method == "POST":
         # form = AuthUserForm(data=request.POST)
-        auth_user_form = UserCreationForm(data=request.POST)
+        auth_user_form = AuthUserForm(data=request.POST)
         profile_user_form = UserProfile(data=request.POST)
         contact_information_form = ContactInformationForm(data=request.POST)
 
@@ -30,7 +30,7 @@ def register(request):
             messages.success(request, f'Account created for {username}!')
             return redirect("login")
     else:
-        auth_user_form = UserCreationForm()
+        auth_user_form = AuthUserForm()
         profile_user_form = UserProfile()
         contact_information_form = ContactInformationForm()
     return render(request, 'User/register.html', {
