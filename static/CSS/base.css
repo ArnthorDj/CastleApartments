@@ -133,6 +133,8 @@ a{
 
 }
 
+
+
 .col-14 {
     width: 30%;
     display: inline-block;
@@ -144,6 +146,7 @@ a{
     display: inline-block;
     height: 5%;
 }
+
 
 
 .col-13 {
@@ -173,15 +176,15 @@ a{
 }
 
 .footer_left{
-    display: inline-block;
+    text-align: left;
 }
 
 .footer_center{
-    display: inline-block;
+    text-align: center;
 }
 
 .footer_right{
-    display: inline-block;
+    text-align: right;
 }
 
 
