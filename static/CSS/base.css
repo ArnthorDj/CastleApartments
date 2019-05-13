@@ -183,8 +183,8 @@ footer {
     height: 20rem;
     background-color: #7FA2CA;
     border-width: 3rem;
-    margin-top: 3rem;
-    padding-top: 3rem;
+    /* margin-top: 3rem;
+    padding-top: 3rem; */
 }
 
 footer .footer-left {
