@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import logout
+# from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from User.models import Profile
 from User.forms.profile_form import ProfileForm, AuthUser
@@ -40,7 +40,7 @@ def register(request):
     })
 
 
-def profile(request):
+def profile_update(request):
     profile = Profile.objects.filter(user=request.user).first()
     user = User.objects.filter(id=request.user.id).first()
     if request.method == "POST":
@@ -52,7 +52,7 @@ def profile(request):
             profile.user = request.user
             profile.save()
 
-            user = auth_user_form.save()
+            auth_user_form.save()
 
             return redirect("profile")
 
