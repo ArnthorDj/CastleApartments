@@ -9,7 +9,7 @@ def index(request):
     #print(RealEstates.objects.)
 
     #print("Above is the main thing")
-    real_estates = {"real_estates":  RealEstates.objects.all()}
+    real_estates = {"real_estates":  RealEstates.objects.all()[:6]}
     return render(request, 'RealEstate/index.html',
                   real_estates
     )
