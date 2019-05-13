@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_list_or_404
-from RealEstate.models import RealEstates
+from RealEstate.models import RealEstates, RealEstateImages
 from RealEstate.forms.payment_information_form import CreatePaymentForm
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 
@@ -16,9 +16,9 @@ def index(request):
 
 
 def get_real_estate_by_id(request, id):
-    print("this is the id:",id)
     return render(request, 'RealEstateInformation/index.html', {
-        'real_estate': get_list_or_404(RealEstates, pk=id)
+        'real_estate': get_list_or_404(RealEstates, pk=id),
+        'images': get_list_or_404(RealEstateImages, real_estate_id=id)
     })
 
 # def addRealEstate(request):

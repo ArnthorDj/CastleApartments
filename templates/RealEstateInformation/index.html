@@ -1,17 +1,32 @@
 {% extends 'ekki_search_bar.html' %}
 {% load static %}
-
 {% block content %}
-    <a href="{% url 'real_estate' %}"><button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary">Back</button></a>
+    <link rel="stylesheet" href="../../static/CSS/slider.css">
+    <button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Back</a></button>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 
-    <div class="info_image"> MYNDIR MYNDIR MYNDIR MYNDIR </div>
+<div class="slideshow-container">
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+{% for image in images %}
+<div class="mySlides">
+  <img src="{{ image.image }}" style="width:100%">
+</div>
 
-        <textarea disabled rows="5" cols="10" class="moreinfobox1"> Information about one apartment comes here! </textarea>
+{% endfor %}
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<script src="{% static 'js/img_slider.js' %}">
+
+</script>
+        <textarea disabled rows="5" cols="10" class="moreinfobox1"> {{ real_estate.more_info }} </textarea>
 
 
-    <textarea disabled rows="10" cols="30" class="moreinfobox2">Detailed infor about apartment </textarea>
+    <textarea disabled rows="10" cols="30" class="moreinfobox2">{{ real_estate.more_info }} </textarea>
 
-       <a href="{% url 'payment_information_index' %}"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Buy</button></a>
+       <a href="/real_estate/pay/   "><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Buy</button></a>
 
     <div class="recentlyviewed">
         <p>Recently viewed</p>
