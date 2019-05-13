@@ -14,6 +14,7 @@
                             {% csrf_token %}
                             {{ form|crispy}}
                             <input type="submit" class="login-btn btn-block btn-lg btn-primary" value="Login">
+                            <p class="sing-up-message">Don't have an account? <a href="{% url "register" %}"> sign up here </a></p>
                         </form>
                     </div>
                 </div>
