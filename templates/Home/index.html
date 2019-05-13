@@ -8,7 +8,7 @@
         <main id="main">
             {% for real_estate in real_estates %}
             <div class="images">
-                <a href="{% url 'real_estate_information' %}">
+                <a href="/real_estate/info/{{ real_estate.id }}">
                 <img src="{{ real_estate.main_image }}" height="100px" width="200px">
                 <h4 style="color:black">{{ real_estate.street }}, {{ real_estate.zip_code }} {{ real_estate.city }}</h4>
                 <p style="color:black">Bedrooms: {{ real_estate.bedrooms }}, Bathrooms: {{ real_estate.bedrooms }}, Size: {{ real_estate.size }} square meters</p>
