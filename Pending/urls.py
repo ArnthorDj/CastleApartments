@@ -8,4 +8,5 @@ urlpatterns = [
     path("street/", views.pending_street, name="pending_street"),
     path("size/", views.pending_size, name="pending_size"),
     path("price/", views.pending_price, name="pending_price"),
+    path("city/", views.pending_city, name="pending_city"),
 ]

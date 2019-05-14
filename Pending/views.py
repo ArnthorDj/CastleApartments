@@ -19,3 +19,6 @@ def pending_size(request):
 def pending_price(request):
     return render(request, 'Pending/index.html', {"real_estates": RealEstates.objects.all().order_by("price")})
 
+def pending_city(request):
+    return render(request, 'Pending/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
+
