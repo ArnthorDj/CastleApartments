@@ -88,16 +88,23 @@ a{
 }
 
 .well {
-    width: 30%;
-    margin-bottom: 20px;
+    width: 35rem;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    position: center;
+    margin: 20px;
     text-align: center;
     display: inline-block;
     border-radius: 10px;
-    border: 2px solid #000000;
-    padding:5px;
-    color: slateblue;
-    height: 30%;
+    /*border: 2px solid #000000;*/
+    /*color: slateblue;*/
+    height: 35rem;
+    margin-left: 30px;
+
+
 }
+
+
 
 .employee-img {
   width: 30%;
