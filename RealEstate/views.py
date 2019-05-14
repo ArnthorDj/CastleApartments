@@ -9,25 +9,30 @@ def index(request):
     #real_estates = {"real_estates":  RealEstates.objects.all()}
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
+        ZipCodes.objects.get(zip_code='zip_code_id')
+
         real_estate = [{
             'street': x.street,
             'city': x.city,
-            'zip_code': x.zip_code,
+            'zip_code_id': x.zip_code_id,
             'bedrooms': x.bedrooms,
             'bathrooms': x.bathrooms,
             'size': x.size,
             'type': x.type,
-            'price': x.price
-            # 'main_image': x.main_image.image
-        } for x in RealEstates.objects.filter(street__icontains=search_filter)]
+            'price': x.price,
+            'main_image': x.main_image.image
+        }
+            for x in RealEstates.objects.filter(street__icontains=search_filter)]
         return JsonResponse({'data':real_estate})
     return render(request, 'RealEstate/index.html', {
         "real_estates":  RealEstates.objects.all()
     })
-
-
-#def real_estate_information(request):
-#    return render(request, 'RealEstateInformation/index.html')
+#
+# zip = {
+#             'zip_code': y.zip_code,
+#             'city': y.city,
+#             'country': y.country
+#         }
 
 
 def get_real_estate_by_id(request, id):
@@ -80,3 +85,17 @@ def payment_information(request):
 #         return JsonResponse({'data':real_estates})
 #     context = {'real_estate': RealEstates.objects.all().order_by('street')}
 #     return render(request, 'RealEstate/index.html', context)
+
+
+
+def real_estate_zip(request):
+    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code")})
+
+def real_estate_street(request):
+    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
+
+def real_estate_size(request):
+    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("size")})
+
+def real_estate_price(request):
+    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("price")})
