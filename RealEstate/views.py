@@ -9,30 +9,24 @@ def index(request):
     #real_estates = {"real_estates":  RealEstates.objects.all()}
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        ZipCodes.objects.get(zip_code='zip_code_id')
+        # ZipCodes.objects.get(zip_code='zip_code_id')
 
         real_estate = [{
             'street': x.street,
-            'city': x.city,
             'zip_code_id': x.zip_code_id,
+            # 'city': x.zip_code__ci,
             'bedrooms': x.bedrooms,
             'bathrooms': x.bathrooms,
             'size': x.size,
             'type': x.type,
             'price': x.price,
-            'main_image': x.main_image.image
+            # 'main_image': x.main_image.image
         }
             for x in RealEstates.objects.filter(street__icontains=search_filter)]
         return JsonResponse({'data':real_estate})
     return render(request, 'RealEstate/index.html', {
         "real_estates":  RealEstates.objects.all()
     })
-#
-# zip = {
-#             'zip_code': y.zip_code,
-#             'city': y.city,
-#             'country': y.country
-#         }
 
 
 def get_real_estate_by_id(request, id):
