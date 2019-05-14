@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_list_or_404
-from RealEstate.models import RealEstates, RealEstateImages
+from RealEstate.models import RealEstates, RealEstateImages, ZipCodes
 from RealEstate.forms.payment_information_form import CreatePaymentForm
 from django.http import JsonResponse
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
