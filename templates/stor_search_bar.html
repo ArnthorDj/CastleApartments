@@ -51,7 +51,7 @@
                         <input type="search" class="form-control" id="search-box" placeholder="Search...">
                     </div>
                     <div class="col-12">
-                        <button type="submit" id="search-btn" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Search</a></button>
+                        <button type="button" id="search-btn" class="btn btn-block btn-lg btn-primary">Search</button>
                     </div>
                 </div>
             </form>
@@ -273,8 +273,8 @@
 
         </aside>
     </footer>
-    <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" ></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script scr="{% static 'js/search.js' %}"></script>
+        <script src="{% static 'js/search.js' %}"></script>
     </body>
 </html>

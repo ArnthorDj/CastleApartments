@@ -1,6 +1,7 @@
 {% extends 'litill_search_bar.html' %}
 {% load static %}
 <script src="{% static 'js/urls.js' %}"></script>
+<script scr="{% static 'js/search.js' %}"></script>
 
 
 
@@ -21,7 +22,7 @@
         </form>
     <button type="submit"id="real_estate_order" onclick="real_estate_urls()">Go</button>
 
-        <main id="main">
+        <main class="main">
         {% for house in real_estates %}
             {% include 'RealEstate/single_real_estate.html' with house=house %}
         {% endfor %}
