@@ -25,7 +25,7 @@ def index(request):
             for x in RealEstates.objects.filter(street__icontains=search_filter)]
         return JsonResponse({'data': real_estate})
 
-    return render(request, 'RealEstate/index.html', {
+    return render(request, 'RealEstate/order.html', {
         "real_estates":  RealEstates.objects.all()
     })
 
