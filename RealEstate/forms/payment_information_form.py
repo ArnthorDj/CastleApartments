@@ -1,5 +1,5 @@
 from django.forms import ModelForm, widgets
-from RealEstate.models import CreditCard
+from User.models import CreditCard
 
 
 MONTHS = {
