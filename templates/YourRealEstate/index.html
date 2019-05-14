@@ -6,14 +6,17 @@
             <h2 class="red">Your Real Estate</h2>
         </div>
 <form class="dropdown" action="{% url 'your_real_estate_index' %}">
-              <select name="size">
-                  <option value="order_by">Order by</option>
-                  <option value="zip">Zip</option>
-                  <option value="street">Street Name</option>
-                  <option value="size">Size</option>
-                  <option value="price">Price</option>
+              <select id="your_real_estate_order" name="order">
+                  <option value="">Order by</option>
+                  <option value="{% url 'your_real_estate_zip' %}">Zip</option>
+                  <option value="{% url 'your_real_estate_street' %}">Street Name</option>
+                  <option value="{% url 'your_real_estate_size' %}">Size</option>
+                  <option value="{% url 'your_real_estate_price' %}">Price</option>
               </select>
-<button>Go</button>
+
+        </form>
+    <button type="submit"id="your_real_estate_order" onclick="your_real_estate_urls()">Go</button>
+
 
 
         </form>

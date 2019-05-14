@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from YourRealEstate.forms.add_real_estate_form import AddRealEstateForm
+from RealEstate.models import RealEstates, RealEstateImages
 
 
 def your_real_estate(request):
@@ -20,3 +21,15 @@ def add_real_estate(request):
 
 def add_real_estate_confirmation(request):
     return render(request, "AddRealEstateConfirmation/index.html")
+
+def your_real_estate_zip(request):
+    return render(request, 'YourRealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code")})
+
+def your_real_estate_street(request):
+    return render(request, 'YourRealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
+
+def your_real_estate_size(request):
+    return render(request, 'YourRealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("size")})
+
+def your_real_estate_price(request):
+    return render(request, 'YourRealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("price")})

@@ -11,7 +11,7 @@
 
     <form class="dropdown" action="/action_page.php">
               <select id="real_estate_order" name="order">
-                  <option value="">Order by</option>
+                  <option value="{% url 'real_estate' %}">Order by</option>
                   <option value="{% url 'real_estate_zip' %}">Zip</option>
                   <option value="{% url 'real_estate_street' %}">Street Name</option>
                   <option value="{% url 'real_estate_size' %}">Size</option>
@@ -19,7 +19,7 @@
               </select>
 
         </form>
-    <button type="submit" class="btn btn-block btn-lg btn-primary" id="real_estate_order" onclick="gotosite()">Go</button>
+    <button type="submit"id="real_estate_order" onclick="real_estate_urls()">Go</button>
 
         <main id="main">
         {% for house in real_estates %}
