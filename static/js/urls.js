@@ -1,4 +1,3 @@
 function gotosite() {
-  value = document.getElementById("pending_order").value
-    console.log(value)
+  window.location = document.getElementById("real_estate_order").value
 }
