@@ -11,32 +11,39 @@ from django.forms import ModelForm
 def register(request):
     if request.method == "POST":
         # form = AuthUserForm(data=request.POST)
-        auth_user_form = AuthUserForm(data=request.POST)
-        profile_user_form = UserProfile(data=request.POST)
-        contact_information_form = ContactInformationForm(data=request.POST)
+        auth_user_form = UserCreationForm(data=request.POST)
+        #user_information_form = AuthUserForm(data=request.POST)
+        #profile_user_form = UserProfile(data=request.POST)
+        #contact_information_form = ContactInformationForm(data=request.POST)
 
-        if auth_user_form.is_valid() and profile_user_form.is_valid() and contact_information_form.is_valid():
+        if auth_user_form.is_valid(): #and user_information_form.is_valid():#profile_user_form.is_valid() and contact_information_form.is_valid():
             auth_user_form.save()
 
-            profile = profile_user_form.save(commit=False)
-            profile.user = request.user
-            profile.save()
+            #User._meta.get_field('first_name')._unique = False
+            #User._meta.get_field('last_name')._unique = False
 
-            contact_information = contact_information_form.save(commit=False)
-            contact_information.user = request.user
-            contact_information.save()
+            #profile = profile_user_form.save(commit=False)
+            #profile.user = request.user
+            #profile.save()
+
+            #contact_information = contact_information_form.save(commit=False)
+            #contact_information.user = request.user
+            #contact_information.save()
 
             username = auth_user_form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
             return redirect("login")
     else:
-        auth_user_form = AuthUserForm()
-        profile_user_form = UserProfile()
-        contact_information_form = ContactInformationForm()
+        auth_user_form = UserCreationForm()
+        #user_information_form = AuthUserForm()
+        #profile_user_form = UserProfile()
+        #contact_information_form = ContactInformationForm()
     return render(request, 'User/register.html', {
-        "auth_user_form": auth_user_form,
-        "profile_user_form": profile_user_form,
-        "contact_information_form": contact_information_form
+        "auth_user_form": UserCreationForm,
+        #"user_information_form": user_information_form,
+        #"error": ""
+        #"profile_user_form": profile_user_form,
+        #"contact_information_form": contact_information_form
     })
 
 
