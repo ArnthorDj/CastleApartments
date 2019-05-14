@@ -13,9 +13,7 @@
             <form method="post">
             {% csrf_token %}
                 {{ auth_user_form|crispy }}
-                {{ user_information_form|crispy }}
-                {{ profile_user_form|crispy }}
-                {{ contact_information_form|crispy }}
+                {{ user_profile_form|crispy }}
             <button type="submit" class="formatted-btn btn-primary">Sign Up!</button>
             </form>
 
