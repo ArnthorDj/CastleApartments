@@ -1,28 +1,27 @@
-from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from User.models import Profile
 from User.forms.profile_form import ProfileForm, AuthUser
 from django.contrib.auth.models import User
-from User.forms.sign_up_form import UserProfile, ContactInformationForm, AuthUserForm
+from User.forms.sign_up_form import UserProfile, AuthUserForm#, ContactInformationForm
 from django.contrib import messages
-from django.forms import ModelForm
 
 def register(request):
     if request.method == "POST":
         auth_user_form = AuthUserForm(data=request.POST)
         user_profile_form = UserProfile(data=request.POST)
+        #contact_information_form = ContactInformationForm(data=request.POST)
 
         if auth_user_form.is_valid() and user_profile_form.is_valid():
             auth_user_form.save()
-            user_profile_form.save()
+            #contact_information_form.save()
 
-            User._meta.get_field('first_name')._unique = False
-            User._meta.get_field('last_name')._unique = False
+            #User._meta.get_field('first_name')._unique = False
+            #User._meta.get_field('last_name')._unique = False
 
-            #profile = profile_user_form.save(commit=False)
-            #profile.user = request.user
-            #profile.save()
+            profile = user_profile_form.save(commit=False)
+            current_user = User.objects.get(username=auth_user_form.cleaned_data.get('username'))
+            profile.user_id = current_user.id
+            profile.save()
 
             username = auth_user_form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
@@ -30,9 +29,11 @@ def register(request):
     else:
         auth_user_form = AuthUserForm()
         user_profile_form = UserProfile()
+        #contact_information_form = ContactInformationForm()
     return render(request, 'User/register.html', {
         "auth_user_form": auth_user_form,
-        "user_profile_form": UserProfile
+        "user_profile_form": user_profile_form,
+        #"contact_information_form": ContactInformationForm
     })
 
 

@@ -9,6 +9,7 @@ class Profile(models.Model):
     street = models.CharField(max_length=99)
     phone = models.CharField(max_length=12)
     zip_code = models.ForeignKey(ZipCodes, on_delete=models.CASCADE)
+    ssn = models.CharField(max_length=11)
 
 
 class Purchases(models.Model):
