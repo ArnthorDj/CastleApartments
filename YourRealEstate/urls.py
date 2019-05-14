@@ -10,4 +10,5 @@ urlpatterns = [
     path("street/", views.your_real_estate_street, name="your_real_estate_street"),
     path("size/", views.your_real_estate_size, name="your_real_estate_size"),
     path("price/", views.your_real_estate_price, name="your_real_estate_price"),
+    path("city/", views.your_real_estate_city, name="your_real_estate_city"),
 ]

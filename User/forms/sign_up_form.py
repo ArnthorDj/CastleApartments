@@ -1,16 +1,14 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import widgets, ModelForm
-from django import forms
-# from django import forms
 from django.contrib.auth.models import User
 from User.models import Profile
 from RealEstate.models import RealEstates
 
 
-class AuthUserForm(ModelForm):
+class AuthUserForm(UserCreationForm):
     class Meta:
         model = User
-        exclude = ['id', 'last_login', 'username', 'password', 'is_superuser', 'is_staff', 'is_active', 'date_joined', 'user_permissions', 'groups']
+        exclude = ['id', 'last_login', 'password', 'is_superuser', 'is_staff', 'is_active', 'date_joined', 'user_permissions', 'groups']
         widgets = {
             "first_name": widgets.TextInput(),
             "last_name": widgets.TextInput(),
@@ -24,7 +22,8 @@ class UserProfile(ModelForm):
         exclude = ["id", "user", 'profile_image']
         widgets = {
             "SSN": widgets.NumberInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
-            "phone": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'})
+            "phone": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
+            "zip_code": widgets.Select()
         }
 
 

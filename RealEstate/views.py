@@ -23,7 +23,7 @@ def index(request):
             # 'main_image': x.main_image.image
         }
             for x in RealEstates.objects.filter(street__icontains=search_filter)]
-        return JsonResponse({'data':real_estate})
+        return JsonResponse({'data': real_estate})
     return render(request, 'RealEstate/index.html', {
         "real_estates":  RealEstates.objects.all()
     })
@@ -86,10 +86,13 @@ def real_estate_zip(request):
     return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code")})
 
 def real_estate_street(request):
-    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
+    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("street")})
 
 def real_estate_size(request):
     return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("size")})
 
 def real_estate_price(request):
     return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("price")})
+
+def real_estate_city(request):
+    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})

@@ -33,3 +33,6 @@ def your_real_estate_size(request):
 
 def your_real_estate_price(request):
     return render(request, 'YourRealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("price")})
+
+def your_real_estate_city(request):
+    return render(request, 'YourRealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
