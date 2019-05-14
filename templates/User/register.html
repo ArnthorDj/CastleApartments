@@ -9,10 +9,11 @@
       <div class="row justify-content-center">
         <div class="col-10">
           <h1> Sign Up! </h1>
-
+            <h2>{{ error.}}</h2>
             <form method="post">
             {% csrf_token %}
                 {{ auth_user_form|crispy }}
+                {{ user_information_form|crispy }}
                 {{ profile_user_form|crispy }}
                 {{ contact_information_form|crispy }}
             <button type="submit" class="formatted-btn btn-primary">Sign Up!</button>
