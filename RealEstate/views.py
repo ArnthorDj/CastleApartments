@@ -14,7 +14,7 @@ def index(request):
         real_estate = [{
             'street': x.street,
             'zip_code_id': x.zip_code_id,
-            'city': zip_city,
+            # 'city': zip_city,
             'bedrooms': x.bedrooms,
             'bathrooms': x.bathrooms,
             'size': x.size,
