@@ -10,4 +10,8 @@ urlpatterns = [
     # path("add/", views.addRealEstate, name="add_real_estate"),
     # path("add/confirmation/", views.addRealEstateConfirmation, name="add_real_estate_confirmation"),
     # path("your_real_estate/", views.yourRealEstate, name="your_real_estate"),
+    path("zip/", views.real_estate_zip, name="real_estate_zip"),
+    path("street/", views.real_estate_street, name="real_estate_street"),
+    path("size/", views.real_estate_size, name="real_estate_size"),
+    path("price/", views.real_estate_price, name="real_estate_price"),
 ]
