@@ -1,7 +1,6 @@
 {% extends 'litill_search_bar.html' %}
 {% load static %}
 <script src="{% static 'js/urls.js' %}"></script>
-<script scr="{% static 'js/search.js' %}"></script>
 
 
 
@@ -10,18 +9,8 @@
             <h2 class="red">Real Estates</h2>
         </div>
 
-    <form class="dropdown" action="/action_page.php">
-              <select id="real_estate_order" name="order">
-                  <option value="{% url 'real_estate' %}">Order by</option>
-                  <option value="{% url 'real_estate_zip' %}">Zip</option>
-                  <option value="{% url 'real_estate_street' %}">Street Name</option>
-                  <option value="{% url 'real_estate_size' %}">Size</option>
-                  <option value="{% url 'real_estate_price' %}">Price</option>
-                  <option value="{% url 'real_estate_city' %}">City</option>
-              </select>
-
-        </form>
-    <button type="submit"id="real_estate_order" onclick="real_estate_urls()">Go</button>
+            {% block order_by %}
+        {% endblock %}
 
         <main class="main">
         {% for house in real_estates %}
@@ -34,5 +23,4 @@
             <a href="{% url 'real_estate' %}"><button type="submit" class="btn btn-block btn-lg btn-primary">Load more</button></a>
         </div>
 
-        <!-- Latest compiled and minified JavaScript -->
     {% endblock %}

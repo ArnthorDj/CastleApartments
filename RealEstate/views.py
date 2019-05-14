@@ -9,22 +9,24 @@ def index(request):
     #real_estates = {"real_estates":  RealEstates.objects.all()}
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        # ZipCodes.objects.get(zip_code='zip_code_id')
+        # zip_city = RealEstates.objects.all().values('zip_code__city')
 
         real_estate = [{
             'street': x.street,
             'zip_code_id': x.zip_code_id,
-            # 'city': x.zip_code__ci,
+            'city': x.zip_code.city,
             'bedrooms': x.bedrooms,
             'bathrooms': x.bathrooms,
             'size': x.size,
             'type': x.type,
             'price': x.price,
+            'main_image': x.main_image
             # 'main_image': x.main_image.image
         }
-            for x in RealEstates.objects.filter(street__icontains=search_filter)]
+            for x in RealEstates.objects.select_related('zip_code').filter(street__icontains=search_filter)]
         return JsonResponse({'data': real_estate})
-    return render(request, 'RealEstate/index.html', {
+
+    return render(request, 'RealEstate/order.html', {
         "real_estates":  RealEstates.objects.all()
     })
 
@@ -72,27 +74,29 @@ def payment_information(request):
 
 
 
-# def search(request):
-#     if 'search_filter' in request.GET:
-#         search_filter = request.GET['search_filter']
-#         real_estates = list(RealEstates.objects.filter(street__icontains=search_filter).values())
-#         return JsonResponse({'data':real_estates})
-#     context = {'real_estate': RealEstates.objects.all().order_by('street')}
-#     return render(request, 'RealEstate/index.html', context)
-
-
-
 def real_estate_zip(request):
-    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code")})
+    return render(request, 'RealEstate/zip.html', {"real_estates": RealEstates.objects.all().order_by("zip_code")})
+
 
 def real_estate_street(request):
-    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("street")})
+    return render(request, 'RealEstate/street.html', {"real_estates": RealEstates.objects.all().order_by("street")})
+
 
 def real_estate_size(request):
-    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("size")})
+    return render(request, 'RealEstate/size.html', {"real_estates": RealEstates.objects.all().order_by("size")})
+
 
 def real_estate_price(request):
-    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("price")})
+    return render(request, 'RealEstate/price.html', {"real_estates": RealEstates.objects.all().order_by("price")})
+
 
 def real_estate_city(request):
-    return render(request, 'RealEstate/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
+    return render(request, 'RealEstate/city.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
+
+
+def real_estate_bathrooms(request):
+    return render(request, 'RealEstate/bathrooms.html', {"real_estates": RealEstates.objects.all().order_by("bathrooms")})
+
+
+def real_estate_bedrooms(request):
+    return render(request, 'RealEstate/bedrooms.html', {"real_estates": RealEstates.objects.all().order_by("bedrooms")})

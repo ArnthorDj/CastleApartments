@@ -15,4 +15,6 @@ urlpatterns = [
     path("size/", views.real_estate_size, name="real_estate_size"),
     path("price/", views.real_estate_price, name="real_estate_price"),
     path("city/", views.real_estate_city, name="real_estate_city"),
+    path("bathrooms/", views.real_estate_bathrooms, name="real_estate_bathrooms"),
+    path("bedrooms/", views.real_estate_bedrooms, name="real_estate_bedrooms"),
 ]
