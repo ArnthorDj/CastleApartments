@@ -11,7 +11,7 @@ def pending_zip(request):
     return render(request, 'Pending/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code")})
 
 def pending_street(request):
-    return render(request, 'Pending/index.html', {"real_estates": RealEstates.objects.all().order_by("street")})
+    return render(request, 'Pending/index.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
 
 def pending_size(request):
     return render(request, 'Pending/index.html', {"real_estates": RealEstates.objects.all().order_by("size")})

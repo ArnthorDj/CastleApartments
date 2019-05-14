@@ -1,5 +1,6 @@
 {% extends 'litill_search_bar.html' %}
 {% load static %}
+<script src="{% static 'js/urls.js' %}"></script>
 
 
 
@@ -9,15 +10,16 @@
         </div>
 
     <form class="dropdown" action="/action_page.php">
-              <select name="size">
-                  <option value="order_by">Order by</option>
-                  <option value="zip">Zip</option>
-                  <option value="street">Street Name</option>
-                  <option value="size">Size</option>
-                  <option value="price">Price</option>
+              <select id="real_estate_order" name="order">
+                  <option value="">Order by</option>
+                  <option value="{% url 'real_estate_zip' %}">Zip</option>
+                  <option value="{% url 'real_estate_street' %}">Street Name</option>
+                  <option value="{% url 'real_estate_size' %}">Size</option>
+                  <option value="{% url 'real_estate_price' %}">Price</option>
               </select>
+
         </form>
-            <button href="#">Go</button>
+    <button type="submit" class="btn btn-block btn-lg btn-primary" id="real_estate_order" onclick="gotosite()">Go</button>
 
         <main id="main">
         {% for house in real_estates %}
