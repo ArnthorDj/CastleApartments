@@ -8,10 +8,10 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  /*display: flex;*/
-  /*flex-direction: row;*/
-  /*max-width: 70%;*/
-  /*position: relative;*/
+  display: flex;
+  flex-direction: row;
+  max-width: 70%;
+  position: relative;
   margin: auto;
   margin: 0px;
 }
