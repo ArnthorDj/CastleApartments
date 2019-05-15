@@ -7,6 +7,7 @@
 
 <div class="slideshow-container">
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+
 {% for image in images %}
 <div class="mySlides">
   <img src="{{ image.image }}" style="width:100%">
@@ -19,8 +20,20 @@
 <script src="{% static 'js/img_slider.js' %}">
 
 </script>
-    <textarea rows="5" cols="10" class="moreinfobox1">Details: {{ real_estate.seller_id }} </textarea>
-    <textarea rows="10" cols="30" class="moreinfobox2">Description: {{ real_estate.more_info }} </textarea>
+    <pre class="moreinfobox1">{{ real_estate.street }},
+
+
+        {{ real_estate.zip_code.city }} {{ real_estate.zip_code.zip_code }}</pre>
+    <textarea rows="5" cols="10" class="moreinfobox1">Details:
+           {{ employee.user.first_name }}
+
+
+
+
+
+
+        {{ employee.user.last_name }} </textarea>
+    <textarea rows="10" cols="30" class="moreinfobox2" readonly="readonly">Description: {{ real_estate.more_info }} </textarea>
     <a href="/real_estate/pay/"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Buy</button></a>
     <div class="recentlyviewed">
         <p>Recently viewed</p>
