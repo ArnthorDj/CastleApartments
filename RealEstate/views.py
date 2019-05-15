@@ -5,7 +5,6 @@ from User.models import UserHistory, Profile
 #from django.contrib.auth.models import User
 from django.http import JsonResponse
 import datetime
-from django.db.models import Q
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 
@@ -27,8 +26,7 @@ def index(request):
             'main_image': x.main_image
             # 'main_image': x.main_image.image
         }
-            for x in RealEstates.objects.filter(Q(street__icontains=search_filter) | Q(zip_code=search_filter) | Q(
-                zip_code__city__icontains=search_filter))]
+            for x in RealEstates.objects.select_related('zip_code').filter(street__icontains=search_filter)]
         return JsonResponse({'data': real_estate})
 
     return render(request, 'RealEstate/order.html', {
@@ -75,13 +73,14 @@ def payment_confirmation(request):
 # return HttpResponse("Hello from the index function within the YourRealEstate app!")
 
 
-def payment_information(request):
-    form = CreatePaymentForm(data=request.POST)
-    if form.is_valid():
-        form.save()
-        return redirect('confirmation_index')
-    else:
-        form = CreatePaymentForm()
+def payment_information(request, id):
+    if request.method == 'POST':
+        form = CreatePaymentForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('confirmation_index')
+        else:
+            form = CreatePaymentForm()
     return render(request, 'PaymentInformation/index.html', {
          'form': form
          })
