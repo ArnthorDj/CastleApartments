@@ -10,10 +10,10 @@
             <div class="well real estate" >
                 <a href="/real_estate/info/{{ real_estate.id }}">
                 <img src="{{ real_estate.main_image }}" height="250px" width="350px">
-                <h4 class="black-font">{{ real_estate.street }}, {{ real_estate.zip_code }} {{ real_estate.city }}</h4>
+                <h4 class="black-font">{{ real_estate.street }}, {{ real_estate.zip_code_id }} {{ real_estate.city }}</h4>
                     <p class="black-font"> <b>Bedrooms:</b> {{ real_estate.bedrooms }},<b> Bathrooms:</b> {{ real_estate.bedrooms }}, <b>Size:</b> {{ real_estate.size }}<b> square meters</b></p>
                 <p class="black-font"><b> Type: </b>{{ real_estate.type }}</p>
-                <p class="black-font">{{ real_estate.price }} kr.</p></a>
+                <p class="black-font" id="price">{{ real_estate.price }} kr.</p></a>
             </div>
             {% endfor %}
         </main>
