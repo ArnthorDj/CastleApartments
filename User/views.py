@@ -56,18 +56,11 @@ def profile_update(request):
 
 
 def user_history(request):
-
     real_estate_id = UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
 
-    #print(real_estate_id[0].real_estate_id)
     for real_estate in real_estate_id:
         print(real_estate.real_estate.main_image)
-
-    print("asdfasdfasfdasdfasdfASDFASDFASFASDFASDFASDFASFASDFASDFASDFADSFADS")
-
 
     return render(request, 'UserHistory//index.html', {
         'real_estates': UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
     })
-
-
