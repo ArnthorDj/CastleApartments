@@ -44,7 +44,7 @@ def get_real_estate_by_id(request, id):
 
     return render(request, 'RealEstateInformation/index.html', {
         'real_estate': get_list_or_404(RealEstates, pk=id),
-        'images': get_list_or_404(RealEstateImages, real_estate_id=id)
+        'images': get_list_or_404(RealEstateImages, real_estate_id=id),
     })
 
 # def addRealEstate(request):

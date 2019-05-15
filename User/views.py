@@ -62,3 +62,10 @@ def user_history(request):
     return render(request, 'UserHistory/index.html', {
         'real_estates': UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
     })
+
+
+def delete_history(request):
+
+    UserHistory.objects.filter(user_id=request.user).delete()
+
+    return redirect("user_history")
