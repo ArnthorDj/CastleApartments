@@ -16,6 +16,7 @@ def index(request):
         # zip_city = RealEstates.objects.all().values('zip_code__city')
 
         real_estate = [{
+            'id': x.id,
             'street': x.street,
             'zip_code_id': x.zip_code_id,
             'city': x.zip_code.city,
