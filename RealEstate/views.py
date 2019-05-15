@@ -74,14 +74,17 @@ def payment_confirmation(request):
 
 
 def payment_information(request):
-    form = CreatePaymentForm(data=request.POST)
-    if form.is_valid():
-        form.save()
-        return redirect('confirmation_index')
+    #print(id)
+    if request.method == "POST":
+        form = CreatePaymentForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('confirmation_index')
     else:
         form = CreatePaymentForm()
     return render(request, 'PaymentInformation/index.html', {
-         'form': form
+        'form': form,
+        'id': id
          })
 
 
