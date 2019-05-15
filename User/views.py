@@ -9,14 +9,9 @@ def register(request):
     if request.method == "POST":
         auth_user_form = AuthUserForm(data=request.POST)
         user_profile_form = UserProfile(data=request.POST)
-        #contact_information_form = ContactInformationForm(data=request.POST)
 
         if auth_user_form.is_valid() and user_profile_form.is_valid():
             auth_user_form.save()
-            #contact_information_form.save()
-
-            #User._meta.get_field('first_name')._unique = False
-            #User._meta.get_field('last_name')._unique = False
 
             profile = user_profile_form.save(commit=False)
             current_user = User.objects.get(username=auth_user_form.cleaned_data.get('username'))
@@ -29,11 +24,9 @@ def register(request):
     else:
         auth_user_form = AuthUserForm()
         user_profile_form = UserProfile()
-        #contact_information_form = ContactInformationForm()
     return render(request, 'User/register.html', {
         "auth_user_form": auth_user_form,
         "user_profile_form": user_profile_form,
-        #"contact_information_form": ContactInformationForm
     })
 
 
