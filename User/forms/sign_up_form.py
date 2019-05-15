@@ -28,7 +28,7 @@ class UserProfile(ModelForm):
             "ssn": widgets.NumberInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "phone": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "street": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
-            "zip_code": widgets.Select(attrs={'class': 'form-control', 'style': 'max-width: 20em'})
+            "zip_code": widgets.Select(choices=[("1", "2")], attrs={'class': 'form-control', 'style': 'max-width: 20em'})
         }
 
 # class ContactInformationForm(ModelForm):
