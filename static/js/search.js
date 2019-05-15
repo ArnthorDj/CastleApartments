@@ -10,13 +10,13 @@ $(document).ready(function() {
         type: 'GET',
         success: function (resp) {
             var newHtml = resp.data.map(d => {
-                return `<div class="well real_estate">
-                            <a href="real_estate/$(d.id)">
-                                <img src="${d.main_image}" height="100" width="200"> 
-                                <h4>${d.street}, ${d.zip_code_id}, ${d.city}</h4>
-                                <p>Bedrooms: ${d.bedrooms}, Bathrooms: ${d.bathromms}, Size: ${d.size} square meters</p>
-                                <p>Type: ${d.type}</p>
-                                <p>${d.price} kr.</p>
+                return `<div class="well real estate">
+                            <a href="/real_estate/info/$(d.id)">
+                                <img src="${d.main_image}" height="200" width="300"> 
+                                <h4 style="color: black">${d.street}, ${d.zip_code_id}, ${d.city}</h4>
+                                <p style="color: black">Bedrooms: ${d.bedrooms}, Bathrooms: ${d.bathromms}, Size: ${d.size} square meters</p>
+                                <p style="color: black">Type: ${d.type}</p>
+                                <p style="color: black">${d.price} kr.</p>
                             </a>
             
                          </div>`
