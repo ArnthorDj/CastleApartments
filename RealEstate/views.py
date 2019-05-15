@@ -16,6 +16,7 @@ def index(request):
         # zip_city = RealEstates.objects.all().values('zip_code__city')
 
         real_estate = [{
+            'id': x.id,
             'street': x.street,
             'zip_code_id': x.zip_code_id,
             'city': x.zip_code.city,
@@ -75,8 +76,13 @@ def get_real_estate_by_id(request, id):
 # return HttpResponse("Hello from the index function within the YourRealEstate app!")
 
 
+<<<<<<< HEAD
 def payment_information(request, id):
     credit_card = CreditCard.objects.get(user_id=request.user.profile.id)
+=======
+def payment_information(request,id):
+    #print(id)
+>>>>>>> 356438c2ee2da63ebb7434c8a907525864370d9a
     if request.method == "POST":
         credit_card_form = CreatePaymentForm(data=request.POST, instance=credit_card)
         if credit_card_form.is_valid():

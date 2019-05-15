@@ -20,8 +20,10 @@ def index(request):
             'main_image': x.main_image
             # 'main_image': x.main_image.image
         }
-            for x in RealEstates.objects.select_related('zip_code').filter(street__icontains=search_filter)]
+            for x in RealEstates.objects.filter(Q(street__icontains=search_filter) | Q(zip_code=search_filter) | Q(
+                zip_code__city__icontains=search_filter))]
         return JsonResponse({'data': real_estate})
+
 
     real_estate = RealEstates.objects.all().order_by('zip_code__city')[:6]
     return render(request, 'Home/index.html',
