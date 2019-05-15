@@ -6,13 +6,13 @@
 
 {% block content %}
         <div class="container2">
-            <h2 class="red">Real Estates</h2>
+            <h2 class="page-header">Real Estates</h2>
         </div>
 
             {% block order_by %}
         {% endblock %}
 
-        <main class="main">
+        <main id="main">
         {% for house in real_estates %}
             {% include 'RealEstate/single_real_estate.html' with house=house %}
         {% endfor %}
