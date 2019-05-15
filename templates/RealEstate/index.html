@@ -12,7 +12,7 @@
             {% block order_by %}
         {% endblock %}
 
-        <main class="main">
+        <main id="main">
         {% for house in real_estates %}
             {% include 'RealEstate/single_real_estate.html' with house=house %}
         {% endfor %}

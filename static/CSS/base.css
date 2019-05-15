@@ -41,6 +41,7 @@ a{
     border: 2px solid #000000;
     padding:5px;
     color: slateblue;
+
 }
 .moreinfobox2{
     border-color: #222222;
@@ -88,21 +89,19 @@ a{
 }
 
 .well {
-    width: 35rem;
-    /*display: flex;*/
-    /*justify-content: space-between;*/
-    position: center;
-    margin: 20px;
+    width: 30%;
+    margin-bottom: 20px;
     text-align: center;
     display: inline-block;
     border-radius: 10px;
-    /*border: 2px solid #000000;*/
-    /*color: slateblue;*/
-    height: 35rem;
-    margin-left: 30px;
-
-
+    padding:5px;
 }
+
+.black-font{
+    color: black;
+}
+
+
 
 
 
