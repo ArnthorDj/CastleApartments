@@ -10,14 +10,13 @@
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             {% for image in images %}
             <div class="mySlides">
-                <img src="{{ image.image }}" style="width:70%">
+                <img src="{{ image.image }}" style="width:100%">
             </div>
             {% endfor %}
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
     <script src="{% static 'js/img_slider.js' %}"></script>
-
                 <div class="moreinfo-box1">
                     <p><b> Contact realtor for more information: </b></p>
                     <img id="realator-img" src="{{ employee.profile_image }}" width="50%"> <br>
@@ -35,6 +34,7 @@
         </div>
             <a class="buy" href="/real_estate/pay/"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
     </div>
+
 
 
 {% endblock %}#}
