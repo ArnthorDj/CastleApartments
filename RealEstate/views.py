@@ -75,7 +75,7 @@ def payment_confirmation(request):
 # return HttpResponse("Hello from the index function within the YourRealEstate app!")
 
 
-def payment_information(request):
+def payment_information(request,id):
     #print(id)
     if request.method == "POST":
         form = CreatePaymentForm(data=request.POST)
