@@ -55,15 +55,27 @@ a{
     display: inline-block;
 }
 
-.moreinfobox1{
-     border-color: #222222;
-    width: 20%;
-    height: 20%;
-    resize: none;
-    display: block;
-    float: right;
+
+
+.moreinfo-box1{
+    border-color: #222222;
+    padding: 20px;
+    width: 30%;
+}
+
+.moreinfo-text{
+    height: 55rem;
+    width: 30rem;
 
 }
+
+.moreinfo-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    }
+
 
 .recentlyviewed {
   background-color: #f1f1f1;
@@ -191,7 +203,6 @@ footer [class ^= 'footer-'] {
     height: 20rem;
     background-color: #7FA2CA;
     border-width: 3rem;
-    margin-top: 3rem;
     padding-top: 3rem;
 }
 
