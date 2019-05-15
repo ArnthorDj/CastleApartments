@@ -16,7 +16,7 @@ $(document).ready(function() {
                                 <h4 class="black-font">${d.street}, ${d.zip_code_id}, ${d.city}</h4>
                                 <p class="black-font">Bedrooms: ${d.bedrooms}, Bathrooms: ${d.bathromms}, Size: ${d.size} square meters</p>
                                 <p class="black-font">Type: ${d.type}</p>
-                                <p class="black-font">${d.price} kr.</p>
+                                <p class="black-font" id="price">${d.price} kr.</p>
                             </a>
             
                          </div>`
