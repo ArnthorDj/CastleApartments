@@ -88,18 +88,14 @@ a{
     height: 30rem;
 }
 
-.infotext-realestate{
-
-}
-
 .buy{
-    width: 10%;
+    width: 20%;
 }
 
-#button{
-    float: right;
-    margin: 3%;
 
+
+#text-street{
+    font-size: 20px;
 }
 
 /************/
