@@ -5,6 +5,7 @@ from User.models import UserHistory, Profile
 #from django.contrib.auth.models import User
 from django.http import JsonResponse
 import datetime
+from django.db.models import Q
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 
@@ -26,7 +27,8 @@ def index(request):
             'main_image': x.main_image
             # 'main_image': x.main_image.image
         }
-            for x in RealEstates.objects.select_related('zip_code').filter(street__icontains=search_filter)]
+            for x in RealEstates.objects.filter(Q(street__icontains=search_filter) | Q(zip_code=search_filter) | Q(
+                zip_code__city__icontains=search_filter))]
         return JsonResponse({'data': real_estate})
 
     return render(request, 'RealEstate/order.html', {
