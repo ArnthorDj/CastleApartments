@@ -3,18 +3,18 @@ from User.models import CreditCard
 
 
 MONTHS = {
-    'January': '01',
-    'February': '02',
-    'March': '03',
-    'April': '04',
-    'May': '05',
-    'June': '06',
-    'July': '07',
-    'August': '08',
-    'September': '09',
-    'October': '10',
-    'November': '11',
-    'December': '12'
+    '1':'January',
+    '2':'February',
+    '3':'March',
+    '4':'April',
+    '5':'May',
+    '6':'June',
+    '7':'July',
+    '8':'August',
+    '9':'September',
+    '10':'October',
+    '11':'November',
+    '12':'December'
     }
 
 
@@ -22,9 +22,10 @@ class CreatePaymentForm(ModelForm):
     class Meta:
         model = CreditCard
         fields = '__all__'
+        exclude = ['user']
         widgets = {
             'card_number': widgets.TextInput(attrs={'class': 'form-control', 'placeholder':'Card number'}),
-            'month': widgets.Select(attrs={'class': 'form-control', 'placeholder': 'Month'}),
+            'month': widgets.SelectDateWidget(months=MONTHS, years=None, attrs={'class': 'form-control', 'placeholder': 'Month'}),
             'year': widgets.Select(attrs={'class': 'form-control', 'placeholder': 'Year'}),
             'cvc': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'CVC'})
         }
