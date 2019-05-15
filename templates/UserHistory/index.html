@@ -1,0 +1,23 @@
+{% extends 'ekki_search_bar.html' %}
+{% load static %}
+<script src="{% static 'js/urls.js' %}"></script>
+
+
+
+{% block content %}
+        <div class="container2">
+            <h2 class="red">Real Estates</h2>
+        </div>
+
+            {% block order_by %}
+        {% endblock %}
+
+        <main class="main">
+        {% for real_estate in real_estates %}
+            {% include 'UserHistory/single_real_estate_user_history.html' with real_estate=real_estate %}
+        {% endfor %}
+
+
+        </main>
+
+    {% endblock %}

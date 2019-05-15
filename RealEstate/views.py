@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from RealEstate.models import RealEstates, RealEstateImages, ZipCodes
 from RealEstate.forms.payment_information_form import CreatePaymentForm
+from User.models import UserHistory
 from django.http import JsonResponse
+import datetime
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 
@@ -32,6 +34,13 @@ def index(request):
 
 
 def get_real_estate_by_id(request, id):
+
+    if UserHistory.objects.filter(real_estate_id=id).all().count() == 0:
+        user_his = UserHistory(real_estate_id=id, user=request.user)
+        user_his.save()
+    else:
+        UserHistory.objects.filter(real_estate_id=id, user=request.user).update(date=datetime.date.today())
+
     return render(request, 'RealEstateInformation/index.html', {
         'real_estate': get_list_or_404(RealEstates, pk=id),
         'images': get_list_or_404(RealEstateImages, real_estate_id=id)
