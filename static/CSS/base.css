@@ -56,40 +56,53 @@ a{
 }
 
 
+/*Css for real_estate/info */
 
 .moreinfo-box1{
     border-color: #222222;
     padding: 20px;
     width: 30%;
+    position: center;
 }
 
 .moreinfo-text{
     height: 55rem;
     width: 30rem;
+    border-style: solid;
 
 }
 
 .moreinfo-container{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: inherit;
+    justify-content: space-evenly;
     padding: 20px;
     }
 
+.infobox-realestate{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-evenly;
+    width: 80rem;
+    height: 30rem;
+}
 
-.recentlyviewed {
-  background-color: #f1f1f1;
-  padding: 70px;
+.infotext-realestate{
+
+}
+
+.buy{
+    width: 10%;
 }
 
 #button{
     float: right;
-    width: 7%;
-    height: 7%;
     margin: 3%;
+
 }
 
-
+/************/
 
 .employee {
     color: black;

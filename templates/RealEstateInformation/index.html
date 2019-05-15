@@ -10,40 +10,31 @@
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             {% for image in images %}
             <div class="mySlides">
-                <img src="{{ image.image }}" style="width:100%">
+                <img src="{{ image.image }}" style="width:70%">
             </div>
             {% endfor %}
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
     <script src="{% static 'js/img_slider.js' %}"></script>
+
                 <div class="moreinfo-box1">
-                    <pre class="moreinfo-text">{{ real_estate.street }},
-                        {{ real_estate.zip_code.city }} {{ real_estate.zip_code.zip_code }}
-                    </pre>
+                    <p><b> Contact realtor for more information: </b></p>
+                    <img id="realator-img" src="{{ employee.profile_image }}" width="50%"> <br>
+                    <p></p>
+                    {{ employee.user.first_name }} {{ employee.user.last_name }}<br>
+                    Email: {{ employee.user.email }}<br>
+                    Phone: {{ employee.phone }}
                 </div>
 </div>
-{##}
-{#    <textarea rows="5" cols="10" class="moreinfobox1">Details:#}
-{#           {{ employee.user.first_name }} {{ employee.user.last_name }} </textarea>#}
-{#    <textarea rows="10" cols="30" class="moreinfobox2" readonly="readonly">Description: {{ real_estate.more_info }} </textarea>#}
-{#    <a href="/real_estate/pay/"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Buy</button></a>#}
-{#    <div class="recentlyviewed">#}
-{#        <p>Recently viewed</p>#}
-{#        <p> MYNDIR MYNDIR MYNDIR MYNDIR </p>#}
-{#    </div>#}
-{##}
-{#<script src="{% static 'js/img_slider.js' %}">#}
-{##}
-{#</script>#}
-{#    <pre class="moreinfobox1">{{ real_estate.street }}, {{ real_estate.zip_code.city }} {{ real_estate.zip_code.zip_code }}</pre>#}
-{#    <textarea rows="5" cols="10" class="moreinfobox1">Details: {{ employee.user.first_name }} {{ employee.user.last_name }} </textarea>#}
-{#    <textarea rows="10" cols="30" class="moreinfobox2" readonly="readonly">Description: {{ real_estate.more_info }} </textarea>#}
-{#    <a href="/real_estate/pay/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Buy</button></a>#}
-{#    <div class="recentlyviewed">#}
-{#        <p>Recently viewed</p>#}
-{#        <p> MYNDIR MYNDIR MYNDIR MYNDIR </p>#}
-{#    </div>#}
+    <div class="infobox-realestate">
+        <div class="infotext-realestate"-realestate> <b>{{ real_estate.street }}, {{ real_estate.zip_code.zip_code }} {{ real_estate.zip_code.city }}</b><br>
+
+            {{ real_estate.more_info}}
+
+        </div>
+            <a class="buy" href="/real_estate/pay/"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
+    </div>
 
 
 {% endblock %}#}
