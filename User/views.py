@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from User.forms.sign_up_form import UserProfile, AuthUserForm#, ContactInformationForm
 from django.contrib import messages
 
+
 def register(request):
     if request.method == "POST":
         auth_user_form = AuthUserForm(data=request.POST)
@@ -12,9 +13,6 @@ def register(request):
 
         if auth_user_form.is_valid() and user_profile_form.is_valid():
             auth_user_form.save()
-
-            #User._meta.get_field('first_name')._unique = False
-            #User._meta.get_field('last_name')._unique = False
 
             profile = user_profile_form.save(commit=False)
             current_user = User.objects.get(username=auth_user_form.cleaned_data.get('username'))
@@ -56,18 +54,11 @@ def profile_update(request):
 
 
 def user_history(request):
+    #real_estate_id = UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
 
-    real_estate_id = UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
+    #for real_estate in real_estate_id:
+    #    print(real_estate.real_estate.main_image)
 
-    #print(real_estate_id[0].real_estate_id)
-    for real_estate in real_estate_id:
-        print(real_estate.real_estate.main_image)
-
-    print("asdfasdfasfdasdfasdfASDFASDFASFASDFASDFASDFASFASDFASDFASDFADSFADS")
-
-
-    return render(request, 'UserHistory//index.html', {
+    return render(request, 'UserHistory/index.html', {
         'real_estates': UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
     })
-
-

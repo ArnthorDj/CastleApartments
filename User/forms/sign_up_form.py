@@ -24,10 +24,6 @@ class UserProfile(ModelForm):
         model = Profile
         exclude = ["id", "user", 'profile_image']
 
-        #choices = []
-        #for zip_code in ZipCodes.objects.all().values('zip_code'):
-        #    choices.append((zip_code['zip_code'], zip_code['zip_code']))
-
         widgets = {
             "ssn": widgets.NumberInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "phone": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
