@@ -2,7 +2,9 @@
 
 {% block content %}
     <h2 style="text-align: center"><b>Staff members of Castle Apartments Ltd.</b></h2><br>
+    <main id="main">
     {% for employee in employees %}
         {% include 'Employees/single_employee.html' with employee=employee %}
     {% endfor %}
+    </main>
 {% endblock %}
