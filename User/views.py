@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from User.models import Profile
+from User.models import Profile, UserHistory
 from User.forms.profile_form import ProfileForm, AuthUser
 from django.contrib.auth.models import User
 from User.forms.sign_up_form import UserProfile, AuthUserForm#, ContactInformationForm
@@ -9,11 +9,9 @@ def register(request):
     if request.method == "POST":
         auth_user_form = AuthUserForm(data=request.POST)
         user_profile_form = UserProfile(data=request.POST)
-        #contact_information_form = ContactInformationForm(data=request.POST)
 
         if auth_user_form.is_valid() and user_profile_form.is_valid():
             auth_user_form.save()
-            #contact_information_form.save()
 
             #User._meta.get_field('first_name')._unique = False
             #User._meta.get_field('last_name')._unique = False
@@ -29,11 +27,9 @@ def register(request):
     else:
         auth_user_form = AuthUserForm()
         user_profile_form = UserProfile()
-        #contact_information_form = ContactInformationForm()
     return render(request, 'User/register.html', {
         "auth_user_form": auth_user_form,
         "user_profile_form": user_profile_form,
-        #"contact_information_form": ContactInformationForm
     })
 
 
@@ -56,6 +52,22 @@ def profile_update(request):
     return render(request, "User/profile.html", {
         "profile_form": ProfileForm(instance=profile),
         "auth_user_form": AuthUser(instance=user)
+    })
+
+
+def user_history(request):
+
+    real_estate_id = UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
+
+    #print(real_estate_id[0].real_estate_id)
+    for real_estate in real_estate_id:
+        print(real_estate.real_estate.main_image)
+
+    print("asdfasdfasfdasdfasdfASDFASDFASFASDFASDFASDFASFASDFASDFASDFADSFADS")
+
+
+    return render(request, 'UserHistory//index.html', {
+        'real_estates': UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
     })
 
 
