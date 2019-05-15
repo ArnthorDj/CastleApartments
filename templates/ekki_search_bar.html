@@ -32,7 +32,7 @@
             {% if user.is_authenticated %}
                 <li><a id="profile" href="{% url 'profile' %}">Profile</a></li>
                 {% if user.is_staff %}
-                    <li><a id="Add Real Estate" href="{% url 'pending_index' %}">Pending</a></li>
+                    <li><a id="Add Real Estate" href="{% url 'add_real_estate_index' %}">Pending</a></li>
                 {% else %}
                     <li><a id="History" href="{% url 'user_history' %}">Your Real Estate</a></li>
                 {% endif %}
