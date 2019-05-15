@@ -4,24 +4,78 @@
 
     <h3>Confirmation step</h3>
 
-    <textarea disabled rows="10" cols="30" class="moreinfobox2">Info about the real estate + payment info </textarea>
+    <table>
+        <tr>
+            <td>
+                <h4>Seller: </h4>
+            </td>
+            <td>
+                <h4>{{ real_estate.employee.first_name }} {{ real_estate.employee.last_name }}</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Buyer: </h4>
+            </td>
+            <td>
+                <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Location: </h4>
+            </td>
+            <td>
+                <h4>{{ real_estate.street }}, {{ real_estate.zip_code.zip_code   }} {{ real_estate.zip_code.city }}, {{ real_estate.zip_code.country }}</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Size: </h4>
+            </td>
+            <td>
+                <h4>{{ real_estate.size }} square <meters></meters></h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Bedrooms: </h4>
+            </td>
+            <td>
+                <h4>{{ real_estate.bedrooms }}</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Bathrooms: </h4>
+            </td>
+            <td>
+                <h4>{{ real_estate.bathrooms }}</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Type: </h4>
+            </td>
+            <td>
+                <h4>{{ real_estate.type }}</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Price: </h4>
+            </td>
+            <td>
+                <h4>{{ real_estate.price }}</h4>
+            </td>
+        </tr>
+    </table>
+    <form method="post">
+        <input type="number" name="cvc" id="cvc" placeholder="CVC" min="000" max="999">
+    </form>
+
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal">Confirm Purchase</button>
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Your Real Estate has been bought!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-footer">
-                    <a href="{% url 'home_index' %}"><button type="button" class="btn btn-primary">Go Home</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a href="{% url 'payment_information_index' %}"><button id="button" type="submit" class="btn btn-block btn-lg btn-primary">Go Back</button></a>
+
 
 {% endblock %}
