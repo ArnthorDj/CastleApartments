@@ -10,7 +10,7 @@
       <div class="row justify-content-center">
         <div class="col-10">
           <h1> Profile </h1>
-
+            <img src="{{ user.profile.profile_image }}">
             <form method="post">
             {% csrf_token %}
                 {{ profile_form|crispy }}

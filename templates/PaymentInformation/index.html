@@ -3,14 +3,13 @@
 {% block content %}
  <h3>Payment Information</h3>
     <div class="pay-info">
-    <form class="payment-form" method = "post" action="{% url 'payment_confirmation' %}" style="width: 70%;">
+    <form class="payment-form" method = "post" style="width: 70%;">
     {% csrf_token %}
-    {{ form }}
-        <submit href="#">Pay</submit>
+    {{ credit_card_form }}
+        <input type="submit" href="real_estate/pay/{{ id }}/confirmation" class="btn btn-primary pull-right">Pay</input>
     </form>
         <div style="display:inline-block;">
-            <!--<a href="{% url 'payment_confirmation' %}"><button type="submit" id="pay" class="btn btn-primary pull-right" style="display: inline-block;"> Pay </button></a>-->
-            <a href="real_estate/info/{{ id }}"><button type="submit" id="go-back" class="btn btn-primary pull-right" style="display: inline-block;"> Go Back </button></a>
+            <a href="/real_estate/info/{{ id }}"><button type="submit" id="go-back" class="btn btn-primary pull-right" style="display: inline-block;"> Go Back </button></a>
         </div>
     </div>
 {% endblock %}
