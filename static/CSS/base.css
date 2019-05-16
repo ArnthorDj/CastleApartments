@@ -141,6 +141,52 @@ line-height: 0px;
     padding:5px;
 }
 
+
+/*Responsive css for front page */
+@media only screen and (max-width: 1200px) {
+    .well {
+        width: 40%;
+    }
+    #see-more-btn{
+        font-size: 5px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .well {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 994px) {
+    .footer-left {
+        font-size: 10px;
+        /*display: inline-block;*/
+        /*margin-bottom:20px;*/
+        /*text-align:center;*/
+    }
+    .footer_left{
+        font-size: 15px;
+    }
+    .footer_right{
+        font-size: 10px;
+    }
+    #socialmedia-header{
+        font-size: 15px;
+    }
+    .footer-center{
+        font-size: 10px;
+    }
+    #about-us-header{
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
 .black-font{
     color: black;
 }
