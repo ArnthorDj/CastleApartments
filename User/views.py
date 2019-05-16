@@ -13,6 +13,13 @@ def register(request):
         user_profile_form = UserProfile(data=request.POST)
 
         if auth_user_form.is_valid() and user_profile_form.is_valid():
+
+            ssn = str(user_profile_form.cleaned_data.get('ssn'))
+            ssn = ssn.replace('-', '')
+            if len(ssn) != 10 or not ssn.isdigit():
+                messages.warning(request, f'SSN is not valid (10 numbers)!')
+                return redirect('register')
+
             auth_user_form.save()
 
             profile = user_profile_form.save(commit=False)
@@ -40,7 +47,11 @@ def profile_update(request):
         profile_form = ProfileForm(instance=profile, data=request.POST)
         auth_user_form = AuthUser(instance=user,   data=request.POST)
         if profile_form.is_valid() and auth_user_form.is_valid():
-
+            ssn = str(profile_form.cleaned_data.get('ssn'))
+            ssn = ssn.replace('-', '')
+            if len(ssn) != 10 or not ssn.isdigit():
+                messages.warning(request, f'SSN is not valid (10 numbers)!')
+                return redirect('profile')
             profile = profile_form.save(commit=False)
             profile.user = request.user
             profile.save()
