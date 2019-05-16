@@ -18,6 +18,8 @@ a{
 
     font-family: "Comic Sans MS";
     font-size: x-large;
+    line-height: 0%;
+    padding-right: 5%;
 
 }
 
@@ -173,13 +175,29 @@ line-height: 0px;
         width: 40%;
     }
     #see-more-btn{
-        font-size: 5px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    li a {
+        padding: 12px 30px 12px 30px;
+    }
+    #see-more-btn{
+        font-size: 14px;
     }
 }
 
 @media only screen and (max-width: 800px){
     .well {
         width: 80%;
+    }
+
+    li a {
+        padding: 1px;
+    }
+    #see-more-btn{
+        font-size: 8px;
     }
 }
 
@@ -204,6 +222,9 @@ line-height: 0px;
     }
     #about-us-header{
         font-size: 15px;
+    }
+    li a {
+        padding: 12px 20px 12px 20px;
     }
 }
 

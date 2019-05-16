@@ -3,14 +3,14 @@ ul {
     display: flex;
     justify-content: center;
     align-self:center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgba(0,0,0,0.5);
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 5.05%;
 }
@@ -20,12 +20,14 @@ li {
 }
 
 li a {
-    display: block;
+    display: flex;
     color: white;
     text-align: center;
     text-decoration: none;
     font-size: 18px;
     padding: 12px 50px 12px 50px;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 li a:hover {
