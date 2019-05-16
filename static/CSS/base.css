@@ -41,6 +41,20 @@ a{
   text-align: center;
 }
 
+@media only screen and (max-width: 830px) {
+    #search-btn {
+        font-size: 70%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #search-btn {
+        font-size: 50%;
+        width: 150%;
+    }
+}
+
+
 
 #single-image{
     width: 100%;
