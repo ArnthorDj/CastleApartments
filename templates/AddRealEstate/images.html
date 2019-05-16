@@ -1,13 +1,104 @@
 {% extends "stor_mynd.html" %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="../../static/CSS/slider.css">
 
-
-    <div>
-    <form class="add-form" action="{% url 'add_real_estate_index' %}" method="post" style="/*display: inline-block;*/ display: flex; align-items: center; justify-content: center; flex-direction: column"/>
-    {% csrf_token %}
-    {{ form }}
+    <div style="display: inline-flex; flex-wrap: wrap; ">
+            <form class="add-form" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column"/>
+            {% csrf_token %}
+            <div style="display: inline-flex; flex-wrap: wrap; ">
+                <div>
+                    <p>{{ image1.id }}</p>
+                    <img src="{{ image1.image }}" style="height: 200px; width: 300px;">
+                    <div>
+                        {{ image_form_1 }}
+                    </div>
+                </div>
+            </div>
 {#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
-         <button type="submit" class="formatted-btn btn-primary">Add</button>
-    </form>
+            <button type="submit" class="formatted-btn btn-primary">Update</button>
+            </form>
+    <form class="add-form" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column"/>
+            {% csrf_token %}
+            <div style="display: inline-flex; flex-wrap: wrap; ">
+                <div>
+                    <p>{{ image2.id }}</p>
+                    <img src="{{ image2.image }}" style="height: 200px; width: 300px;">
+                    <div>
+                        {{ image_form_2 }}
+                    </div>
+                </div>
+            </div>
+{#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
+            <button type="submit" class="formatted-btn btn-primary">Update</button>
+            </form>
+    <form class="add-form" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column"/>
+            {% csrf_token %}
+            <div style="display: inline-flex; flex-wrap: wrap; ">
+                <div>
+                    <p>{{ image3.id }}</p>
+                    <img src="{{ image3.image }}" style="height: 200px; width: 300px;">
+                    <div>
+                        {{ image_form_3 }}
+                    </div>
+                </div>
+            </div>
+{#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
+            <button type="submit" class="formatted-btn btn-primary">Update</button>
+            </form>
+    <form class="add-form" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column"/>
+            {% csrf_token %}
+            <div style="display: inline-flex; flex-wrap: wrap; ">
+                <div>
+                    <p>{{ image4.id }}</p>
+                    <img src="{{ image4.image }}" style="height: 200px; width: 300px;">
+                    <div>
+                        {{ image_form_4 }}
+                    </div>
+                </div>
+            </div>
+{#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
+            <button type="submit" class="formatted-btn btn-primary">Update</button>
+            </form>
+    <form class="add-form" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column"/>
+            {% csrf_token %}
+            <div style="display: inline-flex; flex-wrap: wrap; ">
+                <div>
+                    <p>{{ image5.id }}</p>
+                    <img src="{{ image5.image }}" style="height: 200px; width: 300px;">
+                    <div>
+                        {{ image_form_5 }}
+                    </div>
+                </div>
+            </div>
+{#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
+            <button type="submit" class="formatted-btn btn-primary">Update</button>
+            </form>
+    <form class="add-form" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column"/>
+            {% csrf_token %}
+            <div style="display: inline-flex; flex-wrap: wrap; ">
+                <div>
+                    <p>{{ image6.id }}</p>
+                    <img src="{{ image6.image }}" style="height: 200px; width: 300px;">
+                    <div>
+                        {{ image_form_6 }}
+                    </div>
+                </div>
+            </div>
+{#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
+            <button type="submit" class="formatted-btn btn-primary">Update</button>
+            </form>
     </div>
+    <!--<div style="height:400px; width:400px; border: 10px solid black;">
+    <div class="slideshow-container">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            {% for image in images %}
+            <div class="mySlides">
+                <img src="{{ image.image }}" style="width:100%; height:100%;">
+            </div>
+            {% endfor %}
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    </div>-->
+    <script src="{% static 'js/img_slider.js' %}"></script>
 {% endblock %}
