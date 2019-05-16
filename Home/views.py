@@ -28,6 +28,6 @@ def index(request):
         return JsonResponse({'data': real_estate})
 
     return render(request, 'Home/index.html', {
-        "real_estates":  RealEstates.objects.filter(on_sale=True)[:6]})
+        "real_estates":  RealEstates.objects.filter(on_sale=True)[:3]})
 
 
