@@ -3,7 +3,7 @@
 {% block content %}
     <link rel="stylesheet" href="../../static/CSS/slider.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'real_estate' %}">Back</a></button>
+    <a href="{% url 'real_estate' %}"><button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary">Back</button></a>
 
 <div class="moreinfo-container">
     <div class="slideshow-container">
@@ -38,7 +38,8 @@
                 </div>
 </div>
     <div class="infobox-realestate">
-        <div class="infotext-realestate"> <p id="text-street"><b>{{ real_estate.street}}, {{ real_estate.zip_code.zip_code }} {{ real_estate.zip_code.city }}</b></p>
+        <div class="infotext-realestate">
+            <p id="text-street"><b>{{ real_estate.street}}, {{ real_estate.zip_code.zip_code }} {{ real_estate.zip_code.city }}</b></p>
            <p> </p>
             <b> Description:   </b>
             {{ real_estate.more_info}}
