@@ -155,7 +155,25 @@ line-height: 0px;
     font-size: 20px;
 }
 
-/************/
+/*Css for profile*/
+.col-10{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#profile-img{
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+    #profile-img {
+        display: none;
+    }
+}
+
+
+
 
 .employee {
     color: black;
@@ -264,8 +282,6 @@ line-height: 0px;
         font-size: 10px;
     }
 }
-
-
 
 
 
@@ -425,6 +441,8 @@ footer .footer-right {
     padding: 7px;
     margin: 10px;
 }
+
+
 
 
 /* Css for payment information*/
