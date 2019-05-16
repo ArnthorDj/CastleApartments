@@ -37,5 +37,6 @@ class AddRealEstateImage(ModelForm):
         # fields = "__all__"
         exclude = ['id', 'real_estate']
         widgets = {
-            'images': widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'})
-            }
+            'image': widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
+        }
+

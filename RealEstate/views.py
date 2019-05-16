@@ -9,7 +9,7 @@ from django.db.models import Q
 from django.contrib import messages
 from RealEstate.forms.add_real_estate_form import AddRealEstateForm, AddRealEstateImage
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
-
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     #real_estates = {"real_estates":  RealEstates.objects.all()}
@@ -30,8 +30,8 @@ def index(request):
             'main_image': x.main_image
             # 'main_image': x.main_image.image
         }
-            for x in RealEstates.objects.filter(Q(street__icontains=search_filter) | Q(zip_code=search_filter) | Q(
-                zip_code__city__icontains=search_filter | Q(on_sale=True)))]
+            for x in RealEstates.objects.filter((Q(street__icontains=search_filter) | Q(zip_code=search_filter) | Q(
+                zip_code__city__icontains=search_filter)) & Q(on_sale=True))]
         return JsonResponse({'data': real_estate})
 
     return render(request, 'RealEstate/order.html', {
@@ -59,7 +59,11 @@ def get_real_estate_by_id(request, id):
         'images': RealEstateImages.objects.filter(real_estate_id=id)
     })
 
+@login_required
 def add_real_estate(request):
+    if request.user.is_staff == False:
+        return redirect('home_index')
+
     if request.method == "POST":
         new_real_estate_form = AddRealEstateForm(data=request.POST)
         if new_real_estate_form.is_valid():
@@ -73,12 +77,120 @@ def add_real_estate(request):
         'form': new_real_estate_form
     })
 
+
+def save_form(form, id):
+    form2 = form.save(commit=False)
+    form2.real_estate_id = id
+    form2.save()
+
+@login_required
 def add_real_estate_images(request, id):
-    real_estate_image_form = AddRealEstateImage(data=request.POST)
 
+    if request.user.is_staff == False:
+        return redirect('real_estate')
 
-    return render(request, 'AddRealEstate/images.html',{
-        'form': form
+    images = RealEstateImages.objects.filter(real_estate_id=id).order_by('id')
+    image = images.count()
+
+    if image == 0:
+        real_estate_image_form1 = AddRealEstateImage(data=request.POST)
+        real_estate_image_form2 = AddRealEstateImage(data=request.POST)
+        real_estate_image_form3 = AddRealEstateImage(data=request.POST)
+        real_estate_image_form4 = AddRealEstateImage(data=request.POST)
+        real_estate_image_form5 = AddRealEstateImage(data=request.POST)
+        real_estate_image_form6 = AddRealEstateImage(data=request.POST)
+
+        if request.method == 'POST':
+            if real_estate_image_form1.is_valid():
+                save_form(real_estate_image_form1, id)
+            if real_estate_image_form2.is_valid():
+               save_form(real_estate_image_form2, id)
+            if real_estate_image_form3.is_valid():
+               save_form(real_estate_image_form3, id)
+            if real_estate_image_form4.is_valid():
+               save_form(real_estate_image_form4, id)
+            if real_estate_image_form5.is_valid():
+               save_form(real_estate_image_form5, id)
+            if real_estate_image_form6.is_valid():
+               save_form(real_estate_image_form6, id)
+
+            return redirect('real_estate_image', id=id)
+
+    else:
+        if request.method == 'POST':
+            real_estate_image_form1 = AddRealEstateImage(data=request.POST, instance=images[0])
+
+            if image > 1:
+               real_estate_image_form2 = AddRealEstateImage(data=request.POST, instance=images[1])
+            else:
+               real_estate_image_form2 = AddRealEstateImage(data=request.POST)
+
+            if image > 2:
+               real_estate_image_form3 = AddRealEstateImage(data=request.POST, instance=images[2])
+            else:
+               real_estate_image_form3 = AddRealEstateImage(data=request.POST)
+
+            if image > 3:
+               real_estate_image_form4 = AddRealEstateImage(data=request.POST, instance=images[3])
+            else:
+               real_estate_image_form4 = AddRealEstateImage(data=request.POST)
+
+            if image > 4:
+               real_estate_image_form5 = AddRealEstateImage(data=request.POST, instance=images[4])
+            else:
+               real_estate_image_form5 = AddRealEstateImage(data=request.POST)
+
+            if image > 5:
+               real_estate_image_form6 = AddRealEstateImage(data=request.POST, instance=images[5])
+            else:
+               real_estate_image_form6 = AddRealEstateImage(data=request.POST)
+
+            if real_estate_image_form1.is_valid():
+                pic = real_estate_image_form1.cleaned_data.get('image')
+                RealEstateImages.objects.filter(pk=images[0].id).update(image=pic)
+
+            if real_estate_image_form2.is_valid():
+               pic = real_estate_image_form2.cleaned_data.get('image')
+               RealEstateImages.objects.filter(pk=images[1].id).update(image=pic)
+
+            if real_estate_image_form3.is_valid():
+               pic = real_estate_image_form3.cleaned_data.get('image')
+               RealEstateImages.objects.filter(pk=images[2].id).update(image=pic)
+
+            if real_estate_image_form4.is_valid():
+               pic = real_estate_image_form4.cleaned_data.get('image')
+               RealEstateImages.objects.filter(pk=images[3].id).update(image=pic)
+
+            if real_estate_image_form5.is_valid():
+               pic = real_estate_image_form5.cleaned_data.get('image')
+               RealEstateImages.objects.filter(pk=images[4].id).update(image=pic)
+
+            if real_estate_image_form6.is_valid():
+               pic = real_estate_image_form6.cleaned_data.get('image')
+               RealEstateImages.objects.filter(pk=images[5].id).update(image=pic)
+
+            return redirect('real_estate_image', id=id)
+
+        else:
+            real_estate_image_form1 = AddRealEstateImage(instance=images[0])
+            real_estate_image_form2 = AddRealEstateImage(instance=images[1])
+            real_estate_image_form3 = AddRealEstateImage(instance=images[2])
+            real_estate_image_form4 = AddRealEstateImage(instance=images[3])
+            real_estate_image_form5 = AddRealEstateImage(instance=images[4])
+            real_estate_image_form6 = AddRealEstateImage(instance=images[5])
+
+    return render(request, 'AddRealEstate/images.html', {
+        'image_form_1': real_estate_image_form1,
+        'image_form_2': real_estate_image_form2,
+        'image_form_3': real_estate_image_form3,
+        'image_form_4': real_estate_image_form4,
+        'image_form_5': real_estate_image_form5,
+        'image_form_6': real_estate_image_form6,
+        'image1': images[0],
+        'image2': images[1],
+        'image3': images[2],
+        'image4': images[3],
+        'image5': images[4]
     })
 
 # def addRealEstateCofirmation(request):
@@ -92,7 +204,7 @@ def add_real_estate_images(request, id):
 # def yourRealEstate(request):
 # return HttpResponse("Hello from the index function within the YourRealEstate app!")
 
-
+@login_required
 def payment_information(request, id):
 
     if request.user.is_staff == True:
@@ -128,7 +240,7 @@ def payment_information(request, id):
         'id': id
          })
 
-
+@login_required
 def payment_confirmation(request, id):
     real_estate = RealEstates.objects.get(pk=id)
     credit_card = CreditCard.objects.get(user_id=request.user.profile.id)
@@ -138,7 +250,10 @@ def payment_confirmation(request, id):
         'credit_card': str(credit_card.card_number)[12:]
     })
 
+@login_required
 def bought_real_estate(request, id):
+    if request.user.is_staff == True:
+        return redirect('real_estate')
 
     real_estate = RealEstates.objects.filter(pk=id)
     real_estate.update(on_sale=False)

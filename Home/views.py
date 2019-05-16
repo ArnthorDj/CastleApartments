@@ -25,7 +25,7 @@ def index(request):
         return JsonResponse({'data': real_estate})
 
 
-    real_estate = RealEstates.objects.all().order_by('zip_code__city')[:6]
+    real_estate = RealEstates.objects.all().order_by('zip_code__city')[:3]
     return render(request, 'Home/index.html',
                   { "real_estates": real_estate }
                   )
