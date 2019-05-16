@@ -274,3 +274,24 @@ footer .footer-right {
 }
 
 
+/* Css for payment information*/
+
+.payment-form{
+}
+
+.pay-info{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+    padding-top: 20px;
+}
+#payment-header{
+    display: flex;
+    margin-right:auto ;
+    margin-left: 435px;
+}
+
+#next-btn{
+    float: right;
+    display: inline-block;
+}

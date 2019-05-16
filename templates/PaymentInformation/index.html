@@ -1,17 +1,25 @@
 {% extends 'ekki_search_bar.html' %}
 {% load static %}
 {% block content %}
- <h3>Payment Information</h3>
+    <h3 id="payment-header">Payment Information</h3>
+
     <div class="pay-info">
-    <form class="payment-form" method = "post" style="width: 70%;">
+    <div> <a href="/real_estate/info/{{ id }}"><button type="submit" id="go-back" class="btn btn-primary pull-right"> Go Back </button></a>
+    </div>
+    <form class="payment-form" method = "post" id="credit_form">
     {% csrf_token %}
     {{ credit_card_form }}
-        <input type="submit" href="real_estate/pay/{{ id }}/confirmation" class="btn btn-primary pull-right">Pay</input>
+
     </form>
-        <div style="display:inline-block;">
-            <a href="/real_estate/info/{{ id }}"><button type="submit" id="go-back" class="btn btn-primary pull-right" style="display: inline-block;"> Go Back </button></a>
+        <div>
         </div>
+    <div>
+        <input type="submit" form="credit_form" href="real_estate/pay/{{ id }}/confirmation" id="next-btn" class="btn btn-primary pull-right" value="Next">
+{#        <a href="real_estate/pay/{{ id }}/confirmation"><button type="submit" id="next-btn" class="btn btn-primary pull-right"> Next </button></a>#}
+</div>
     </div>
+
+
 {% endblock %}
 
 
