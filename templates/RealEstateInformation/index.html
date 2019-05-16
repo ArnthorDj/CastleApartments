@@ -16,6 +16,17 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
+<div class="moreinfo-box1">
+                    <p><b> Information about real estate: </b></p>
+                    <p></p>
+                    Bedrooms: {{ real_estate.bedrooms }} <br>
+                    Bathrooms: {{ real_estate.bathrooms }} <br>
+                    Size: {{ real_estate.size }} square meters <br>
+                    Type: {{ real_estate.type }} <br>
+                    Price: {{ real_estate.price }} ISK.
+                </div>
+
+
     <script src="{% static 'js/img_slider.js' %}"></script>
                 <div class="moreinfo-box1">
                     <p><b> Contact realtor for more information: </b></p>
@@ -33,7 +44,9 @@
             {{ real_estate.more_info}}
 
         </div>
-            <a class="buy" href="/real_estate/pay/"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
+        {% if user.is_staff == False %}
+            <a class="buy" href="/real_estate/pay/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
+        {% endif %}
     </div>
 
 

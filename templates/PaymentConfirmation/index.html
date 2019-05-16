@@ -4,21 +4,31 @@
 
     <h3>Confirmation step</h3>
 
-    <table>
+    <div class="well real estate">
+    <h2>Seller</h2>
+        <img class="employee-img" src="{{ real_estate.employee.profile.profile_image }}" height="200px" width="300px" />
+        <div>
+        <h4 class="black-font">{{ real_estate.employee.first_name }} {{ real_estate.employee.last_name }}</h4>
+        <p class="black-font">{{ real_estate.employee.email }}</p>
+        <p class="black-font">(+354) {{ real_estate.employee.profile.phone }}</p>
+        </div>
+    </div>
+    <div class="well real estate">
+    <h2>Buyer</h2>
+        <img class="employee-img" src="{{ user.profile.profile_image }}" height="200px" width="300px" />
+        <div>
+        <h4 class="black-font">{{ user.first_name }} {{ user.last_name }}</h4>
+        <p class="black-font">{{ user.email }}</p>
+        <p class="black-font">(+354) {{ user.profile.phone }}</p>
+        </div>
+    </div>
+    <table class="well real estate">
         <tr>
-            <td>
-                <h4>Seller: </h4>
+            <td colspan="2">
+                <img src="{{ real_estate.main_image }}" height="200px" width="300px">
             </td>
             <td>
-                <h4>{{ real_estate.employee.first_name }} {{ real_estate.employee.last_name }}</h4>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h4>Buyer: </h4>
-            </td>
-            <td>
-                <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+
             </td>
         </tr>
         <tr>
@@ -69,13 +79,22 @@
                 <h4>{{ real_estate.price }}</h4>
             </td>
         </tr>
+        <tr>
+            <td>
+                <h4>Creditcard: </h4>
+            </td>
+            <td>
+                <h4>****-****-****-{{ credit_card }}</h4>
+            </td>
+        </tr>
     </table>
+
     <form method="post">
         <input type="number" name="cvc" id="cvc" placeholder="CVC" min="000" max="999">
     </form>
 
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal">Confirm Purchase</button>
+    <input type="submit" value="Back" onclick="location.href='/real_estate/pay/{{ id }}';" class="btn btn-primary" data-toggle="modal" data-target=".modal">
+    <input type="button" value="Confirm Purchase" onclick="location.href='/real_estate/pay/{{ id }}/bought/';" class="btn btn-primary" data-toggle="modal" data-target=".modal">
 
 
 {% endblock %}

@@ -29,7 +29,10 @@ class AddRealEstateForm(ModelForm):
             'main_image': widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'})
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74784fae3a814c0d93177d678920cdb9c1c6cd96
 class AddRealEstateImage(ModelForm):
     class Meta:
         # image = forms.CharField(required=True, widgets=forms.TextInput(attrs={'class':'form-control'}))
@@ -38,4 +41,8 @@ class AddRealEstateImage(ModelForm):
         exclude = ['id', 'real_estate']
         widgets = {
             'images': widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'})
+<<<<<<< HEAD
         }
+=======
+        }
+>>>>>>> 74784fae3a814c0d93177d678920cdb9c1c6cd96
