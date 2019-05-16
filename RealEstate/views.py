@@ -84,11 +84,6 @@ def add_real_estate(request):
     })
 
 
-def save_form(form, id):
-    form2 = form.save(commit=False)
-    form2.real_estate_id = id
-    form2.save()
-
 @login_required
 def add_real_estate_images(request, id):
 
@@ -118,8 +113,14 @@ def add_real_estate_images(request, id):
             real_estate_image_form = AddRealEstateImage(data=request.POST, instance=images[0])
 
             if real_estate_image_form.is_valid():
-                pic = real_estate_image_form.cleaned_data.get('image')
-                RealEstateImages.objects.filter(pk=images[0].id).update(image=pic)
+                pic1 = real_estate_image_form.cleaned_data.get('image')
+                pic2 = real_estate_image_form.cleaned_data.get('image2')
+                pic3 = real_estate_image_form.cleaned_data.get('image3')
+                pic4 = real_estate_image_form.cleaned_data.get('image4')
+                pic5 = real_estate_image_form.cleaned_data.get('image5')
+                pic6 = real_estate_image_form.cleaned_data.get('image6')
+                RealEstateImages.objects.filter(pk=images[0].id).update(image=pic1, image2=pic2, image3=pic3,
+                                                                        image4=pic4, image5=pic5, image6=pic6)
 
             return redirect('real_estate_image', id=id)
 
@@ -129,6 +130,7 @@ def add_real_estate_images(request, id):
         images = [images[0].image, images[0].image2,
                   images[0].image3, images[0].image4,
                   images[0].image5, images[0].image6]
+
     return render(request, 'AddRealEstate/images.html', {
         'image_form': real_estate_image_form,
         'images': images
