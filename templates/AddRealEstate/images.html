@@ -3,18 +3,18 @@
 {% block content %}
 <link rel="stylesheet" href="../../static/CSS/slider.css">
 
-    <div style="display: inline-flex; flex-wrap: wrap; ">
-            <form class="add-form" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column"/>
+    <div class="image-real-estate">
+            <form class="add-form" method="post"/>
             {% csrf_token %}
         {{ image_form }}
 {#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
             <button type="submit" class="formatted-btn btn-primary">Update</button>
             </form>
-        <div style="display: inline-flex; flex-wrap: wrap;">
+        <div class="image-real-estate">
             {% for image in images %}
                 {% if image != "" %}
-                    <div style="height: 100px; width:200px;">
-                        <img src="{{ image }}" style="height: 100%; width: 100%;">
+                    <div id="images-add">
+                        <img id="imgs" src="{{ image }}">
                     </div>
                 {% endif %}
             {% endfor %}

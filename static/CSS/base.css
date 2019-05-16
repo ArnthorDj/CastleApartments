@@ -475,3 +475,30 @@ footer .footer-right {
 #see-more-btn{
     margin-bottom: 10px;
 }
+
+.image-real-estate{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.add-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+#images-add{
+    height: 100px;
+    width:200px;
+}
+
+#imgs{
+    height: 100%;
+    width: 100%;
+}
+
+.justify-content-center{
+    height: 100vh;
+}

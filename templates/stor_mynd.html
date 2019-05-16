@@ -27,12 +27,14 @@
     </head>
     <body>
         <div id="header">
-            <div style="text-align: center; padding-top: 25px;">
-            <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
-            {% if user.is_authenticated %}
-                <p id="username">{{ user.username }}</p>
-            {% endif %}
-        </div>
+             <div id="logo-container">
+                 <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
+             </div>
+            <div id="username-container">
+                {% if user.is_authenticated %}
+                    <p id="username">{{ user.username }}</p>
+                {% endif %}
+            </div>
         <ul>
             <li><a id="home" href="{% url 'home_index' %}">Home</a></li>
             <li><a id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
