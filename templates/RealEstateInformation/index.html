@@ -44,7 +44,9 @@
             {{ real_estate.more_info}}
 
         </div>
+        {% if user.is_staff == False %}
             <a class="buy" href="/real_estate/pay/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
+        {% endif %}
     </div>
 
 

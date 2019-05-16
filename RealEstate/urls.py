@@ -7,6 +7,7 @@ urlpatterns = [
     path("info/<int:id>", views.get_real_estate_by_id, name="real_estate_information"),
     path("pay/<int:id>", views.payment_information, name="payment_information_index"),
     path("pay/<int:id>/confirmation/", views.payment_confirmation, name="payment_confirmation"),
+    path("pay/<int:id>/bought/", views.bought_real_estate, name="bought"),
     # path("add/", views.addRealEstate, name="add_real_estate"),
     # path("add/confirmation/", views.addRealEstateConfirmation, name="add_real_estate_confirmation"),
     # path("your_real_estate/", views.yourRealEstate, name="your_real_estate"),

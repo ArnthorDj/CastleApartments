@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from RealEstate.models import RealEstates, RealEstateImages, ZipCodes
 from RealEstate.forms.payment_information_form import CreatePaymentForm
-from User.models import UserHistory, Profile, CreditCard
+from User.models import UserHistory, Profile, CreditCard, Purchases
 #from django.contrib.auth.models import User
 from django.http import JsonResponse
 import datetime
 from django.db.models import Q
+from django.contrib import messages
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 
@@ -29,15 +30,20 @@ def index(request):
             # 'main_image': x.main_image.image
         }
             for x in RealEstates.objects.filter(Q(street__icontains=search_filter) | Q(zip_code=search_filter) | Q(
-                zip_code__city__icontains=search_filter))]
+                zip_code__city__icontains=search_filter | Q(on_sale=True)))]
         return JsonResponse({'data': real_estate})
 
     return render(request, 'RealEstate/order.html', {
-        "real_estates":  RealEstates.objects.all()
+        "real_estates":  RealEstates.objects.filter(on_sale=True)
     })
 
 
 def get_real_estate_by_id(request, id):
+
+    real_estate = get_list_or_404(RealEstates, pk=id)[0]
+
+    if real_estate.on_sale == False:
+        return redirect('real_estate')
 
     if request.user.is_authenticated:
         if UserHistory.objects.filter(real_estate_id=id).all().count() == 0:
@@ -47,7 +53,7 @@ def get_real_estate_by_id(request, id):
             UserHistory.objects.filter(real_estate_id=id, user=request.user).update(date=datetime.date.today())
 
     return render(request, 'RealEstateInformation/index.html', {
-        'real_estate': get_list_or_404(RealEstates, pk=id)[0],
+        'real_estate': real_estate,
         'employee': Profile.objects.select_related('user').get(user_id=20),
         'images': get_list_or_404(RealEstateImages, real_estate_id=id)
     })
@@ -77,23 +83,35 @@ def get_real_estate_by_id(request, id):
 
 
 def payment_information(request, id):
-    credit_card = CreditCard.objects.get(user_id=request.user.profile.id)
-    if request.method == "POST":
-        credit_card_form = CreatePaymentForm(data=request.POST, instance=credit_card)
-        if credit_card_form.is_valid():
-            if CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
-                form2 = credit_card_form.save(commit=False)
-                form2.user_id = request.user.profile.id
-                form2.save()
-            else:
+
+    if request.user.is_staff == True:
+        return redirect('real_estate_information', id=id)
+
+    #CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
+
+    if CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
+        credit_card_form = CreatePaymentForm(data=request.POST)
+        if request.method == "POST":
+            credit_card_form2 = credit_card_form.save(commit=False)
+            credit_card_form2.user_id = request.user.profile.id
+            credit_card_form2.save()
+
+            return redirect('payment_confirmation', id=id)
+        else:
+            credit_card_form = CreatePaymentForm()
+    else:
+        credit_card = CreditCard.objects.get(user_id=request.user.profile.id)
+        if request.method == "POST":
+            credit_card_form = CreatePaymentForm(data=request.POST, instance=credit_card)
+            if credit_card_form.is_valid():
                 card_number = credit_card_form.cleaned_data.get('card_number')
                 month = credit_card_form.cleaned_data.get('month')
                 year = credit_card_form.cleaned_data.get('year')
                 CreditCard.objects.filter(user_id=request.user.profile.id).update(card_number=card_number, month=month,
-                                                                                  year=year)
-            return redirect('payment_confirmation', id=id)
-    else:
-        credit_card_form = CreatePaymentForm(instance=credit_card)
+                                                                                      year=year)
+                return redirect('payment_confirmation', id=id)
+        else:
+            credit_card_form = CreatePaymentForm(instance=credit_card)
     return render(request, 'PaymentInformation/index.html', {
         'credit_card_form': credit_card_form,
         'id': id
@@ -102,10 +120,22 @@ def payment_information(request, id):
 
 def payment_confirmation(request, id):
     real_estate = RealEstates.objects.get(pk=id)
+    credit_card = CreditCard.objects.get(user_id=request.user.profile.id)
     return render(request, 'PaymentConfirmation/index.html', {
         'id': id,
-        'real_estate': real_estate
+        'real_estate': real_estate,
+        'credit_card': str(credit_card.card_number)[12:]
     })
+
+def bought_real_estate(request, id):
+
+    real_estate = RealEstates.objects.filter(pk=id)
+    real_estate.update(on_sale=False)
+    Purchases.objects.create(buyer=request.user.id, seller=real_estate[0].employee.id, real_estate=id)
+
+    messages.success(request, f'House bought in {real_estate[0].street}, {real_estate[0].zip_code.zip_code} {real_estate[0].zip_code.city}, {real_estate[0].zip_code.country}!')
+
+    return redirect('real_estate')
 
 
 def real_estate_zip(request):
