@@ -210,28 +210,28 @@ def bought_real_estate(request, id):
 
 
 def real_estate_zip(request):
-    return render(request, 'RealEstate/zip.html', {"real_estates": RealEstates.objects.all().order_by("zip_code")})
+    return render(request, 'RealEstate/zip.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("zip_code")})
 
 
 def real_estate_street(request):
-    return render(request, 'RealEstate/street.html', {"real_estates": RealEstates.objects.all().order_by("street")})
+    return render(request, 'RealEstate/street.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("street")})
 
 
 def real_estate_size(request):
-    return render(request, 'RealEstate/size.html', {"real_estates": RealEstates.objects.all().order_by("size")})
+    return render(request, 'RealEstate/size.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("size")})
 
 
 def real_estate_price(request):
-    return render(request, 'RealEstate/price.html', {"real_estates": RealEstates.objects.all().order_by("price")})
+    return render(request, 'RealEstate/price.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("price")})
 
 
 def real_estate_city(request):
-    return render(request, 'RealEstate/city.html', {"real_estates": RealEstates.objects.all().order_by("zip_code__city")})
+    return render(request, 'RealEstate/city.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("zip_code__city")})
 
 
 def real_estate_bathrooms(request):
-    return render(request, 'RealEstate/bathrooms.html', {"real_estates": RealEstates.objects.all().order_by("bathrooms")})
+    return render(request, 'RealEstate/bathrooms.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("bathrooms")})
 
 
 def real_estate_bedrooms(request):
-    return render(request, 'RealEstate/bedrooms.html', {"real_estates": RealEstates.objects.all().order_by("bedrooms")})
+    return render(request, 'RealEstate/bedrooms.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("bedrooms")})

@@ -18,8 +18,10 @@
     </head>
     <body>
     <div id="header">
-        <div style="text-align: center; padding-top: 25px;">
+        <div id="logo-container">
             <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
+        </div>
+        <div id="username-container">
             {% if user.is_authenticated %}
                 <p id="username">{{ user.username }}</p>
             {% endif %}
