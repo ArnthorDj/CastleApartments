@@ -43,6 +43,7 @@ def get_real_estate_by_id(request, id):
 
     real_estate = get_list_or_404(RealEstates, pk=id)[0]
 
+
     if real_estate.on_sale == False:
         return redirect('real_estate')
 
@@ -53,9 +54,13 @@ def get_real_estate_by_id(request, id):
         else:
             UserHistory.objects.filter(real_estate_id=id, user=request.user).update(date=datetime.date.today())
 
+    placeholder = RealEstateImages.objects.filter(real_estate_id=id)[0]
+
+    images = [placeholder.image, placeholder.image2, placeholder.image3, placeholder.image4, placeholder.image5, placeholder.image6]
+
     return render(request, 'RealEstateInformation/index.html', {
         'real_estate': real_estate,
-        'employee': Profile.objects.select_related('user').get(user_id=20),
+        'employee': Profile.objects.select_related('user').get(user_id=real_estate.employee_id),
         'images': RealEstateImages.objects.filter(real_estate_id=id)
     })
 
@@ -69,19 +74,15 @@ def add_real_estate(request):
         if new_real_estate_form.is_valid():
             new_real_estate_form2 = new_real_estate_form.save(commit=False)
             new_real_estate_form2.on_sale = True
-            new_real_estate_form.save()
-            return redirect('real_estate_image', pk=new_real_estate_form2.cleaned_data.get('id'))
+            new_real_estate_form2.save()
+
+            return redirect('real_estate_image', id=new_real_estate_form2.id)
     else:
         new_real_estate_form = AddRealEstateForm()
     return render(request, 'AddRealEstate/index.html', {
         'form': new_real_estate_form
     })
 
-
-def save_form(form, id):
-    form2 = form.save(commit=False)
-    form2.real_estate_id = id
-    form2.save()
 
 @login_required
 def add_real_estate_images(request, id):
@@ -93,104 +94,46 @@ def add_real_estate_images(request, id):
     image = images.count()
 
     if image == 0:
-        real_estate_image_form1 = AddRealEstateImage(data=request.POST)
-        real_estate_image_form2 = AddRealEstateImage(data=request.POST)
-        real_estate_image_form3 = AddRealEstateImage(data=request.POST)
-        real_estate_image_form4 = AddRealEstateImage(data=request.POST)
-        real_estate_image_form5 = AddRealEstateImage(data=request.POST)
-        real_estate_image_form6 = AddRealEstateImage(data=request.POST)
+        real_estate_image_form = AddRealEstateImage(data=request.POST)
 
         if request.method == 'POST':
-            if real_estate_image_form1.is_valid():
-                save_form(real_estate_image_form1, id)
-            if real_estate_image_form2.is_valid():
-               save_form(real_estate_image_form2, id)
-            if real_estate_image_form3.is_valid():
-               save_form(real_estate_image_form3, id)
-            if real_estate_image_form4.is_valid():
-               save_form(real_estate_image_form4, id)
-            if real_estate_image_form5.is_valid():
-               save_form(real_estate_image_form5, id)
-            if real_estate_image_form6.is_valid():
-               save_form(real_estate_image_form6, id)
+            if real_estate_image_form.is_valid():
+                form2 = real_estate_image_form.save(commit=False)
+                form2.real_estate_id = id
+                form2.save()
 
             return redirect('real_estate_image', id=id)
 
+        images = ["", "",
+                  "", "",
+                  "", ""]
+
     else:
         if request.method == 'POST':
-            real_estate_image_form1 = AddRealEstateImage(data=request.POST, instance=images[0])
+            real_estate_image_form = AddRealEstateImage(data=request.POST, instance=images[0])
 
-            if image > 1:
-               real_estate_image_form2 = AddRealEstateImage(data=request.POST, instance=images[1])
-            else:
-               real_estate_image_form2 = AddRealEstateImage(data=request.POST)
-
-            if image > 2:
-               real_estate_image_form3 = AddRealEstateImage(data=request.POST, instance=images[2])
-            else:
-               real_estate_image_form3 = AddRealEstateImage(data=request.POST)
-
-            if image > 3:
-               real_estate_image_form4 = AddRealEstateImage(data=request.POST, instance=images[3])
-            else:
-               real_estate_image_form4 = AddRealEstateImage(data=request.POST)
-
-            if image > 4:
-               real_estate_image_form5 = AddRealEstateImage(data=request.POST, instance=images[4])
-            else:
-               real_estate_image_form5 = AddRealEstateImage(data=request.POST)
-
-            if image > 5:
-               real_estate_image_form6 = AddRealEstateImage(data=request.POST, instance=images[5])
-            else:
-               real_estate_image_form6 = AddRealEstateImage(data=request.POST)
-
-            if real_estate_image_form1.is_valid():
-                pic = real_estate_image_form1.cleaned_data.get('image')
-                RealEstateImages.objects.filter(pk=images[0].id).update(image=pic)
-
-            if real_estate_image_form2.is_valid():
-               pic = real_estate_image_form2.cleaned_data.get('image')
-               RealEstateImages.objects.filter(pk=images[1].id).update(image=pic)
-
-            if real_estate_image_form3.is_valid():
-               pic = real_estate_image_form3.cleaned_data.get('image')
-               RealEstateImages.objects.filter(pk=images[2].id).update(image=pic)
-
-            if real_estate_image_form4.is_valid():
-               pic = real_estate_image_form4.cleaned_data.get('image')
-               RealEstateImages.objects.filter(pk=images[3].id).update(image=pic)
-
-            if real_estate_image_form5.is_valid():
-               pic = real_estate_image_form5.cleaned_data.get('image')
-               RealEstateImages.objects.filter(pk=images[4].id).update(image=pic)
-
-            if real_estate_image_form6.is_valid():
-               pic = real_estate_image_form6.cleaned_data.get('image')
-               RealEstateImages.objects.filter(pk=images[5].id).update(image=pic)
+            if real_estate_image_form.is_valid():
+                pic1 = real_estate_image_form.cleaned_data.get('image')
+                pic2 = real_estate_image_form.cleaned_data.get('image2')
+                pic3 = real_estate_image_form.cleaned_data.get('image3')
+                pic4 = real_estate_image_form.cleaned_data.get('image4')
+                pic5 = real_estate_image_form.cleaned_data.get('image5')
+                pic6 = real_estate_image_form.cleaned_data.get('image6')
+                RealEstateImages.objects.filter(pk=images[0].id).update(image=pic1, image2=pic2, image3=pic3,
+                                                                        image4=pic4, image5=pic5, image6=pic6)
 
             return redirect('real_estate_image', id=id)
 
         else:
-            real_estate_image_form1 = AddRealEstateImage(instance=images[0])
-            real_estate_image_form2 = AddRealEstateImage(instance=images[1])
-            real_estate_image_form3 = AddRealEstateImage(instance=images[2])
-            real_estate_image_form4 = AddRealEstateImage(instance=images[3])
-            real_estate_image_form5 = AddRealEstateImage(instance=images[4])
-            real_estate_image_form6 = AddRealEstateImage(instance=images[5])
+            real_estate_image_form = AddRealEstateImage(instance=images[0])
+
+        images = [images[0].image, images[0].image2,
+                  images[0].image3, images[0].image4,
+                  images[0].image5, images[0].image6]
 
     return render(request, 'AddRealEstate/images.html', {
-        'image_form_1': real_estate_image_form1,
-        'image_form_2': real_estate_image_form2,
-        'image_form_3': real_estate_image_form3,
-        'image_form_4': real_estate_image_form4,
-        'image_form_5': real_estate_image_form5,
-        'image_form_6': real_estate_image_form6,
-        'image1': images[0],
-        'image2': images[1],
-        'image3': images[2],
-        'image4': images[3],
-        'image5': images[4]
+        'image_form': real_estate_image_form,
+        'images': images
     })
 
 # def addRealEstateCofirmation(request):
