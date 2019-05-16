@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from YourRealEstate.forms.add_real_estate_form import AddRealEstateForm
-from RealEstate.models import RealEstates, RealEstateImages
+from RealEstate.forms.add_real_estate_form import AddRealEstateForm
+from RealEstate.models import RealEstates
 
 
 def your_real_estate(request):

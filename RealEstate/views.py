@@ -7,6 +7,7 @@ from django.http import JsonResponse
 import datetime
 from django.db.models import Q
 from django.contrib import messages
+from RealEstate.forms.add_real_estate_form import AddRealEstateForm, AddRealEstateImage
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 
 
@@ -55,20 +56,30 @@ def get_real_estate_by_id(request, id):
     return render(request, 'RealEstateInformation/index.html', {
         'real_estate': real_estate,
         'employee': Profile.objects.select_related('user').get(user_id=20),
-        'images': get_list_or_404(RealEstateImages, real_estate_id=id)
+        'images': RealEstateImages.objects.filter(real_estate_id=id)
     })
 
-# def addRealEstate(request):
-# form = AddRealEstateForm(data=request.POST)
-# if form.is_valid():
-# new_real_estate = form.save()
-# return redirect('confirmation_index')
-# else:
-# form = AddRealEstateForm()
-# return render(request, 'AddRealEstate/index.html', {
-# 'form': form
-# })
+def add_real_estate(request):
+    if request.method == "POST":
+        new_real_estate_form = AddRealEstateForm(data=request.POST)
+        if new_real_estate_form.is_valid():
+            new_real_estate_form2 = new_real_estate_form.save(commit=False)
+            new_real_estate_form2.on_sale = True
+            new_real_estate_form.save()
+            return redirect('real_estate_image', pk=new_real_estate_form2.cleaned_data.get('id'))
+    else:
+        new_real_estate_form = AddRealEstateForm()
+    return render(request, 'AddRealEstate/index.html', {
+        'form': new_real_estate_form
+    })
 
+def add_real_estate_images(request, id):
+    real_estate_image_form = AddRealEstateImage(data=request.POST)
+
+
+    return render(request, 'AddRealEstate/images.html',{
+        'form': form
+    })
 
 # def addRealEstateCofirmation(request):
 # return HttpResponse("Hello from the index function within the AddRealEstateConfirmation app!")
