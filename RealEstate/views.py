@@ -43,6 +43,7 @@ def get_real_estate_by_id(request, id):
 
     real_estate = get_list_or_404(RealEstates, pk=id)[0]
 
+
     if real_estate.on_sale == False:
         return redirect('real_estate')
 
@@ -55,7 +56,7 @@ def get_real_estate_by_id(request, id):
 
     return render(request, 'RealEstateInformation/index.html', {
         'real_estate': real_estate,
-        'employee': Profile.objects.select_related('user').get(user_id=20),
+        'employee': Profile.objects.select_related('user').get(user_id=real_estate.employee_id),
         'images': RealEstateImages.objects.filter(real_estate_id=id)
     })
 
