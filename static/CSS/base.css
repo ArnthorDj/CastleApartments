@@ -26,6 +26,12 @@ a{
 }
 #real_estate_go_btn{
     height: 25px;
+    text-align: center;
+}
+
+#real_estate_go_btn p{
+    margin: 0px;
+line-height: 0px;
 }
 
 .dropdown-container{
