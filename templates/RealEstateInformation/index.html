@@ -10,7 +10,7 @@
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             {% for image in images %}
             <div class="mySlides">
-                <img src="{{ image }}" style="width:100%">
+                <img id="single-image" src="{{ image }}">
             </div>
             {% endfor %}
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -55,6 +55,6 @@
 
 
 
-{% endblock %}#}
+{% endblock %}
 
 
