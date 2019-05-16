@@ -16,7 +16,11 @@ class AuthUserForm(UserCreationForm):
             "email": widgets.EmailInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "password1": widgets.PasswordInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "password2": widgets.PasswordInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'})
-                    }
+        }
+        help_texts = {
+            "username": "",
+        }
+
 
 
 class UserProfile(ModelForm):

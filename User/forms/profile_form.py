@@ -9,7 +9,7 @@ class ProfileForm(ModelForm):
         exclude = ["id", "user"]
 
         widgets = {
-            "profile_image": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em','placeholder':'Input the url for your image'}),
+            "profile_image": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em', 'placeholder':'Input the url for your image'}),
             "phone": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "street": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "zip_code": widgets.Select(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
@@ -27,4 +27,7 @@ class AuthUser(ModelForm):
             "first_name": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "last_name": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             "email": widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
+        }
+        help_texts = {
+            "username": ""
         }

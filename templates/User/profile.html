@@ -11,7 +11,7 @@
         <div class="col-10">
           <h1> Profile </h1>
             <img src="{{ user.profile.profile_image }}"height="200px" width="300px">
-            <form method="post">
+            <form class="formm" method="post">
             {% csrf_token %}
                 {{ profile_form|crispy }}
                 {{ auth_user_form|crispy }}
