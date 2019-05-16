@@ -262,4 +262,15 @@ footer .footer-right {
 
 }
 
+/*Css for contact_us*/
+
+.contact{
+    padding-left: 50px;
+}
+
+#btn-update-profile{
+    padding: 7px;
+    margin: 10px;
+}
+
 
