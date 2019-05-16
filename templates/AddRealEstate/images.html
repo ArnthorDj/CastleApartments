@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="../../static/CSS/slider.css">
 
     <div class="image-real-estate">
+    <button type="submit" class="formatted-btn btn-primary" onclick="location.href='/real_estate/update/{{ id }}'">Back</button>
             <form class="add-form" method="post"/>
             {% csrf_token %}
         {{ image_form }}
@@ -20,16 +21,6 @@
             {% endfor %}
         </div>
     </div>
-    <!--<div style="height:400px; width:400px; border: 10px solid black;">
-    <div class="slideshow-container">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            {% for image in images %}
-            <div class="mySlides">
-                <img src="{{ image.image }}" style="width:100%; height:100%;">
-            </div>
-            {% endfor %}
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    </div>-->
+
     <script src="{% static 'js/img_slider.js' %}"></script>
 {% endblock %}

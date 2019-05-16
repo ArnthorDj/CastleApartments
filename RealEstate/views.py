@@ -83,6 +83,42 @@ def add_real_estate(request):
         'form': new_real_estate_form
     })
 
+@login_required
+def update_real_estate(request, id):
+
+    if request.user.is_staff == False:
+        return redirect('home_index')
+
+    real_estate = RealEstates.objects.get(pk=id)
+
+    if real_estate.on_sale == False:
+        return redirect('real_estate')
+
+    if request.method == "POST":
+        real_estate_form = AddRealEstateForm(data=request.POST, instance=real_estate)
+        if real_estate_form.is_valid():
+
+            street = real_estate.street
+            type = real_estate.type
+            more_info = real_estate.more_info
+            main_image = real_estate.main_image
+            price = real_estate.price
+            size = real_estate.size
+            bedrooms = real_estate.bedrooms
+            bathrooms = real_estate.bathrooms
+
+            RealEstates.objects.filter(pk=id).update(street=street, type=type, more_info=more_info,
+                                                     main_image=main_image, price=price, size=size,
+                                                     bedrooms=bedrooms, bathrooms=bathrooms)
+            print("ID GIVEN:", id)
+            print('GIVENGIVENVSDOLKFNAKSJDNFJIAKS')
+            return redirect('real_estate_image', id=id)
+    else:
+        real_estate_form = AddRealEstateForm(instance=real_estate)
+    return render(request, 'AddRealEstate/index.html', {
+        'form': real_estate_form
+    })
+
 
 @login_required
 def add_real_estate_images(request, id):
@@ -90,8 +126,9 @@ def add_real_estate_images(request, id):
     if request.user.is_staff == False:
         return redirect('real_estate')
 
-    images = RealEstateImages.objects.filter(real_estate_id=id).order_by('id')
+    images = RealEstateImages.objects.filter(real_estate_id=id)
     image = images.count()
+
 
     if image == 0:
         real_estate_image_form = AddRealEstateImage(data=request.POST)
@@ -133,7 +170,8 @@ def add_real_estate_images(request, id):
 
     return render(request, 'AddRealEstate/images.html', {
         'image_form': real_estate_image_form,
-        'images': images
+        'images': images,
+        'id': id
     })
 
 # def addRealEstateCofirmation(request):
