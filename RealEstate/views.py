@@ -6,10 +6,10 @@ from User.models import UserHistory, Profile, CreditCard, Purchases
 from django.http import JsonResponse
 import datetime
 from django.db.models import Q
-from django.contrib import messages
 from RealEstate.forms.add_real_estate_form import AddRealEstateForm, AddRealEstateImage
 # from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def index(request):
     #real_estates = {"real_estates":  RealEstates.objects.all()}
@@ -196,6 +196,11 @@ def payment_information(request, id):
     if CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
         credit_card_form = CreatePaymentForm(data=request.POST)
         if request.method == "POST":
+            credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
+            if not credit_card_number.isdigit() or len(credit_card_number) < 16:
+                messages.warning(request, f'Card number is not valid (16 numbers)!')
+                return redirect('payment_information_index', id=id)
+
             credit_card_form2 = credit_card_form.save(commit=False)
             credit_card_form2.user_id = request.user.profile.id
             credit_card_form2.save()
@@ -208,6 +213,11 @@ def payment_information(request, id):
         if request.method == "POST":
             credit_card_form = CreatePaymentForm(data=request.POST, instance=credit_card)
             if credit_card_form.is_valid():
+                credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
+                if not credit_card_number.isdigit() or len(credit_card_number) < 16:
+                    messages.warning(request, f'Card number is not valid (16 numbers)!')
+                    return redirect('payment_information_index', id=id)
+
                 card_number = credit_card_form.cleaned_data.get('card_number')
                 month = credit_card_form.cleaned_data.get('month')
                 year = credit_card_form.cleaned_data.get('year')
