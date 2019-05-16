@@ -1,7 +1,9 @@
 {% extends 'ekki_search_bar.html' %}
 
 {% block content %}
-    <h2 style="text-align: center"><b>Staff members of Castle Apartments Ltd.</b></h2><br>
+
+
+    <h2 style="text-align: center" class="page-header">Staff members of Castle Apartments Ltd.</h2>
     <main id="main">
     {% for employee in employees %}
         {% include 'Employees/single_employee.html' with employee=employee %}

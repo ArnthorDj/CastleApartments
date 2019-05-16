@@ -26,6 +26,12 @@ a{
 }
 #real_estate_go_btn{
     height: 25px;
+    text-align: center;
+}
+
+#real_estate_go_btn p{
+    margin: 0px;
+line-height: 0px;
 }
 
 .dropdown-container{
@@ -153,7 +159,8 @@ a{
 #back-button{
     width: 7%;
     height: 7%;
-    margin: 3%;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .navbar-default {
@@ -335,3 +342,14 @@ footer .footer-right {
 }
 
 
+/*Css for user history*/
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#see-more-btn{
+    margin-bottom: 10px;
+}

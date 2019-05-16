@@ -4,7 +4,7 @@
 
 
 {% block order_by %}
-
+    <div class="dropdown-container">
     <form class="dropdown" action="/action_page.php">
               <select id="real_estate_order" name="order">
                   <option value="{% url 'real_estate' %}">Order by</option>
@@ -19,6 +19,6 @@
               </select>
 
         </form>
-    <button type="submit" class="btn btn-primary" id="real_estate_order" onclick="real_estate_urls()">Go</button>
-
+    <button id="real_estate_go_btn" type="submit" class="btn btn-primary" id="real_estate_order" onclick="real_estate_urls()"><p>Go</p></button>
+</div>
 {% endblock %}
