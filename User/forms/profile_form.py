@@ -17,10 +17,6 @@ class ProfileForm(ModelForm):
         }
 
 
-
-
-
-
 class AuthUser(ModelForm):
     class Meta:
         model = User
