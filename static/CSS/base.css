@@ -307,8 +307,12 @@ footer .footer-right {
     justify-content: space-evenly;
 }
 
-#confirmation-img{
-    width: 30%;
-    height: 20%;
 
+#back-btn-confirm{
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.page-header{
+    text-align: center;
 }
