@@ -15,9 +15,26 @@ a{
   text-align: center;
 }
 
-.dropdown {
-    display: inline-block;
+/*.dropdown {*/
+/*    display: inline-block;*/
+
+/*}*/
+
+#real_estate_order{
+    width: 100%;
+    height: 25px;
 }
+#real_estate_go_btn{
+    height: 25px;
+}
+
+.dropdown-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
 .form {
     margin: auto;
     float: inside;
@@ -316,3 +333,5 @@ footer .footer-right {
 .page-header{
     text-align: center;
 }
+
+
