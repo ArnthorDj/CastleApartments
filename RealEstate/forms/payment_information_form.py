@@ -11,7 +11,7 @@ class CreatePaymentForm(ModelForm):
         exclude = ['user']
         year = int(datetime.datetime.now().year)
         widgets = {
-            'card_number': widgets.TextInput(attrs={'class': 'form-control', 'placeholder':'Card number'}),
+            'card_number': widgets.TextInput(attrs={'class': 'form-control', 'placeholder':'Card number','style': 'max-width: 20em'}),
             'month': widgets.Select(choices=[
                 ('1', 'January'),
                 ('2', 'February'),

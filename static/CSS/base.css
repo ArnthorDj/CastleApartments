@@ -15,9 +15,26 @@ a{
   text-align: center;
 }
 
-.dropdown {
-    display: inline-block;
+/*.dropdown {*/
+/*    display: inline-block;*/
+
+/*}*/
+
+#real_estate_order{
+    width: 100%;
+    height: 25px;
 }
+#real_estate_go_btn{
+    height: 25px;
+}
+
+.dropdown-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
 .form {
     margin: auto;
     float: inside;
@@ -260,6 +277,61 @@ footer .footer-right {
     flex-direction: row;
     justify-content: center;
 
+}
+
+/*Css for contact_us*/
+
+.contact{
+    padding-left: 50px;
+}
+
+#btn-update-profile{
+    padding: 7px;
+    margin: 10px;
+}
+
+
+/* Css for payment information*/
+
+.payment-form{
+}
+
+.pay-info{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+    padding-top: 20px;
+}
+#payment-header{
+    display: flex;
+    margin-right:auto ;
+    margin-left: 435px;
+}
+
+#next-btn{
+    float: right;
+    display: inline-block;
+}
+
+/* Css for  payment confirmation */
+
+#confirmation-header{
+    text-align: center;
+}
+
+.confirmation-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+#back-btn-confirm{
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.page-header{
+    text-align: center;
 }
 
 
