@@ -18,13 +18,15 @@
     </head>
     <body>
     <div id="header">
-        <div style="text-align: center; padding-top: 25px;">
+        <div id="logo-container">
             <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
+        </div>
+        <div id="username-container">
             {% if user.is_authenticated %}
                 <p id="username">{{ user.username }}</p>
             {% endif %}
         </div>
-        <ul>
+        <ul id="tabs">
             <li><a id="home" href="{% url 'home_index' %}">Home</a></li>
             <li><a id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
             <li><a id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>

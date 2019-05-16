@@ -1,13 +1,37 @@
+/*Css for stor_search_bar.html, litill_search_bar.html, stor_mynd.html, ekki_search_bar.html */
+
 a{
     color:white;
 }
+
 #header{
+    width: 100%;
     background: url("../Images/mountain.jpg") no-repeat center center;
 }
 
 #header_short{
+    width: 100%;
     background: url("../Images/mountain_short.jpg") no-repeat center center;
 }
+
+#username {
+
+    font-family: "Comic Sans MS";
+    font-size: x-large;
+
+}
+
+#username-container {
+    width: 100%;
+    padding-right: 5%;
+}
+
+#logo-container {
+    width: 100%;
+    text-align: center;
+    padding-top: 3%;
+}
+
 
 .search_bar {
   padding-top: 8rem;
@@ -15,10 +39,11 @@ a{
   text-align: center;
 }
 
-/*.dropdown {*/
-/*    display: inline-block;*/
 
-/*}*/
+#single-image{
+    width: 100%;
+}
+
 
 #real_estate_order{
     width: 100%;
