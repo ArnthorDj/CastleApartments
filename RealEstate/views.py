@@ -183,6 +183,7 @@ def payment_information(request, id):
         'id': id
          })
 
+
 @login_required
 def payment_confirmation(request, id):
     real_estate = RealEstates.objects.get(pk=id)
@@ -192,6 +193,7 @@ def payment_confirmation(request, id):
         'real_estate': real_estate,
         'credit_card': str(credit_card.card_number)[12:]
     })
+
 
 @login_required
 def bought_real_estate(request, id):

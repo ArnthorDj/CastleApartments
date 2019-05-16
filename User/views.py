@@ -6,6 +6,7 @@ from User.forms.sign_up_form import UserProfile, AuthUserForm#, ContactInformati
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+
 def register(request):
     if request.method == "POST":
         auth_user_form = AuthUserForm(data=request.POST)
@@ -30,6 +31,7 @@ def register(request):
         "user_profile_form": user_profile_form,
     })
 
+
 @login_required
 def profile_update(request):
     profile = Profile.objects.filter(user=request.user).first()
@@ -52,6 +54,7 @@ def profile_update(request):
         "auth_user_form": AuthUser(instance=user)
     })
 
+
 @login_required
 def user_history(request):
     #real_estate_id = UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
@@ -62,6 +65,7 @@ def user_history(request):
     return render(request, 'UserHistory/index.html', {
         'real_estates': UserHistory.objects.prefetch_related('real_estate').filter(user_id=request.user)
     })
+
 
 @login_required
 def delete_history(request):
