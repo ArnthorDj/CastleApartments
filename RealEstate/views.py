@@ -54,14 +54,14 @@ def get_real_estate_by_id(request, id):
         else:
             UserHistory.objects.filter(real_estate_id=id, user=request.user).update(date=datetime.date.today())
 
-    placeholder = RealEstateImages.objects.filter(real_estate_id=id)[0]
+    placeholder = RealEstateImages.objects.get(real_estate_id=id)
 
     images = [placeholder.image, placeholder.image2, placeholder.image3, placeholder.image4, placeholder.image5, placeholder.image6]
 
     return render(request, 'RealEstateInformation/index.html', {
         'real_estate': real_estate,
         'employee': Profile.objects.select_related('user').get(user_id=real_estate.employee_id),
-        'images': RealEstateImages.objects.filter(real_estate_id=id)
+        'images': images
     })
 
 @login_required
