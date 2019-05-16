@@ -295,3 +295,20 @@ footer .footer-right {
     float: right;
     display: inline-block;
 }
+
+/* Css for  payment confirmation */
+
+#confirmation-header{
+    text-align: center;
+}
+
+.confirmation-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#confirmation-img{
+    width: 30%;
+    height: 20%;
+
+}
