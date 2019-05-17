@@ -9,7 +9,7 @@ urlpatterns = [
 
     # /user/register/
     path("register/", views.register, name="register"),
-    +
+
     # /user/history/
     path("history/", views.user_history, name="user_history"),
 
