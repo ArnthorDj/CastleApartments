@@ -23,8 +23,8 @@ urlpatterns = [
     path("contact_us/", include("ContactUs.urls")),
     path("employees/", include("Employees.urls")),
     path("real_estate/", include("RealEstate.urls")),
-    path("your_real_estate/", include("YourRealEstate.urls")),
-    path("pending/", include("Pending.urls")),
+    #path("your_real_estate/", include("YourRealEstate.urls")),
+    #path("pending/", include("Pending.urls")),
 
     # path('admin/', admin.site.urls),
     # path("login/", include("Login.urls")),

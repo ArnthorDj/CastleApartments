@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'ContactUs.apps.ContactUsConfig',
     # 'Login.apps.LoginConfig',
     # 'PaymentInformation.apps.PaymentInformationConfig',
-    'Pending.apps.PendingConfig',
+    #'Pending.apps.PendingConfig',
     'RealEstate.apps.RealEstateConfig',
-    'YourRealEstate.apps.YourRealEstateConfig',
+    #'YourRealEstate.apps.YourRealEstateConfig',
 
 ]
 

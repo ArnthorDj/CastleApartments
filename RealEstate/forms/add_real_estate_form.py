@@ -7,7 +7,7 @@ class AddRealEstateForm(ModelForm):
     class Meta:
         # image = forms.CharField(required=True, widgets=forms.TextInput(attrs={'class':'form-control'}))
         model = RealEstates
-        exclude = ['id', 'on_sale', 'seller_id', 'seller']
+        exclude = ['id', 'on_sale', 'seller_id', 'employee']
         # fields = "__all__"
         widgets = {
             'street': widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
@@ -27,8 +27,6 @@ class AddRealEstateForm(ModelForm):
             ] ,attrs={'class': 'form-control','choices':'COLOR_CHOICES', 'style': 'max-width: 20em'}),
             'price': widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'}),
             'more_info': widgets.Textarea(attrs={'class': 'form-control', 'style': 'width: 20em; height: 10em;'}),
-            'employee': widgets.Select(choices=[(employee.id, employee.username) for employee in User.objects.filter(is_staff=True)] ,attrs={'class': 'form-control', 'style': 'width: 20em;',
-                                              'placeholder':'Please select relator to sell property'}),
             'main_image': widgets.TextInput(attrs={'class': 'form-control', 'style': 'max-width: 20em'})
         }
 
