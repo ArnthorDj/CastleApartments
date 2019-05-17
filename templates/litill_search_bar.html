@@ -1,5 +1,6 @@
 <!-- Html file for real estate page. With small background picture and search bar. -->
 {% load static %}
+<script src="{% static 'js/urls.js' %}"></script>
 
 <!doctype html>
 <html lang="en">
@@ -9,133 +10,138 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Castle Apartments</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+              crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
         <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
     </head>
     <body>
-    <div id="header">
-        <div id="logo-container">
-            <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
-        </div>
-        <div id="username-container">
-            {% if user.is_authenticated %}
-                <p id="username">{{ user.username }}</p>
-            {% endif %}
-        </div>
-
-        <div id="menu-bar-container">
-        <ul class="menu-bar ul_first" id="navbar">
-            <li class="menu-opt li_first"><a class="menu-opt" id="home" href="{% url 'home_index' %}">Home</a></li>
-            <li class="menu-opt li_first"><a class="menu-opt" id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
-            <li class="menu-opt li_first"><a class="menu-opt" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
-            {% if user.is_authenticated %}
-                <li class="menu-opt li_first"><a class="menu-opt" id="profile" href="{% url 'profile' %}">Profile</a></li>
-                {% if user.is_staff %}
-                    <li class="menu-opt li_first"><a class="menu-opt" id="Add Real Estate" href="{% url 'add_real_estate_index' %}">Add Real Estate</a></li>
-                {% else %}
-                    <li class="menu-opt li_first"><a class="menu-opt" id="History" href="{% url 'user_history' %}">History</a></li>
+        <div id="header">
+            <div id="logo-container">
+                <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
+            </div>
+            <div id="username-container">
+                {% if user.is_authenticated %}
+                    <p id="username">{{ user.username }}</p>
                 {% endif %}
-            {% endif %}
-            <li class="menu-opt li_first"><a class="menu-opt" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
-            {% if user.is_authenticated %}
-                <!-- <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li> -->
-                <li class="menu-opt li_first"><a class="menu-opt" id="logout" href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-        </ul>
-        </div>
-
-    <div class="dropdown">
-          <button class="dropbtn">Menu</button>
-          <div class="dropdown-content">
-            <a href="{% url 'home_index' %}">Home</a>
-            <a href="{% url 'real_estate' %}">Real Estate</a>
-            <a href="{% url 'employees_index' %}">Staff Members</a>
-              {% if user.is_authenticated %}
-                  <a href="{% url 'profile' %}">Profile</a>
-                  {% if user.is_staff %}
-                    <a href="{% url 'add_real_estate_index' %}">Add Real Estate</a>
+            </div>
+            <div id="menu-bar-container">
+                <ul class="menu-bar ul_first" id="navbar">
+                    <li class="menu-opt li_first"><a class="menu-opt" id="home" href="{% url 'home_index' %}">
+                        Home</a></li>
+                    <li class="menu-opt li_first"><a class="menu-opt" id="real_estate" href="{% url 'real_estate' %}">
+                        Real Estate</a></li>
+                    <li class="menu-opt li_first"><a class="menu-opt" id="employees" href="{% url 'employees_index' %}">
+                        Staff Members</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="menu-opt li_first"><a class="menu-opt" id="profile" href="{% url 'profile' %}">
+                            Profile</a></li>
+                        {% if user.is_staff %}
+                            <li class="menu-opt li_first"><a class="menu-opt" id="Add Real Estate"
+                                                             href="{% url 'add_real_estate_index' %}">
+                                Add Real Estate</a></li>
+                        {% else %}
+                            <li class="menu-opt li_first"><a class="menu-opt" id="History"
+                                                             href="{% url 'user_history' %}">History</a></li>
+                        {% endif %}
+                    {% endif %}
+                    <li class="menu-opt li_first"><a class="menu-opt" id="contact_us" href="{% url 'contact_us' %}">
+                        Contact Us</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="menu-opt li_first"><a class="menu-opt" id="logout" href="{% url 'logout' %}">
+                            Logout</a></li>
+                    {% else %}
+                        <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">
+                            Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="dropdown">
+                  <button class="dropbtn">Menu</button>
+                  <div class="dropdown-content">
+                      <a href="{% url 'home_index' %}">Home</a>
+                      <a href="{% url 'real_estate' %}">Real Estate</a>
+                      <a href="{% url 'employees_index' %}">Staff Members</a>
+                      {% if user.is_authenticated %}
+                          <a href="{% url 'profile' %}">Profile</a>
+                          {% if user.is_staff %}
+                            <a href="{% url 'add_real_estate_index' %}">Add Real Estate</a>
+                          {% else %}
+                              <a href="{% url 'user_history' %}">History</a>
+                          {% endif %}
+                      {% endif%}
+                      <a href="{% url 'contact_us' %}">Contact Us</a>
+                      {% if user.is_authenticated %}
+                          <a href="{% url 'logout' %}">Logout</a>
                       {% else %}
-                      <a href="{% url 'user_history' %}">History</a>
-                  {% endif %}
-              {% endif%}
-              <a href="{% url 'contact_us' %}">Contact Us</a>
-              {% if user.is_authenticated %}
-                  <a href="{% url 'logout' %}">Logout</a>
-                  {% else %}
-                  <a href="{% url 'login' %}">Login</a>
-              {% endif %}
-          </div>
+                          <a href="{% url 'login' %}">Login</a>
+                      {% endif %}
+                  </div>
+            </div>
+            <header class="search_bar center">
+                <form class="form">
+                    <div class="form-row">
+                        <div class="col-14">
+                            <input id="search-box" type="search" class="form-control"
+                                   placeholder="Search (street, city, zip code)">
+                        </div>
+                        <div class="col-12">
+                            <button id="search-btn" type="button" class="btn btn-block btn-lg btn-primary">
+                                Search</button>
+                        </div>
+                    </div>
+                </form>
+            </header>
         </div>
-
-
-        <header class="search_bar center">
-            <form class="form">
-                <div class="form-row">
-                    <div class="col-14">
-                        <input id="search-box" type="search" class="form-control" placeholder="Search (street, city, zip code)">
+        {% block header %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
                     </div>
-                    <div class="col-12">
-                        <button id="search-btn" type="button" class="btn btn-block btn-lg btn-primary">Search</button>
-                    </div>
-                </div>
-            </form>
-
-        </header>
-    </div>
-
-    {% block header %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endblock %}
-    {% block content %}
-    {% endblock %}
-
-
-
-
-    <footer>
-        <aside class="footer-left">
-            <h3 class="footer_left"> Castle Apartments Ltd.</h3><br><br><br>
-            <p>Laugavegur 5, 101 Reykjavík <br>
-            castleapt@castleapt.com <br>
-            Kt: 123456-7890 <br>
-            S: 123-3456</p>
-        </aside>
-
-        <aside class="footer-right">
-            <h2 id="socialmedia-header">Social media</h2>
-            <img class="social_media_logo" id="snapchat_logo" src="{% static 'Images/snapchat_logo.png' %}" alt="snapchat_logo">
-                <img class="social_media_logo" id="instagram_logo" src="{% static 'Images/instagram_logo.png' %}" alt="instagram_logo">
-                <img class="social_media_logo" id="twitter_logo" src="{% static 'Images/twitter_logo.png' %}" alt="twitter_logo">
-                <img class="social_media_logo" id="facebook_logo" src="{% static 'Images/facebook_logo.png' %}" alt="facebook_logo">
-        </aside>
-
-        <aside class="footer-center">
-            <h2 id="about-us-header">About Us</h2>
-                <p>Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of computer science at Reykjavik University, Iceland.
-                    Our expertise is in selling high quality old fashion family homes.</p>
-
-
-        </aside>
-    </footer>
+                {% endfor %}
+            {% endif %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <footer>
+            <aside class="footer-left">
+                <h3 class="footer_left"> Castle Apartments Ltd.</h3><br><br><br>
+                <p>Laugavegur 5, 101 Reykjavík <br>
+                castleapt@castleapt.com <br>
+                Kt: 123456-7890 <br>
+                S: 123-3456</p>
+            </aside>
+            <aside class="footer-right">
+                <h2 id="socialmedia-header">Social media</h2>
+                <img class="social_media_logo" id="snapchat_logo" src="{% static 'Images/snapchat_logo.png' %}"
+                     alt="snapchat_logo">
+                    <img class="social_media_logo" id="instagram_logo" src="{% static 'Images/instagram_logo.png' %}"
+                         alt="instagram_logo">
+                    <img class="social_media_logo" id="twitter_logo" src="{% static 'Images/twitter_logo.png' %}"
+                         alt="twitter_logo">
+                    <img class="social_media_logo" id="facebook_logo" src="{% static 'Images/facebook_logo.png' %}"
+                         alt="facebook_logo">
+            </aside>
+            <aside class="footer-center">
+                <h2 id="about-us-header">About Us</h2>
+                    <p>Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of
+                        computer science at Reykjavik University, Iceland.
+                        Our expertise is in selling high quality old fashion family homes.</p>
+            </aside>
+        </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" ></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="{% static 'js/search_bar.js' %}"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
-<script src="{% static 'js/urls.js' %}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        <script src="{% static 'js/search_bar.js' %}"></script>
     </body>
 </html>
