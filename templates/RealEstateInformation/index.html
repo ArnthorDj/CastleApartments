@@ -42,7 +42,9 @@
             {{ real_estate.more_info}}
 
         </div>
-        {% if user.is_staff %}
+        {% if user.is_authenticated == False %}
+            <a class="buy" href="/user/login"><button id="button" type="submit" class="btn btn-block btn-primary">Login to buy</button></a>
+        {% elif user.is_staff %}
             <a class="buy" href="/real_estate/update/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-primary">Update</button></a>
         {% elif user.is_staff == False %}
             <a class="buy" href="/real_estate/pay/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
