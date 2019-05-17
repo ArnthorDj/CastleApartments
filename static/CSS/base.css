@@ -5,13 +5,20 @@ a{
 }
 
 #header{
-    width: 100%;
-    background: url("../Images/mountain.jpg") no-repeat center center;
+    /*width: 100%;*/
+    background-image: url("../Images/mountain.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    border: 2px solid black;
 }
 
 #header_short{
     width: 100%;
     background: url("../Images/mountain_short.jpg") no-repeat center center;
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
 }
 
 #username {
