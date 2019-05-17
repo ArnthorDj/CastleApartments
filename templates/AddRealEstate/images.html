@@ -6,7 +6,8 @@
 
 
     <div class="image-real-estate">
-        <button type="submit" class="formatted-btn btn-primary" onclick="location.href='/real_estate/update/{{ id }}'">Back</button>
+        <button type="submit" class="formatted-btn btn-primary" onclick="location.href='/real_estate/update/{{ id }}'">
+            Back</button>
             <form class="add-form" method="post"/>
             {% csrf_token %}
             {{ image_form }}

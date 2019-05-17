@@ -39,17 +39,21 @@
 
     <div class="infobox-realestate">
         <div class="infotext-realestate">
-            <p id="text-street"><b>{{ real_estate.street}}, {{ real_estate.zip_code.zip_code }} {{ real_estate.zip_code.city }}</b></p>
+            <p id="text-street"><b>{{ real_estate.street}}, {{ real_estate.zip_code.zip_code }}
+                {{ real_estate.zip_code.city }}</b></p>
             <p> </p>
             <b> Description:   </b>
             {{ real_estate.more_info}}
         </div>
         {% if user.is_authenticated == False %}
-            <a class="buy" href="/user/login"><button id="button" type="submit" class="btn btn-block btn-primary">Login to buy</button></a>
+            <a class="buy" href="/user/login"><button id="button" type="submit"
+                                                      class="btn btn-block btn-primary">Login to buy</button></a>
         {% elif user.is_staff %}
-            <a class="buy" href="/real_estate/update/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-primary">Update</button></a>
+            <a class="buy" href="/real_estate/update/{{ real_estate.id }}"><button id="button"
+                                              type="submit" class="btn btn-block btn-primary">Update</button></a>
         {% elif user.is_staff == False %}
-            <a class="buy" href="/real_estate/pay/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
+            <a class="buy" href="/real_estate/pay/{{ real_estate.id }}"><button id="button" type="submit"
+                  class="btn btn-block btn-primary">Buy</button></a>
         {% endif %}
         </div>
     </div>

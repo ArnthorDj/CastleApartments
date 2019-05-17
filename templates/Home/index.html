@@ -11,7 +11,8 @@
             <div class="well real estate" >
                 <a href="/real_estate/info/{{ real_estate.id }}">
                 <img alt="main-img" src="{{ real_estate.main_image }}" height="100%" width="100%">
-                <h4 class="black-font">{{ real_estate.street }}, {{ real_estate.zip_code_id }}{{ real_estate.zip_code.city }}</h4>
+                <h4 class="black-font">{{ real_estate.street }}, {{ real_estate.zip_code_id }}
+                    {{ real_estate.zip_code.city }}</h4>
                     <p class="black-font"> <b>Bedrooms:</b> {{ real_estate.bedrooms }},<b> Bathrooms:</b>
                         {{ real_estate.bedrooms }},<b>Size:</b> {{ real_estate.size }}<b> square meters</b></p>
                     <p class="black-font"><b> Type: </b>{{ real_estate.type }}</p>
