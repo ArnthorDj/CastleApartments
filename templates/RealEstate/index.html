@@ -2,16 +2,15 @@
 {% extends 'litill_search_bar.html' %}
 {% load static %}
 <script src="{% static 'js/urls.js' %}"></script>
-
 {% block content %}
     <div class="container2">
         <h2 class="page-header">Real Estates</h2>
     </div>
         {% block order_by %}
         {% endblock %}
-        <main id="main">
+    <main id="main">
         {% for house in real_estates %}
             {% include 'RealEstate/single_real_estate.html' with house=house %}
         {% endfor %}
-        </main>
+    </main>
 {% endblock %}

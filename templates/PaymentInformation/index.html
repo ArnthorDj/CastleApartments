@@ -3,24 +3,23 @@
 {% load static %}
 {% block content %}
     <h3 id="payment-header">Payment Information</h3>
-        <div class="pay-info">
-            <div> <a href="/real_estate/info/{{ id }}"><button type="submit" id="go-back"
-                                                               class="btn btn-primary pull-right">
+    <div class="pay-info">
+        <div>
+            <a href="/real_estate/info/{{ id }}"><button type="submit" id="go-back"
+                                                           class="btn btn-primary pull-right">
                 Go Back </button></a>
-            </div>
-            <form class="payment-form" method = "post" id="credit_form">
-                {% csrf_token %}
-                {{ credit_card_form }}
-            </form>
-            <div>
         </div>
-              <div>
-                  <input type="submit" form="credit_form" href="real_estate/pay/{{ id }}/confirmation" id="next-btn"
-                         class="btn btn-primary pull-right" value="Next">
-                </div>
+        <form class="payment-form" method = "post" id="credit_form">
+            {% csrf_token %}
+            {{ credit_card_form }}
+        </form>
+        <div>
         </div>
-
-
+        <div>
+            <input type="submit" form="credit_form" href="real_estate/pay/{{ id }}/confirmation" id="next-btn"
+                   class="btn btn-primary pull-right" value="Next">
+        </div>
+    </div>
 {% endblock %}
 
 

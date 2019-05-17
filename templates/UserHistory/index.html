@@ -2,7 +2,6 @@
 {% extends 'ekki_search_bar.html' %}
 {% load static %}
 <script src="{% static 'js/urls.js' %}"></script>
-
 {% block content %}
     {% if real_estates %}
         <button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary">
@@ -11,13 +10,11 @@
         <div class="container2">
             <h2 class="page-header">Recently viewed real estates</h2>
         </div>
-
     {% block order_by %}
     {% endblock %}
-
-        <main class="main">
-        {% for real_estate in real_estates %}
-            {% include 'UserHistory/single_real_estate_user_history.html' with real_estate=real_estate %}
-        {% endfor %}
-        </main>
-    {% endblock %}
+    <main class="main">
+    {% for real_estate in real_estates %}
+        {% include 'UserHistory/single_real_estate_user_history.html' with real_estate=real_estate %}
+    {% endfor %}
+    </main>
+{% endblock %}
