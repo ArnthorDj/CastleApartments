@@ -9,6 +9,7 @@ from RealEstate.forms.add_real_estate_form import AddRealEstateForm, AddRealEsta
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+
 def index(request):
     """ Search function that is shown in the canvas instruction video. """
 
@@ -71,6 +72,7 @@ def get_real_estate_by_id(request, id):
         'images': images
     })
 
+
 @login_required
 def add_real_estate(request):
     """ Adds real estate to the database. """
@@ -100,6 +102,7 @@ def add_real_estate(request):
     return render(request, 'AddRealEstate/index.html', {
         'form': new_real_estate_form
     })
+
 
 @login_required
 def update_real_estate(request, id):
@@ -229,6 +232,7 @@ def add_real_estate_images(request, id):
         'images': images,
         'id': id
     })
+
 
 @login_required
 def payment_information(request, id):
