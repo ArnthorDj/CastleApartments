@@ -27,8 +27,8 @@
                     <p id="username">{{ user.username }}</p>
                 {% endif %}
             </div>
-        <diV id="menu-bar-container">
-        <ul class="menu-bar">
+        <div id="menu-bar-container">
+        <ul class="menu-bar" id="navbar">
             <li><a class="menu-opt"  id="home" href="{% url 'home_index' %}">Home</a></li>
             <li><a class="menu-opt"  id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
             <li><a class="menu-opt"  id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
@@ -48,8 +48,32 @@
                 <li><a class="menu-opt"  id="login" href="{% url 'login' %}">Login</a></li>
             {% endif %}
         </ul>
-        </diV>
         </div>
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            <a href="{% url 'home_index' %}">Home</a>
+            <a href="{% url 'real_estate' %}">Real Estate</a>
+            <a href="{% url 'employees_index' %}">Staff Members</a>
+              {% if user.is_authenticated %}
+                  <a href="{% url 'profile' %}">Profile</a>
+                  {% if user.is_staff %}
+                    <a href="{% url 'add_real_estate_index' %}">Add Real Estate</a>
+                      {% else %}
+                      <a href="{% url 'user_history' %}">History</a>
+                  {% endif %}
+              {% endif%}
+              <a href="{% url 'contact_us' %}">Contact Us</a>
+              {% if user.is_authenticated %}
+                  <a href="{% url 'logout' %}">Logout</a>
+                  {% else %}
+                  <a href="{% url 'login' %}">Login</a>
+              {% endif %}
+          </div>
+        </div>
+
+        </div>
+
         {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}">

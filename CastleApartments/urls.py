@@ -16,6 +16,8 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path, include
 
+
+# Starting Urls
 urlpatterns = [
     path("", include("Home.urls")),
     path("home/", include("Home.urls")),
@@ -23,15 +25,4 @@ urlpatterns = [
     path("contact_us/", include("ContactUs.urls")),
     path("employees/", include("Employees.urls")),
     path("real_estate/", include("RealEstate.urls")),
-    #path("your_real_estate/", include("YourRealEstate.urls")),
-    #path("pending/", include("Pending.urls")),
-
-    # path('admin/', admin.site.urls),
-    # path("login/", include("Login.urls")),
-    # path("sign_up/", include("Signup.urls")),
-    # path("payment_information/", include("PaymentInformation.urls")),
-    # path("confirmation/", include("Confirmation.urls")),
-    # path("real_estate_information/", include("RealEstateInformation.urls")),
-    # path("add_real_estate/", include("AddRealEstate.urls")),
-    # path("add_real_estate_confirmation/", include("AddRealEstateConfirmation.urls")),
 ]
