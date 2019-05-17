@@ -10,11 +10,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 def index(request):
-    """ Search function that is shown in the canvas instruction video """
+    """ Search function that is shown in the canvas instruction video. """
 
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        # zip_city = RealEstates.objects.all().values('zip_code__city')
+        # zip_city = RealEstates.objects.all().values('zip_code__city').
 
         real_estate = [{
             'id': x.id,
@@ -39,31 +39,32 @@ def index(request):
 
 
 def get_real_estate_by_id(request, id):
-    """ Function that gets specific real estate """
+    """ Function that gets specific real estate. """
 
-    # Get the spesific real estate or throw 404 error
+    # Get the spesific real estate or throw 404 error.
     real_estate = get_list_or_404(RealEstates, pk=id)[0]
 
-    # if the specific real estate is not on sale then redirects the user to /real_estate/ url
+    # if the specific real estate is not on sale then redirects the user to /real_estate/ url.
     if not real_estate.on_sale:
         return redirect('real_estate')
 
-    # Checks if the user is logged in and if he is checks if he has already checked out this specific real estate
+    # Checks if the user is logged in and if he is checks if he has already checked out this specific real estate.
     if request.user.is_authenticated:
         if UserHistory.objects.filter(real_estate_id=id, user_id=request.user).all().count() == 0:
-            # adds the real estate to user history
+            # adds the real estate to user history.
             user_his = UserHistory(real_estate_id=id, user=request.user)
             user_his.save()
         else:
-            # updates the date in user history
+            # updates the date in user history.
             UserHistory.objects.filter(real_estate_id=id, user=request.user).update(date=datetime.date.today())
 
-    # Gets the specific real estate images
+    # Gets the specific real estate images.
     placeholder = RealEstateImages.objects.get(real_estate_id=id)
 
-    # Sets the images in a more convenient data storage as in getting them back
+    # Sets the images in a more convenient data storage as in getting them back.
     images = [placeholder.image, placeholder.image2, placeholder.image3, placeholder.image4, placeholder.image5, placeholder.image6]
 
+    # Goes to real estate information page with the necessary information to display on the page.
     return render(request, 'RealEstateInformation/index.html', {
         'real_estate': real_estate,
         'employee': Profile.objects.select_related('user').get(user_id=real_estate.employee_id),
@@ -72,39 +73,54 @@ def get_real_estate_by_id(request, id):
 
 @login_required
 def add_real_estate(request):
-    if request.user.is_staff == False:
+    """ Adds real estate to the database. """
+
+    # If the current user is not staff throw him to /home/ url.
+    if not request.user.is_staff:
         return redirect('home_index')
 
     if request.method == "POST":
         new_real_estate_form = AddRealEstateForm(data=request.POST)
         if new_real_estate_form.is_valid():
             new_real_estate_form2 = new_real_estate_form.save(commit=False)
+
+            # Sets the real estate on sale.
             new_real_estate_form2.on_sale = True
+
+            # Sets the employee id to current user (that is employee).
             new_real_estate_form2.employee_id = request.user.id
             new_real_estate_form2.save()
 
+            # Redirects the user to the next step, to add images to the specific real estate.
             return redirect('real_estate_image', id=new_real_estate_form2.id)
     else:
         new_real_estate_form = AddRealEstateForm()
+
+    # Goes to add real estate page with the form that the user needs to fill out.
     return render(request, 'AddRealEstate/index.html', {
         'form': new_real_estate_form
     })
 
 @login_required
 def update_real_estate(request, id):
+    """ Updates specific real estae in the database. """
 
-    if request.user.is_staff == False:
+    # if the current user is not staff throw him to /home/ url.
+    if not request.user.is_staff:
         return redirect('home_index')
 
+    # Gets the real estate to update.
     real_estate = RealEstates.objects.get(pk=id)
 
-    if real_estate.on_sale == False:
+    # If the real estate is not on sale then throw the user to /real_estate/ url.
+    if not real_estate.on_sale:
         return redirect('real_estate')
 
     if request.method == "POST":
         real_estate_form = AddRealEstateForm(data=request.POST, instance=real_estate)
         if real_estate_form.is_valid():
 
+            # Gets the user input and puts them in a variable.
             street = real_estate.street
             type = real_estate.type
             more_info = real_estate.more_info
@@ -114,13 +130,17 @@ def update_real_estate(request, id):
             bedrooms = real_estate.bedrooms
             bathrooms = real_estate.bathrooms
 
+            # Updates the specific real estate with the user information.
             RealEstates.objects.filter(id=id).update(street=street, type=type, more_info=more_info,
                                                      main_image=main_image, price=price, size=size,
                                                      bedrooms=bedrooms, bathrooms=bathrooms)
 
+            # Redirects the user to the next step (update the current real estate images).
             return redirect('real_estate_image', id=id)
     else:
         real_estate_form = AddRealEstateForm(instance=real_estate)
+
+    # Goes to the add real estate page with a form that has current information of the real estate if there are any.
     return render(request, 'AddRealEstate/index.html', {
         'form': real_estate_form
     })
@@ -128,47 +148,67 @@ def update_real_estate(request, id):
 
 @login_required
 def add_real_estate_images(request, id):
+    """ Adds or Updates images for specific real estate. """
 
-    if request.user.is_staff == False:
+    # If the current user is not staff throws the user to /real_estate/ url.
+    if not request.user.is_staff:
         return redirect('real_estate')
 
+    # Gets the images for specific real estate.
     images = RealEstateImages.objects.filter(real_estate_id=id)
+
+    # Counts the images.
     image = images.count()
 
-
+    # If there are no images then add new to RealEstateImages table (else just update the images).
     if image == 0:
         real_estate_image_form = AddRealEstateImage(data=request.POST)
+
+        # Sets the display images to "".
         images = ["", "",
                   "", "",
                   "", ""]
+
         if request.method == 'POST':
             if real_estate_image_form.is_valid():
                 form2 = real_estate_image_form.save(commit=False)
+                # Sets the real estate id foreign key to the current real estate id.
                 form2.real_estate_id = id
                 form2.save()
+
+                # Sets the images that the user set in to variables.
                 pic1 = real_estate_image_form.cleaned_data.get('image')
                 pic2 = real_estate_image_form.cleaned_data.get('image2')
                 pic3 = real_estate_image_form.cleaned_data.get('image3')
                 pic4 = real_estate_image_form.cleaned_data.get('image4')
                 pic5 = real_estate_image_form.cleaned_data.get('image5')
                 pic6 = real_estate_image_form.cleaned_data.get('image6')
+
+                # Sets the display images to the users input.
                 images = [pic1, pic2,
                           pic4, pic3,
                           pic5, pic6]
 
+    # If there are images for the specific real estate then update them.
     else:
         if request.method == 'POST':
             real_estate_image_form = AddRealEstateImage(data=request.POST, instance=images[0])
 
             if real_estate_image_form.is_valid():
+
+                # Sets the images that the user set in to variables.
                 pic1 = real_estate_image_form.cleaned_data.get('image')
                 pic2 = real_estate_image_form.cleaned_data.get('image2')
                 pic3 = real_estate_image_form.cleaned_data.get('image3')
                 pic4 = real_estate_image_form.cleaned_data.get('image4')
                 pic5 = real_estate_image_form.cleaned_data.get('image5')
                 pic6 = real_estate_image_form.cleaned_data.get('image6')
+
+                # Updates the specific real estate image with the input from the user
                 RealEstateImages.objects.filter(real_estate_id=id).update(image=pic1, image2=pic2, image3=pic3,
                                                                         image4=pic4, image5=pic5, image6=pic6)
+
+                # Sets the display images to the users input.
                 images = [pic1, pic2,
                           pic4, pic3,
                           pic5, pic6]
@@ -176,83 +216,115 @@ def add_real_estate_images(request, id):
         else:
             real_estate_image_form = AddRealEstateImage(instance=images[0])
 
+            # Sets the display images to what is in the database.
             images = [images[0].image, images[0].image2,
                       images[0].image3, images[0].image4,
                       images[0].image5, images[0].image6]
 
+    # Goes to the add/update real estate images with a form that has current information
+    # of the real estate images if there are any images in the database if there are any,
+    # the images in the database as well and the id of the real estate.
     return render(request, 'AddRealEstate/images.html', {
         'image_form': real_estate_image_form,
         'images': images,
         'id': id
     })
 
-# def addRealEstateCofirmation(request):
-# return HttpResponse("Hello from the index function within the AddRealEstateConfirmation app!")
-
-
-#def payment_confirmation(request):
-#    return render(request, 'PaymentConfirmation/index.html')
-
-
-# def yourRealEstate(request):
-# return HttpResponse("Hello from the index function within the YourRealEstate app!")
-
 @login_required
 def payment_information(request, id):
+    """ Gets the credit card information """
 
-    if request.user.is_staff == True:
+    # If the user is staff throws the user to /real_estate/info/:id/ url.
+    if request.user.is_staff:
         return redirect('real_estate_information', id=id)
 
-    #CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
-
+    # if there is not a credit card information in the database for a user then create one.
     if CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
         if request.method == "POST":
             credit_card_form = CreatePaymentForm(data=request.POST)
             if credit_card_form.is_valid():
+
+                # Gets the user input about the credit card and puts it in variables.
                 credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
+
+                # Gets the credit card expiration date.
                 credit_card_month = int(credit_card_form.cleaned_data.get('month'))
                 credit_card_year = int(credit_card_form.cleaned_data.get('year'))
+
+                # Checks if the credit card number is not valid.
                 if not credit_card_number.isdigit() or len(credit_card_number) != 16:
+                    # Throws a message on the screen showing the error in the credit card number.
                     messages.warning(request, f'Card number is not valid (16 numbers)!')
                     return redirect('payment_information_index', id=id)
+
+                # Gets the current year and month.
                 month = int(datetime.datetime.now().month)
                 year = int(datetime.datetime.now().year)
+
+                # Checks if the credit card expiration date is not valid.
                 if credit_card_month < month and credit_card_year == year or credit_card_year < year:
+                    # Throws a message on the screen showing the error in the credit card expiration date.
                     messages.warning(request, f'Card is expired!')
                     return redirect('payment_information_index', id=id)
 
                 credit_card_form2 = credit_card_form.save(commit=False)
+
+                # Sets the user_id foreign key to the current user id.
                 credit_card_form2.user_id = request.user.profile.id
                 credit_card_form2.save()
 
+                # Goes to the next step (payment confirmation).
                 return redirect('payment_confirmation', id=id)
         else:
             credit_card_form = CreatePaymentForm()
+
+    # If there is a credit card information in the database for the current user.
     else:
+
+        # Gets the current users credit card information.
         credit_card = CreditCard.objects.get(user_id=request.user.profile.id)
         if request.method == "POST":
             credit_card_form = CreatePaymentForm(data=request.POST, instance=credit_card)
             if credit_card_form.is_valid():
+
+                # Gets the user input about the credit card and puts it in variables.
                 credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
+
+                # Gets the credit card expiration date.
                 credit_card_month = int(credit_card_form.cleaned_data.get('month'))
                 credit_card_year = int(credit_card_form.cleaned_data.get('year'))
+
+                # Checks if the credit card number is not valid.
                 if not credit_card_number.isdigit() or len(credit_card_number) < 16:
+                    # Throws a message on the screen showing the error in the credit card number
                     messages.warning(request, f'Card number is not valid (16 numbers)!')
                     return redirect('payment_information_index', id=id)
+
+                # Gets the current year and month.
                 month = int(datetime.datetime.now().month)
                 year = int(datetime.datetime.now().year)
+
+                # Checks if the credit card expiration date is not valid
                 if credit_card_month < month and credit_card_year == year or credit_card_year < year:
+                    # Throws a message on the screen showing the error in the credit card expiration date.
                     messages.warning(request, f'Card is expired!')
                     return redirect('payment_information_index', id=id)
 
+                # Gets the user input about the credit card information and puts them in variables.
                 card_number = credit_card_form.cleaned_data.get('card_number')
                 month = credit_card_form.cleaned_data.get('month')
                 year = credit_card_form.cleaned_data.get('year')
+
+                # Updates the current users credit card information in the database.
                 CreditCard.objects.filter(user_id=request.user.profile.id).update(card_number=card_number, month=month,
                                                                                       year=year)
+
+                # Goes to the next step (payment confirmation).
                 return redirect('payment_confirmation', id=id)
         else:
             credit_card_form = CreatePaymentForm(instance=credit_card)
+
+    # Goes to the payment information page with credit card form and real estate id.
     return render(request, 'PaymentInformation/index.html', {
         'credit_card_form': credit_card_form,
         'id': id
@@ -261,8 +333,16 @@ def payment_information(request, id):
 
 @login_required
 def payment_confirmation(request, id):
+    """  Goes to payment confirmation page with the right information """
+
+    # Gets the real estate information.
     real_estate = RealEstates.objects.get(pk=id)
+
+    # Gets the credit card information.
     credit_card = CreditCard.objects.get(user_id=request.user.profile.id)
+
+    # Goes to payment confirmation page with id of the real estate, real estate information.
+    # and the last 4 credit card numbers
     return render(request, 'PaymentConfirmation/index.html', {
         'id': id,
         'real_estate': real_estate,
@@ -272,15 +352,25 @@ def payment_confirmation(request, id):
 
 @login_required
 def bought_real_estate(request, id):
+    """ Sets the purchase in the database """
+
+    # If the current user is staff then throws the user to /real_estate/ url.
     if request.user.is_staff == True:
         return redirect('real_estate')
 
+    # Gets the real estate information.
     real_estate = RealEstates.objects.filter(pk=id)
+
+    # Set the real estate as not on sale.
     real_estate.update(on_sale=False)
+
+    # Sets the purchase in the database (buyer, seller, real_estate).
     Purchases.objects.create(buyer=request.user.id, seller=real_estate[0].employee.id, real_estate=id)
 
+    # Gives visual confirmation to the user as a message.
     messages.success(request, f'House bought in {real_estate[0].street}, {real_estate[0].zip_code.zip_code} {real_estate[0].zip_code.city}, {real_estate[0].zip_code.country}!')
 
+    # Throw the user to /real_estate/ url after purchase.
     return redirect('real_estate')
 
 
