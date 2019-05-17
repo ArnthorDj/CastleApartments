@@ -27,27 +27,27 @@
             {% endif %}
         </div>
     <div id="menu-bar-container">
-        <ul class="menu-bar" id="navbar">
-            <li><a class="menu-opt" id="home" href="{% url 'home_index' %}">Home</a></li>
-            <li><a class="menu-opt" id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
-            <li><a class="menu-opt" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
+        <ul class="menu-bar ul_first" id="navbar">
+            <li class="menu-opt li_first"><a class="menu-opt" id="home" href="{% url 'home_index' %}">Home</a></li>
+            <li class="menu-opt li_first"><a class="menu-opt" id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
+            <li class="menu-opt li_first"><a class="menu-opt" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
             {% if user.is_authenticated %}
-                <li><a class="menu-opt" id="profile" href="{% url 'profile' %}">Profile</a></li>
+                <li class="menu-opt li_first"><a class="menu-opt" id="profile" href="{% url 'profile' %}">Profile</a></li>
                 {% if user.is_staff %}
-                    <li><a class="menu-opt" id="Add Real Estate" href="{% url 'add_real_estate_index' %}">Add Real Estate</a></li>
+                    <li class="menu-opt li_first"><a class="menu-opt" id="Add Real Estate" href="{% url 'add_real_estate_index' %}">Add Real Estate</a></li>
                 {% else %}
-                    <li><a class="menu-opt" id="History" href="{% url 'user_history' %}">History</a></li>
+                    <li class="menu-opt li_first"><a class="menu-opt" id="History" href="{% url 'user_history' %}">History</a></li>
                 {% endif %}
             {% endif %}
-            <li><a class="menu-opt" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
+            <li class="menu-opt li_first"><a class="menu-opt" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
             {% if user.is_authenticated %}
                 <!-- <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li> -->
-                <li><a class="menu-opt" id="logout" href="{% url 'logout' %}">Logout</a></li>
+                <li class="menu-opt li_first"><a class="menu-opt" id="logout" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li><a class="menu-opt" id="login" href="{% url 'login' %}">Login</a></li>
+                <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">Login</a></li>
             {% endif %}
         </ul>
-    </div>
+        </div>
     <div class="dropdown">
           <button class="dropbtn">Dropdown</button>
           <div class="dropdown-content">
