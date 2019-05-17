@@ -2,7 +2,6 @@
  different files so the order by box tells the user what option he chose. -->
 {% extends 'RealEstate/index.html' %}
 {% load static %}
-
 {% block order_by %}
     <div class="dropdown-container">
         <form action="/action_page.php">
@@ -20,5 +19,4 @@
             <button id="real_estate_go_btn" type="submit" class="btn btn-primary" onclick="real_estate_urls()">
             <p>Go</p></button>
     </div>
-
 {% endblock %}

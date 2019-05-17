@@ -2,7 +2,6 @@
 {% extends 'stor_mynd.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
-
 {% block content %}
 <h1 class="page-header"> Profile </h1>
     <div class="container d-flex h-100">
@@ -12,12 +11,10 @@
                 {% csrf_token %}
                 {{ profile_form|crispy }}
                 {{ auth_user_form|crispy }}
-            <button type="submit" class="btn btn-primary" id="btn-update-profile">Update Pofile</button>
+                <button type="submit" class="btn btn-primary" id="btn-update-profile">Update Pofile</button>
             </form>
             <img id="profile-img" src="{{ user.profile.profile_image }}"height="30%" width="40%">
         </div>
       </div>
     </div>
-
-
 {% endblock %}

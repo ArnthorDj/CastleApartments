@@ -1,16 +1,15 @@
-<!-- Html file for register form -->
+<!-- Html file for register form. -->
 {% extends 'ekki_search_bar.html' %}
-
 {% block content %}
     <h3>Sign Up</h3>
-        <form method = "post">
-            {% csrf_token %}
-            {{form}}
-            <input type = "text" placeholder = "First Name"><br />
-            <input type = "text" placeholder = "Last Name"><br />
-            <input type = "text" placeholder = "Email"><br />
-            <input type = "text" placeholder = "Password"><br />
-            <input type = "text" placeholder = "Confirm Password"><br />
-            <button type = "submit">Sign Up</button>
-        </form>
+    <form method = "post">
+        {% csrf_token %}
+        {{form}}
+        <input type = "text" placeholder = "First Name"><br />
+        <input type = "text" placeholder = "Last Name"><br />
+        <input type = "text" placeholder = "Email"><br />
+        <input type = "text" placeholder = "Password"><br />
+        <input type = "text" placeholder = "Confirm Password"><br />
+        <button type = "submit">Sign Up</button>
+    </form>
 {% endblock %}

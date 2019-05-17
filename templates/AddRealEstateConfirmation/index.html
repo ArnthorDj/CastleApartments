@@ -1,11 +1,8 @@
 <!-- Html file for real estate confirmation when real estate is being bought. -->
 {% extends 'ekki_search_bar.html' %}
 {% block content %}
-
     <h3>Confirmation step</h3>
-
     <textarea disabled rows="10" cols="30" class="moreinfobox2">Info about the real estate + payment info </textarea>
-
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal">Confirm</button>
     <div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -24,5 +21,4 @@
     </div>
     <a href="{% url 'add_real_estate_index' %}"><button id="button" type="submit"
                                                         class="btn btn-block btn-lg btn-primary">Go Back</button></a>
-
 {% endblock %}
