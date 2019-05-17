@@ -1,4 +1,4 @@
-// JavaScript file for image slider to show more pictures of one Real Estate
+// JavaScript file for image slider to show more pictures of one Real Estate.
 
 let slideIndex = 1;
 showSlides(slideIndex);
