@@ -5,7 +5,7 @@
 
 {% block order_by %}
 <div class="dropdown-container">
-    <form class="dropdown" action="/action_page.php">
+    <form action="/action_page.php">
               <select id="real_estate_order" name="order">
                   <option value="{% url 'real_estate' %}" selected>Order by</option>
                   <option value="{% url 'real_estate_zip' %}">Zip</option>
