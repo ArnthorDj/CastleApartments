@@ -5,18 +5,21 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <a href="{% url 'real_estate' %}"><button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary">Back</button></a>
 
-<div class="moreinfo-container">
-    <div class="slideshow-container" style="width: 100%; height: 20%">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            {% for image in images %}
-            <div class="mySlides">
-                <img id="single-image" src="{{ image }}" style="width: 100%;">
-            </div>
-            {% endfor %}
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
 
-<div class="moreinfo-box1">
+<div class="page-box">
+    <div class="moreinfo-container">
+
+        <div class="slideshow-container" >
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                {% for image in images %}
+                <div class="mySlides">
+                    <img id="single-image" src="{{ image }}" style="width: 100%;">
+                </div>
+                {% endfor %}
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+      <div class="moreinfo-box1">
                     <p><b> Information about real estate: </b></p>
                     <p></p>
                     Bedrooms: {{ real_estate.bedrooms }} <br>
@@ -33,7 +36,8 @@
                     Email: {{ employee.user.email }}<br>
                     Phone: {{ employee.phone }}
                 </div>
-</div>
+
+
     <div class="infobox-realestate">
         <div class="infotext-realestate">
             <p id="text-street"><b>{{ real_estate.street}}, {{ real_estate.zip_code.zip_code }} {{ real_estate.zip_code.city }}</b></p>
@@ -50,7 +54,11 @@
             <a class="buy" href="/real_estate/pay/{{ real_estate.id }}"><button id="button" type="submit" class="btn btn-block btn-primary">Buy</button></a>
         {% endif %}
 
+        </div>
     </div>
+</div>
+
+
 
  <script src="{% static 'js/img_slider.js' %}"></script>
 
