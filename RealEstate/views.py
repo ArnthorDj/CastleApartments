@@ -197,7 +197,7 @@ def payment_information(request, id):
         credit_card_form = CreatePaymentForm(data=request.POST)
         if request.method == "POST":
             credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
-            if not credit_card_number.isdigit() or len(credit_card_number) < 16:
+            if not credit_card_number.isdigit() or len(credit_card_number) != 16:
                 messages.warning(request, f'Card number is not valid (16 numbers)!')
                 return redirect('payment_information_index', id=id)
 

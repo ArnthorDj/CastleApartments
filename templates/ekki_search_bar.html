@@ -38,7 +38,7 @@
                 {% else %}
                     <li><a id="History" href="{% url 'user_history' %}">History</a></li>
                 {% endif %}
-            {% endif %}
+                {% endif %}
             <li><a  id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
             {% if user.is_authenticated %}
                 <!-- <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li> -->
@@ -49,6 +49,13 @@
         </ul>
         </div>
         <!--<div class="background_base">-->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
             {% block content %}
             {% endblock %}
          <!--</div>-->
