@@ -137,6 +137,31 @@ line-height: 0px;
 }
 
 
+@media only screen and (max-width: 774px) {
+    #button{
+        font-size: 7px;
+        width: 100%;
+    }
+    #back-button{
+        font-size: 7px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #button{
+        font-size: 7px;
+        width: 190%;
+        margin-left: 7px;
+    }
+    #text-street{
+        font-size: 5px;
+    }
+    #back-button{
+
+    }
+}
+
+
 /*Css for real_estate/info */
 
 .moreinfo-box1{
