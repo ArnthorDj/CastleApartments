@@ -28,7 +28,6 @@
     flex-direction: row;
     height: 100%;
     justify-content: space-evenly;
-    border: 1px solid black;
 }
 
 .li_first a:hover {
