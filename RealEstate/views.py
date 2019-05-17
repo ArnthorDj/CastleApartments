@@ -48,7 +48,8 @@ def get_real_estate_by_id(request, id):
         return redirect('real_estate')
 
     if request.user.is_authenticated:
-        if UserHistory.objects.filter(real_estate_id=id).all().count() == 0:
+        print("LKDSHJKDAJKADJKFHDSJKHSDJKFHSDJKFHSDJKFHDK")
+        if UserHistory.objects.filter(real_estate_id=id, user_id=request.user).all().count() == 0:
             user_his = UserHistory(real_estate_id=id, user=request.user)
             user_his.save()
         else:
