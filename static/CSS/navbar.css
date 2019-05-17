@@ -91,11 +91,17 @@
 
 /* Swiching from navbar to dropdown */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1055px) {
     #navbar {
         display: none;
     }
     .dropbtn {
         display: block;
   }
+}
+
+@media only screen and (max-width: 1266px) {
+    .ul_first {
+       height: 70px;
+    }
 }
