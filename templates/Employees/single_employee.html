@@ -1,11 +1,11 @@
-
+<!-- Html file renders information about one employee, extends into Employees/index.html. -->
 
 <div class="well real estate">
-        <img class="employee-img" src="{{ employee.profile.profile_image }}" height="200px" width="300px" />
+    <img alt="employee-img" class="employee-img" src="{{ employee.profile.profile_image }}" height="200px" width="300px" />
         <div>
-        <h4 class="black-font">{{ employee.first_name }} {{ employee.last_name }}</h4>
-        <p class="black-font">{{ employee.email }}</p>
-        <p class="black-font">(+354) {{ employee.profile.phone }}</p>
+            <h4 class="black-font">{{ employee.first_name }} {{ employee.last_name }}</h4>
+                <p class="black-font">{{ employee.email }}</p>
+                <p class="black-font">(+354) {{ employee.profile.phone }}</p>
         </div>
 </div>
 

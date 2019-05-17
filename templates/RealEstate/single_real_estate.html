@@ -1,11 +1,14 @@
+<!-- Html file for rendering all the real estates on the page -->
+
 <div class="well real estate">
     <a href="/real_estate/info/{{ house.id }}">
-        <img src="{{ house.main_image }}" height="40%" width="100%">
+        <img alt="real_estate_img" src="{{ house.main_image }}" height="40%" width="100%">
         <h4 class="black-font">{{ house.street }}, {{ house.zip_code.zip_code }} {{ house.zip_code.city }}</h4>
         <h4 class="black-font"><b>Country:</b> {{ house.zip_code.country }}</h4>
-        <p class="black-font"><b>Bedrooms: </b>{{ house.bedrooms }},<b> Bathrooms:</b> {{ house.bathrooms }},<b> Size: </b>{{ house.size }}<b> square meters</b></p>
-        <p class="black-font"><b> Type: </b>{{ house.type }}</p>
-        <p class="black-font" id="price">{{ house.price }} kr.</p>
+            <p class="black-font"><b>Bedrooms: </b>{{ house.bedrooms }},<b> Bathrooms:</b> {{ house.bathrooms }},
+                <b> Size: </b>{{ house.size }}<b> square meters</b></p>
+            <p class="black-font"><b> Type: </b>{{ house.type }}</p>
+            <p class="black-font" id="price">{{ house.price }} kr.</p>
     </a>
 </div>
 

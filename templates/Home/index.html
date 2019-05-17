@@ -1,3 +1,4 @@
+<!-- Html file for home page. -->
 {% extends 'stor_search_bar.html' %}
 {% load static %}
     {% block content %}
@@ -9,18 +10,19 @@
             {% for real_estate in real_estates %}
             <div class="well real estate" >
                 <a href="/real_estate/info/{{ real_estate.id }}">
-                <img src="{{ real_estate.main_image }}" height="100%" width="100%">
-                <h4 class="black-font">{{ real_estate.street }}, {{ real_estate.zip_code_id }} {{ real_estate.zip_code.city }}</h4>
-                    <p class="black-font"> <b>Bedrooms:</b> {{ real_estate.bedrooms }},<b> Bathrooms:</b> {{ real_estate.bedrooms }}, <b>Size:</b> {{ real_estate.size }}<b> square meters</b></p>
-                <p class="black-font"><b> Type: </b>{{ real_estate.type }}</p>
-                <p class="black-font" id="price">{{ real_estate.price }} kr.</p></a>
+                <img alt="main-img" src="{{ real_estate.main_image }}" height="100%" width="100%">
+                <h4 class="black-font">{{ real_estate.street }}, {{ real_estate.zip_code_id }}{{ real_estate.zip_code.city }}</h4>
+                    <p class="black-font"> <b>Bedrooms:</b> {{ real_estate.bedrooms }},<b> Bathrooms:</b>
+                        {{ real_estate.bedrooms }},<b>Size:</b> {{ real_estate.size }}<b> square meters</b></p>
+                    <p class="black-font"><b> Type: </b>{{ real_estate.type }}</p>
+                    <p class="black-font" id="price">{{ real_estate.price }} kr.</p></a>
             </div>
             {% endfor %}
         </main>
         <div class="col-13">
-            <a href="{% url 'real_estate' %}"><button type="submit" class="btn btn-primary" id="see-more-btn">See more</button></a>
+            <a href="{% url 'real_estate' %}"><button type="submit" class="btn btn-primary" id="see-more-btn">
+                See more
+            </button></a>
         </div>
-
-        <!-- Latest compiled and minified JavaScript -->
     {% endblock %}
 
