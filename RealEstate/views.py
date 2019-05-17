@@ -109,7 +109,7 @@ def update_real_estate(request, id):
             bedrooms = real_estate.bedrooms
             bathrooms = real_estate.bathrooms
 
-            RealEstates.objects.filter(pk=id).update(street=street, type=type, more_info=more_info,
+            RealEstates.objects.filter(id=id).update(street=street, type=type, more_info=more_info,
                                                      main_image=main_image, price=price, size=size,
                                                      bedrooms=bedrooms, bathrooms=bathrooms)
 
