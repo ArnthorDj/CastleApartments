@@ -298,3 +298,4 @@ def real_estate_bathrooms(request):
 
 def real_estate_bedrooms(request):
     return render(request, 'RealEstate/bedrooms.html', {"real_estates": RealEstates.objects.filter(on_sale=True).order_by("bedrooms")})
+
