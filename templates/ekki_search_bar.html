@@ -1,4 +1,4 @@
-<!-- Html file for employee file and real estate info file. With small background picture and no search bar. -->
+<!-- Html file for employee file, sign up file and real estate info file. With small background picture and no search bar. -->
 {% load static %}
 <script src="{% static 'js/urls.js' %}"></script>
 
@@ -10,10 +10,10 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Castle Apartments</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
         <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
         <link rel="stylesheet" href="{% static 'CSS/slider.css' %}">
@@ -43,7 +43,6 @@
             {% endif %}
             <li class="menu-opt li_first"><a class="menu-opt" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
             {% if user.is_authenticated %}
-                <!-- <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li> -->
                 <li class="menu-opt li_first"><a class="menu-opt" id="logout" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
                 <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">Login</a></li>
@@ -72,9 +71,8 @@
               {% endif %}
           </div>
         </div>
-
-        </div>
-
+     </div>
+        <!-- Help messages for sign up forms -->
         {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}">
@@ -85,20 +83,18 @@
             {% block content %}
             {% endblock %}
 
-
-
         <footer>
             <aside class="footer-left">
                 <h3 class="footer_left"> Castle Apartments Ltd.</h3><br><br><br>
-                <p>Laugavegur 5, 101 Reykjavík <br>
-                castleapt@castleapt.com <br>
-                Kt: 123456-7890 <br>
-                S: 123-3456</p>
+                    <p>Laugavegur 5, 101 Reykjavík <br>
+                    castleapt@castleapt.com <br>
+                    Kt: 123456-7890 <br>
+                    S: 123-3456</p>
             </aside>
 
             <aside class="footer-right">
                 <h2 id="socialmedia-header">Social media</h2>
-                <img class="social_media_logo" id="snapchat_logo" src="{% static 'Images/snapchat_logo.png' %}" alt="snapchat_logo">
+                    <img class="social_media_logo" id="snapchat_logo" src="{% static 'Images/snapchat_logo.png' %}" alt="snapchat_logo">
                     <img class="social_media_logo" id="instagram_logo" src="{% static 'Images/instagram_logo.png' %}" alt="instagram_logo">
                     <img class="social_media_logo" id="twitter_logo" src="{% static 'Images/twitter_logo.png' %}" alt="twitter_logo">
                     <img class="social_media_logo" id="facebook_logo" src="{% static 'Images/facebook_logo.png' %}" alt="facebook_logo">
@@ -108,16 +104,13 @@
                 <h2 id="about-us-header">About Us</h2>
                     <p>Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of computer science at Reykjavik University, Iceland.
                         Our expertise is in selling high quality old fashion family homes.</p>
-
-
             </aside>
         </footer>
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-<script src="{% static 'js/urls.js' %}"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+{#        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>#}
+        <script src="{% static 'js/urls.js' %}"></script>
+{#        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"#}
+{#                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>#}
 
     </body>
 </html>
