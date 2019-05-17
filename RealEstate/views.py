@@ -1,18 +1,17 @@
 from django.shortcuts import render, redirect, get_list_or_404
-from RealEstate.models import RealEstates, RealEstateImages, ZipCodes
+from RealEstate.models import RealEstates, RealEstateImages
 from RealEstate.forms.payment_information_form import CreatePaymentForm
 from User.models import UserHistory, Profile, CreditCard, Purchases
-#from django.contrib.auth.models import User
 from django.http import JsonResponse
 import datetime
 from django.db.models import Q
 from RealEstate.forms.add_real_estate_form import AddRealEstateForm, AddRealEstateImage
-# from RealEstate.forms.add_real_estate_form import AddRealEstateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 def index(request):
-    #real_estates = {"real_estates":  RealEstates.objects.all()}
+    """ Search function that is shown in the canvas instruction video """
+
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         # zip_city = RealEstates.objects.all().values('zip_code__city')
@@ -27,8 +26,8 @@ def index(request):
             'size': x.size,
             'type': x.type,
             'price': x.price,
-            'main_image': x.main_image
-            # 'main_image': x.main_image.image
+            'main_image': x.main_image,
+            'country': x.zip_code.country
         }
             for x in RealEstates.objects.filter((Q(street__icontains=search_filter) | Q(zip_code=search_filter) | Q(
                 zip_code__city__icontains=search_filter)) & Q(on_sale=True))]
@@ -40,23 +39,29 @@ def index(request):
 
 
 def get_real_estate_by_id(request, id):
+    """ Function that gets specific real estate """
 
+    # Get the spesific real estate or throw 404 error
     real_estate = get_list_or_404(RealEstates, pk=id)[0]
 
-
-    if real_estate.on_sale == False:
+    # if the specific real estate is not on sale then redirects the user to /real_estate/ url
+    if not real_estate.on_sale:
         return redirect('real_estate')
 
+    # Checks if the user is logged in and if he is checks if he has already checked out this specific real estate
     if request.user.is_authenticated:
-        print("LKDSHJKDAJKADJKFHDSJKHSDJKFHSDJKFHSDJKFHDK")
         if UserHistory.objects.filter(real_estate_id=id, user_id=request.user).all().count() == 0:
+            # adds the real estate to user history
             user_his = UserHistory(real_estate_id=id, user=request.user)
             user_his.save()
         else:
+            # updates the date in user history
             UserHistory.objects.filter(real_estate_id=id, user=request.user).update(date=datetime.date.today())
 
+    # Gets the specific real estate images
     placeholder = RealEstateImages.objects.get(real_estate_id=id)
 
+    # Sets the images in a more convenient data storage as in getting them back
     images = [placeholder.image, placeholder.image2, placeholder.image3, placeholder.image4, placeholder.image5, placeholder.image6]
 
     return render(request, 'RealEstateInformation/index.html', {
