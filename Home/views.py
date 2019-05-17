@@ -5,7 +5,8 @@ from django.db.models import Q
 
 
 def index(request):
-    #real_estates = {"real_estates":  RealEstates.objects.all()}
+    """ Search function that is shown in the canvas instruction video """
+
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         # zip_city = RealEstates.objects.all().values('zip_code__city')

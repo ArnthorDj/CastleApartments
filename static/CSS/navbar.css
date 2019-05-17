@@ -91,7 +91,7 @@
 
 /* Swiching from navbar to dropdown */
 
-@media only screen and (max-width: 1118px) {
+@media only screen and (max-width: 1158px) {
     #navbar {
         display: none;
     }
@@ -100,7 +100,7 @@
   }
 }
 
-@media only screen and (max-width: 1282px) {
+@media only screen and (max-width: 1344px) {
     .ul_first {
        height: 70px;
     }
