@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'Employees.apps.EmployeesConfig',
     'Home.apps.HomeConfig',
     'User.apps.UserConfig',
-    'crispy_forms',
+    #'crispy_forms',
     'ContactUs.apps.ContactUsConfig',
     # 'Login.apps.LoginConfig',
     # 'PaymentInformation.apps.PaymentInformationConfig',
