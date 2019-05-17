@@ -3,11 +3,9 @@
 {% extends 'RealEstate/index.html' %}
 {% load static %}
 
-
-
 {% block order_by %}
-<div class="dropdown-container">
-    <form action="/action_page.php">
+    <div class="dropdown-container">
+        <form action="/action_page.php">
               <select id="real_estate_order" name="order">
                   <option value="{% url 'real_estate' %}">Order by</option>
                   <option value="{% url 'real_estate_zip' %}">Zip</option>
@@ -18,8 +16,8 @@
                   <option value="{% url 'real_estate_bathrooms' %}">Bathrooms</option>
                   <option value="{% url 'real_estate_bedrooms' %}">Bedrooms</option>
               </select>
-
         </form>
-    <button type="submit" id="real_estate_go_btn" class="btn btn-primary" id="real_estate_order" onclick="real_estate_urls()"><p>Go</p></button>
-</div>
+        <button type="submit" id="real_estate_go_btn" class="btn btn-primary" id="real_estate_order"
+            onclick="real_estate_urls()"><p>Go</p></button>
+    </div>
 {% endblock %}
