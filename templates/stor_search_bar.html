@@ -34,7 +34,7 @@
             {% if user.is_authenticated %}
                 <li><a class="menu-opt" id="profile" href="{% url 'profile' %}">Profile</a></li>
                 {% if user.is_staff %}
-                    <li><a id="Add Real Estate" href="{% url 'add_real_estate_index' %}">Add Real Estate</a></li>
+                    <li><a class="menu-opt" id="Add Real Estate" href="{% url 'add_real_estate_index' %}">Add Real Estate</a></li>
                 {% else %}
                     <li><a class="menu-opt" id="History" href="{% url 'user_history' %}">History</a></li>
                 {% endif %}
