@@ -1,5 +1,5 @@
+<!-- Html file for register file, login file and profile file. With big background picture and no search bar. -->
 {% load static %}
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -9,55 +9,64 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Castle Apartments</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+              crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
         <link rel="stylesheet" href="{% static 'CSS/navbar.css' %}">
-
-{#        Boostrap fyrir login formið: #}
-        <link rel="stylesheet"  href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" id="bootstrap-css">
+        <!-- Boostrap for login form: -->
+        <link rel="stylesheet"  href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-
     </head>
     <body>
         <div id="header">
-             <div id="logo-container">
+            <div id="logo-container">
                  <img class="logo" id="logo" src="{% static 'Images/logo.png' %}" alt="logo">
-             </div>
+            </div>
             <div id="username-container">
                 {% if user.is_authenticated %}
                     <p id="username">{{ user.username }}</p>
                 {% endif %}
             </div>
-        <div id="menu-bar-container">
-        <ul class="menu-bar ul_first" id="navbar">
-            <li class="menu-opt li_first"><a class="menu-opt" id="home" href="{% url 'home_index' %}">Home</a></li>
-            <li class="menu-opt li_first"><a class="menu-opt" id="real_estate" href="{% url 'real_estate' %}">Real Estate</a></li>
-            <li class="menu-opt li_first"><a class="menu-opt" id="employees" href="{% url 'employees_index' %}">Staff Members</a></li>
-            {% if user.is_authenticated %}
-                <li class="menu-opt li_first"><a class="menu-opt" id="profile" href="{% url 'profile' %}">Profile</a></li>
-                {% if user.is_staff %}
-                    <li class="menu-opt li_first"><a class="menu-opt" id="Add Real Estate" href="{% url 'add_real_estate_index' %}">Add Real Estate</a></li>
-                {% else %}
-                    <li class="menu-opt li_first"><a class="menu-opt" id="History" href="{% url 'user_history' %}">History</a></li>
-                {% endif %}
-            {% endif %}
-            <li class="menu-opt li_first"><a class="menu-opt" id="contact_us" href="{% url 'contact_us' %}">Contact Us</a></li>
-            {% if user.is_authenticated %}
-                <!-- <li><a id="logout" href="{% url 'logout' %}">{{ user.username }}</a></li> -->
-                <li class="menu-opt li_first"><a class="menu-opt" id="logout" href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-        </ul>
-        </div>
+            <div id="menu-bar-container">
+                <ul class="menu-bar ul_first" id="navbar">
+                    <li class="menu-opt li_first"><a class="menu-opt" id="home" href="{% url 'home_index' %}">
+                        Home</a></li>
+                    <li class="menu-opt li_first"><a class="menu-opt" id="real_estate" href="{% url 'real_estate' %}">
+                        Real Estate</a></li>
+                    <li class="menu-opt li_first"><a class="menu-opt" id="employees" href="{% url 'employees_index' %}">
+                        Staff Members</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="menu-opt li_first"><a class="menu-opt" id="profile" href="{% url 'profile' %}">
+                            Profile</a></li>
+                        {% if user.is_staff %}
+                            <li class="menu-opt li_first"><a class="menu-opt" id="Add Real Estate"
+                                                             href="{% url 'add_real_estate_index' %}">
+                                Add Real Estate</a></li>
+                        {% else %}
+                            <li class="menu-opt li_first"><a class="menu-opt" id="History"
+                                                             href="{% url 'user_history' %}">History</a></li>
+                        {% endif %}
+                    {% endif %}
+                    <li class="menu-opt li_first"><a class="menu-opt" id="contact_us" href="{% url 'contact_us' %}">
+                        Contact Us</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="menu-opt li_first"><a class="menu-opt" id="logout" href="{% url 'logout' %}">
+                            Logout</a></li>
+                    {% else %}
+                        <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">
+                            Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
 
 
         <div class="dropdown">
