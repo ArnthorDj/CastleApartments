@@ -198,8 +198,15 @@ def payment_information(request, id):
             credit_card_form = CreatePaymentForm(data=request.POST)
             if credit_card_form.is_valid():
                 credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
+                credit_card_month = int(credit_card_form.cleaned_data.get('month'))
+                credit_card_year = int(credit_card_form.cleaned_data.get('year'))
                 if not credit_card_number.isdigit() or len(credit_card_number) != 16:
                     messages.warning(request, f'Card number is not valid (16 numbers)!')
+                    return redirect('payment_information_index', id=id)
+                month = int(datetime.datetime.now().month)
+                year = int(datetime.datetime.now().year)
+                if credit_card_month < month and credit_card_year == year or credit_card_year < year:
+                    messages.warning(request, f'Card is expired!')
                     return redirect('payment_information_index', id=id)
 
                 credit_card_form2 = credit_card_form.save(commit=False)
@@ -215,8 +222,15 @@ def payment_information(request, id):
             credit_card_form = CreatePaymentForm(data=request.POST, instance=credit_card)
             if credit_card_form.is_valid():
                 credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
+                credit_card_month = int(credit_card_form.cleaned_data.get('month'))
+                credit_card_year = int(credit_card_form.cleaned_data.get('year'))
                 if not credit_card_number.isdigit() or len(credit_card_number) < 16:
                     messages.warning(request, f'Card number is not valid (16 numbers)!')
+                    return redirect('payment_information_index', id=id)
+                month = int(datetime.datetime.now().month)
+                year = int(datetime.datetime.now().year)
+                if credit_card_month < month and credit_card_year == year or credit_card_year < year:
+                    messages.warning(request, f'Card is expired!')
                     return redirect('payment_information_index', id=id)
 
                 card_number = credit_card_form.cleaned_data.get('card_number')
