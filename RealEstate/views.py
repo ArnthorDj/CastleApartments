@@ -112,8 +112,7 @@ def update_real_estate(request, id):
             RealEstates.objects.filter(pk=id).update(street=street, type=type, more_info=more_info,
                                                      main_image=main_image, price=price, size=size,
                                                      bedrooms=bedrooms, bathrooms=bathrooms)
-            print("ID GIVEN:", id)
-            print('GIVENGIVENVSDOLKFNAKSJDNFJIAKS')
+
             return redirect('real_estate_image', id=id)
     else:
         real_estate_form = AddRealEstateForm(instance=real_estate)
@@ -134,18 +133,23 @@ def add_real_estate_images(request, id):
 
     if image == 0:
         real_estate_image_form = AddRealEstateImage(data=request.POST)
-
+        images = ["", "",
+                  "", "",
+                  "", ""]
         if request.method == 'POST':
             if real_estate_image_form.is_valid():
                 form2 = real_estate_image_form.save(commit=False)
                 form2.real_estate_id = id
                 form2.save()
-
-            return redirect('real_estate_image', id=id)
-
-        images = ["", "",
-                  "", "",
-                  "", ""]
+                pic1 = real_estate_image_form.cleaned_data.get('image')
+                pic2 = real_estate_image_form.cleaned_data.get('image2')
+                pic3 = real_estate_image_form.cleaned_data.get('image3')
+                pic4 = real_estate_image_form.cleaned_data.get('image4')
+                pic5 = real_estate_image_form.cleaned_data.get('image5')
+                pic6 = real_estate_image_form.cleaned_data.get('image6')
+                images = [pic1, pic2,
+                          pic4, pic3,
+                          pic5, pic6]
 
     else:
         if request.method == 'POST':
@@ -158,17 +162,18 @@ def add_real_estate_images(request, id):
                 pic4 = real_estate_image_form.cleaned_data.get('image4')
                 pic5 = real_estate_image_form.cleaned_data.get('image5')
                 pic6 = real_estate_image_form.cleaned_data.get('image6')
-                RealEstateImages.objects.filter(pk=images[0].id).update(image=pic1, image2=pic2, image3=pic3,
+                RealEstateImages.objects.filter(real_estate_id=id).update(image=pic1, image2=pic2, image3=pic3,
                                                                         image4=pic4, image5=pic5, image6=pic6)
-
-            return redirect('real_estate_image', id=id)
+                images = [pic1, pic2,
+                          pic4, pic3,
+                          pic5, pic6]
 
         else:
             real_estate_image_form = AddRealEstateImage(instance=images[0])
 
-        images = [images[0].image, images[0].image2,
-                  images[0].image3, images[0].image4,
-                  images[0].image5, images[0].image6]
+            images = [images[0].image, images[0].image2,
+                      images[0].image3, images[0].image4,
+                      images[0].image5, images[0].image6]
 
     return render(request, 'AddRealEstate/images.html', {
         'image_form': real_estate_image_form,
