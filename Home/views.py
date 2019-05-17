@@ -5,11 +5,11 @@ from django.db.models import Q
 
 
 def index(request):
-    """ Search function that is shown in the canvas instruction video """
+    """ Search function based on the Canvas instruction video,
+        with specific changes to fit our search requirements. """
 
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        # zip_city = RealEstates.objects.all().values('zip_code__city')
 
         real_estate = [{
             'id': x.id,
@@ -30,4 +30,3 @@ def index(request):
 
     return render(request, 'Home/index.html', {
         "real_estates":  RealEstates.objects.filter(on_sale=True)[:3]})
-
