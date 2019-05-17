@@ -26,5 +26,4 @@ class CreatePaymentForm(ModelForm):
                 ('11', 'November'),
                 ('12', 'December')], attrs={'class': 'form-control', 'placeholder': 'Month'}),
             'year': widgets.Select(choices=[(year, year) for year in range(year, year+5)], attrs={'class': 'form-control', 'placeholder': 'Year'}),
-            'cvc': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'CVC'})
         }
