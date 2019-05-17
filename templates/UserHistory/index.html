@@ -5,18 +5,17 @@
 
 {% block content %}
     {% if real_estates %}
-        <button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary"><a href="{% url 'delete_history'  %}">Clear</a></button>
+        <button id="back-button" type="submit" class="btn btn-block btn-lg btn-primary"><a
+                href="{% url 'delete_history'%}">Clear</a></button>
     {% endif %}
         <div class="container2">
             <h2 class="page-header">Recently viewed real estates</h2>
         </div>
-
     {% block order_by %}
     {% endblock %}
-
-        <main class="main">
+    <main class="main">
         {% for real_estate in real_estates %}
             {% include 'UserHistory/single_real_estate_user_history.html' with real_estate=real_estate %}
         {% endfor %}
-        </main>
-    {% endblock %}
+    </main>
+{% endblock %}

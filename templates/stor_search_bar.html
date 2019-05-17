@@ -30,7 +30,8 @@
             </div>
             <div id="menu-bar-container">
                 <ul class="menu-bar ul_first" id="navbar">
-                    <li class="menu-opt li_first"><a class="menu-opt" id="home" href="{% url 'home_index' %}">Home</a></li>
+                    <li class="menu-opt li_first"><a class="menu-opt" id="home" href="{% url 'home_index' %}">
+                        Home</a></li>
                     <li class="menu-opt li_first"><a class="menu-opt" id="real_estate" href="{% url 'real_estate' %}">
                         Real Estate</a></li>
                     <li class="menu-opt li_first"><a class="menu-opt" id="employees" href="{% url 'employees_index' %}">
@@ -40,9 +41,11 @@
                             Profile</a></li>
                         {% if user.is_staff %}
                             <li class="menu-opt li_first"><a class="menu-opt" id="Add Real Estate"
-                                                             href="{% url 'add_real_estate_index' %}">Add Real Estate</a></li>
+                                                             href="{% url 'add_real_estate_index' %}">
+                                Add Real Estate</a></li>
                         {% else %}
-                            <li class="menu-opt li_first"><a class="menu-opt" id="History" href="{% url 'user_history' %}">
+                            <li class="menu-opt li_first"><a class="menu-opt" id="History"
+                                                             href="{% url 'user_history' %}">
                                 History</a></li>
                         {% endif %}
                     {% endif %}
@@ -52,7 +55,8 @@
                         <li class="menu-opt li_first"><a class="menu-opt" id="logout" href="{% url 'logout' %}">
                             Logout</a></li>
                     {% else %}
-                        <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">Login</a></li>
+                        <li class="menu-opt li_first"><a  class="menu-opt"id="login" href="{% url 'login' %}">
+                            Login</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -82,10 +86,12 @@
                 <form class="form">
                     <div class="form-row">
                         <div class="col-14">
-                            <input type="search" class="form-control" id="search-box" placeholder="Search (street, city, zip code)">
+                            <input type="search" class="form-control" id="search-box"
+                                   placeholder="Search (street, city, zip code)">
                         </div>
                         <div class="col-12">
-                            <button type="button" id="search-btn" class="btn btn-block btn-lg btn-primary">Search</button>
+                            <button type="button" id="search-btn" class="btn btn-block btn-lg btn-primary">
+                                Search</button>
                         </div>
                     </div>
                 </form>
@@ -112,14 +118,19 @@
             </aside>
             <aside class="footer-right">
                 <h2 id="socialmedia-header">Social media</h2>
-                <img class="social_media_logo" id="snapchat_logo" src="{% static 'Images/snapchat_logo.png' %}" alt="snapchat_logo">
-                    <img class="social_media_logo" id="instagram_logo" src="{% static 'Images/instagram_logo.png' %}" alt="instagram_logo">
-                    <img class="social_media_logo" id="twitter_logo" src="{% static 'Images/twitter_logo.png' %}" alt="twitter_logo">
-                    <img class="social_media_logo" id="facebook_logo" src="{% static 'Images/facebook_logo.png' %}" alt="facebook_logo">
+                <img class="social_media_logo" id="snapchat_logo" src="{% static 'Images/snapchat_logo.png' %}"
+                     alt="snapchat_logo">
+                    <img class="social_media_logo" id="instagram_logo" src="{% static 'Images/instagram_logo.png' %}"
+                         alt="instagram_logo">
+                    <img class="social_media_logo" id="twitter_logo" src="{% static 'Images/twitter_logo.png' %}"
+                         alt="twitter_logo">
+                    <img class="social_media_logo" id="facebook_logo" src="{% static 'Images/facebook_logo.png' %}"
+                         alt="facebook_logo">
             </aside>
             <aside class="footer-center">
                 <h2 id="about-us-header">About Us</h2>
-                    <p>Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of computer science at Reykjavik University, Iceland.
+                    <p>Castle Apartments Ltd. was founded in April-May 2019 by five scholars attending their studies of
+                        computer science at Reykjavik University, Iceland.
                         Our expertise is in selling high quality old fashion family homes.</p>
             </aside>
         </footer>
