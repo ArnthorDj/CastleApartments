@@ -29,10 +29,13 @@ a{
 }
 
 #logo-container {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    text-align: center;
+    /*text-align: center;*/
     padding-top: 3%;
 }
+
 
 
 .search_bar {
@@ -184,6 +187,7 @@ line-height: 0px;
     #profile-img {
         display: none;
     }
+
 }
 
 
@@ -259,14 +263,21 @@ line-height: 0px;
     .infobox-realestate{
         width: 50%;
     }
+    .menu-opt{
+        font-size: 8px;
+    }
+    .menu-bar{
+        display: flex;
+        flex-wrap: wrap;
+        height: 30%;
+    }
+
+
 }
 
 @media only screen and (max-width: 994px) {
     .footer-left {
         font-size: 10px;
-        /*display: inline-block;*/
-        /*margin-bottom:20px;*/
-        /*text-align:center;*/
     }
     .footer_left{
         font-size: 15px;
@@ -295,9 +306,43 @@ line-height: 0px;
     .infotext-realestate{
         font-size: 10px;
     }
+      #username{
+         font-size: 15px;
+     }
 }
 
 
+@media only screen and (max-width: 400px) {
+    .footer-left {
+        font-size: 5px;
+    }
+
+    .footer_left {
+        font-size: 10px;
+    }
+
+    .footer_right {
+        font-size: 5px;
+    }
+
+    #socialmedia-header {
+        font-size: 10px;
+    }
+
+    .footer-center {
+        font-size: 5px;
+    }
+
+    #about-us-header {
+        font-size: 10px;
+    }
+     .logo{
+        width: 50%;
+         height: 50%;
+    }
+
+
+}
 
 
 .black-font{
