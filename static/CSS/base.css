@@ -157,7 +157,15 @@ line-height: 0px;
         font-size: 5px;
     }
     #back-button{
+        height: 10%;
+    }
+}
 
+
+@media only screen and (max-width: 460px) {
+    #back-button{
+        height: 20px;
+        width: 70px;
     }
 }
 
@@ -392,7 +400,6 @@ line-height: 0px;
 
 #back-button{
     width: 7%;
-    height: 7%;
     margin-left: 20px;
     margin-top: 10px;
 }
