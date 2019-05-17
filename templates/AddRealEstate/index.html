@@ -1,12 +1,13 @@
+<!-- Html file for adding a new real estate to the system. -->
 {% extends "stor_mynd.html" %}
 {% block content %}
 
 
     <div>
-    <form class="add-form" method="post"/>
-    {% csrf_token %}
-    {{ form }}
-         <button type="submit" class="formatted-btn btn-primary">Add</button>
-    </form>
+        <form class="add-form" method="post"/>
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="formatted-btn btn-primary">Add</button>
+        </form>
     </div>
 {% endblock %}

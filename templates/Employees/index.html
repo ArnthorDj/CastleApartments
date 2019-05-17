@@ -1,12 +1,11 @@
+<!-- Html file for information about staff members. -->
 {% extends 'ekki_search_bar.html' %}
-
 {% block content %}
 
-
     <h2 class="page-header">Staff members of Castle Apartments Ltd.</h2>
-    <main id="main">
-    {% for employee in employees %}
-        {% include 'Employees/single_employee.html' with employee=employee %}
-    {% endfor %}
-    </main>
+        <main id="main">
+            {% for employee in employees %}
+                {% include 'Employees/single_employee.html' with employee=employee %}
+            {% endfor %}
+        </main>
 {% endblock %}

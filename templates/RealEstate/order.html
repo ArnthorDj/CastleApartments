@@ -1,11 +1,11 @@
+<!-- Html file for rendering real estates. Order by options are kept in
+ different files so the order by box tells the user what option he chose. -->
 {% extends 'RealEstate/index.html' %}
 {% load static %}
 
-
-
 {% block order_by %}
-<div class="dropdown-container">
-    <form action="/action_page.php">
+    <div class="dropdown-container">
+        <form action="/action_page.php">
               <select id="real_estate_order" name="order">
                   <option value="{% url 'real_estate' %}" selected>Order by</option>
                   <option value="{% url 'real_estate_zip' %}">Zip</option>
@@ -16,8 +16,7 @@
                   <option value="{% url 'real_estate_bathrooms' %}">Bathrooms</option>
                   <option value="{% url 'real_estate_bedrooms' %}">Bedrooms</option>
               </select>
-
         </form>
-    <button id="real_estate_go_btn" type="submit" class="btn btn-primary"   id="real_estate_order" onclick="real_estate_urls()"><p>Go</p></button>
-</div>
+        <button id="real_estate_go_btn" type="submit" class="btn btn-primary"   id="real_estate_order" onclick="real_estate_urls()"><p>Go</p></button>
+    </div>
 {% endblock %}

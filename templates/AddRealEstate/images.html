@@ -1,21 +1,22 @@
+<!-- Html file for when staff member has added new real estate images. -->
 {% extends "stor_mynd.html" %}
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="../../static/CSS/slider.css">
 
+
     <div class="image-real-estate">
-    <button type="submit" class="formatted-btn btn-primary" onclick="location.href='/real_estate/update/{{ id }}'">Back</button>
+        <button type="submit" class="formatted-btn btn-primary" onclick="location.href='/real_estate/update/{{ id }}'">Back</button>
             <form class="add-form" method="post"/>
             {% csrf_token %}
-        {{ image_form }}
-{#    <input type="submit" value="Add" class="btn btn-primary pull-right" >#}
+            {{ image_form }}
             <button type="submit" class="formatted-btn btn-primary">Update</button>
             </form>
         <div class="image-real-estate">
             {% for image in images %}
                 {% if image != "" %}
                     <div id="images-add">
-                        <img id="imgs" src="{{ image }}">
+                        <img id="imgs" alt="real_estate" src="{{ image }}">
                     </div>
                 {% endif %}
             {% endfor %}

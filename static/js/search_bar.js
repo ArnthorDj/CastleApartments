@@ -1,3 +1,5 @@
+// JavaScript file so that the Search Bar works, we get the data from view.py and display the results with this function
+
 $(document).ready(function() {
     $("#search-btn").on("click", function(e){
         e.preventDefault();
