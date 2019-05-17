@@ -1,26 +1,52 @@
-/*Css for stor_search_bar.html, litill_search_bar.html, stor_mynd.html, ekki_search_bar.html */
+/*CSS for stor_search_bar.html, litill_search_bar.html, stor_mynd.html, ekki_search_bar.html. */
 
 a{
     color:white;
 }
 
+.image {
+  width: 30%;
+}
+
+.images {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    padding:5px;
+    color: slateblue;
+}
+
+#main {
+    width:100%;
+    text-align:center;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.justify-content-center{
+    height: 100vh;
+}
+
+/* CSS for the header. */
 #header{
-    /*width: 100%;*/
     background-image: url("../Images/mountain.jpg");
-    background-size:     cover;                      /* <------ */
+    background-size:     cover;
     background-repeat:   no-repeat;
     background-position: center center;
 }
 
 #header_short{
     background: url("../Images/mountain_short.jpg") no-repeat center center;
-    background-size:     cover;                      /* <------ */
+    background-size:     cover;
     background-repeat:   no-repeat;
     background-position: center center;
 }
 
 #username {
-
     font-family: "Comic Sans MS";
     font-size: x-large;
     line-height: 0%;
@@ -37,16 +63,42 @@ a{
     display: flex;
     justify-content: center;
     width: 100%;
-    /*text-align: center;*/
     padding-top: 3%;
 }
 
+.navbar-default {
+    text-align: center;
+}
 
+.navbar-nav {
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
+/* CSS for search bar, fixing when the screen gets smaller. */
 .search_bar {
   padding-top: 8rem;
   padding-bottom: 8rem;
   text-align: center;
+}
+
+.col-14 {
+    width: 30%;
+    display: inline-block;
+    height: 5%;
+}
+
+.col-12 {
+    width: 10%;
+    display: inline-block;
+    height: 5%;
+}
+
+
+.col-13 {
+    margin-left:auto;
+    margin-right:auto;
+    width: 10%;
 }
 
 @media only screen and (max-width: 830px) {
@@ -63,12 +115,7 @@ a{
 }
 
 
-
-#single-image{
-    width: 100%;
-}
-
-
+/* CSS for the order by, dropdown and button. */
 #real_estate_order{
     width: 100%;
     height: 25px;
@@ -80,48 +127,27 @@ a{
 
 #real_estate_go_btn p{
     margin: 0px;
-line-height: 0px;
+    line-height: 0px;
 }
 
 .dropdown-container{
     display: flex;
     justify-content: center;
     flex-direction: row;
-
 }
 
+/* CSS for forms. */
 .form {
     margin: auto;
     float: inside;
 }
-.image {
-  width: 30%;
-}
-#main {
-    width:100%;
-    text-align:center;
-    margin-top:20px;
-    margin-left:auto;
-    margin-right:auto;
-}
-.images {
-    width: 30%;
-    margin-bottom: 20px;
-    text-align: center;
-    display: inline-block;
-    border-radius: 10px;
-    border: 2px solid #000000;
-    padding:5px;
-    color: slateblue;
 
-}
 .moreinfobox2{
     border-color: #222222;
     width: 50%;
     height: 50%;
     resize: none;
     margin-left: 30px;
-
 }
 
 .moreinfo-container {
@@ -130,11 +156,9 @@ line-height: 0px;
     justify-content: center;
 }
 
-
 .info_image{
     display: inline-block;
 }
-
 
 @media only screen and (max-width: 774px) {
     #button{
@@ -160,7 +184,6 @@ line-height: 0px;
     }
 }
 
-
 @media only screen and (max-width: 460px) {
     #back-button{
         height: 20px;
@@ -168,9 +191,7 @@ line-height: 0px;
     }
 }
 
-
-/*Css for real_estate/info */
-
+/*CSS for single real estate. */
 .moreinfo-box1{
     border-color: #222222;
     padding: 20px;
@@ -200,17 +221,26 @@ line-height: 0px;
     height: 30rem;
 }
 
+#back-button{
+    width: 7%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#single-image{
+    width: 100%;
+}
+
+/* This is also for the buttons 'Update' and 'Login to buy'. */
 .buy{
     width: 20%;
 }
-
-
 
 #text-street{
     font-size: 20px;
 }
 
-/*Css for profile*/
+/* Css for Staff members. */
 .col-10{
     display: flex;
     flex-direction: row;
@@ -225,19 +255,19 @@ line-height: 0px;
     #profile-img {
         display: none;
     }
-
 }
-
-
-
 
 .employee {
     color: black;
 }
 
-
 .employee:hover {
     color: black;
+}
+
+.employee-img {
+    width: 50%;
+    height: 30%;
 }
 
 .well {
@@ -249,18 +279,20 @@ line-height: 0px;
     padding:5px;
 }
 
-
-/*Responsive css for front page */
+/* Responsive css for front page. */
 @media only screen and (max-width: 1200px) {
     .well {
         width: 40%;
     }
+
     #see-more-btn{
         font-size: 18px;
     }
+
     .user_input{
         width:80%;
     }
+
     .infobox-realestate{
         width: 50%;
     }
@@ -292,60 +324,74 @@ line-height: 0px;
     li a {
         padding: 1px;
     }
+
     #see-more-btn{
         font-size: 8px;
     }
+
     .user_input{
         width:80%;
     }
+
     .infobox-realestate{
         width: 50%;
     }
+
     .menu-opt{
         font-size: 8px;
     }
+
     .menu-bar{
         display: flex;
         flex-wrap: wrap;
         height: 30%;
     }
-
 }
 
 @media only screen and (max-width: 994px) {
     .footer-left {
         font-size: 10px;
     }
+
     .footer_left{
         font-size: 15px;
     }
+
     .footer_right{
         font-size: 10px;
     }
+
     #socialmedia-header{
         font-size: 15px;
     }
+
     .footer-center{
         font-size: 10px;
     }
+
     #about-us-header{
         font-size: 15px;
     }
+
     li a {
         padding: 12px 20px 12px 20px;
     }
+
     .user_input{
         width:80%;
     }
+
     .infobox-realestate{
         width: 50%;
     }
+
     .infotext-realestate{
         font-size: 10px;
     }
-      #username{
-         font-size: 15px;
-     }
+
+    #username{
+        font-size: 15px;
+    }
 }
 
 
@@ -373,70 +419,24 @@ line-height: 0px;
     #about-us-header {
         font-size: 10px;
     }
-     .logo{
+
+    .logo{
         width: 50%;
-         height: 50%;
+        height: 50%;
     }
-
-
 }
 
-
+/* CSS for both employees and real estates, making the color of the text black. */
 .black-font{
     color: black;
 }
 
+/* This makes the price bigger than the other information about real estate in /realestate.  */
 #price{
     font-size: 20px;
 }
 
-
-
-.employee-img {
-  width: 50%;
-    height: 30%;
-}
-
-#back-button{
-    width: 7%;
-    margin-left: 20px;
-    margin-top: 10px;
-}
-
-.navbar-default {
-    text-align: center;
-}
-
-.navbar-nav {
-    margin-left: 10%;
-    margin-right: 10%;
-
-}
-
-
-
-.col-14 {
-    width: 30%;
-    display: inline-block;
-    height: 5%;
-}
-
-.col-12 {
-    width: 10%;
-    display: inline-block;
-    height: 5%;
-}
-
-
-
-.col-13 {
-    margin-left:auto;
-    margin-right:auto;
-    width: 10%;
-}
-
 /*Here is CSS for Footer*/
-
 .container-footer{
     display: flex;
     flex-direction: row;
@@ -450,11 +450,9 @@ line-height: 0px;
     margin-right: auto;
 }
 
-
 .social_media_logo{
     width: 7%;
     display: inline-block;
-
 }
 
 .footer_self {
@@ -489,9 +487,7 @@ footer .footer-right {
     float: right;
 }
 
-
-/* CSS for Login */
-
+/* CSS for Login. */
 .card-body {
     background-color: #7FA2CA;
 }
@@ -511,7 +507,6 @@ footer .footer-right {
     border-width: 3rem;
 }
 
-
 .formatted-btn{
     margin: 20px;
     width: 100px;
@@ -523,11 +518,9 @@ footer .footer-right {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
-/*Css for contact_us*/
-
+/* CSS for contact_us. */
 .contact{
     padding-left: 50px;
 }
@@ -537,11 +530,7 @@ footer .footer-right {
     margin: 10px;
 }
 
-
-
-
-/* Css for payment information*/
-
+/* CSS for payment information. */
 .payment-form{
 }
 
@@ -551,6 +540,7 @@ footer .footer-right {
     padding-bottom: 50px;
     padding-top: 20px;
 }
+
 #payment-header{
     display: flex;
     margin-right:auto ;
@@ -562,8 +552,7 @@ footer .footer-right {
     display: inline-block;
 }
 
-/* Css for  payment confirmation */
-
+/* CSS for  payment confirmation. */
 #confirmation-header{
     text-align: center;
 }
@@ -572,7 +561,6 @@ footer .footer-right {
     display: flex;
     justify-content: space-evenly;
 }
-
 
 #back-btn-confirm{
     margin: 10px;
@@ -583,31 +571,24 @@ footer .footer-right {
     text-align: center;
 }
 
-
-/*Css for user history*/
+/* CSS for user history. */
 .main{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-
 #see-more-btn{
     margin-bottom: 10px;
 }
 
-.image-real-estate{
-    display: inline-flex;
-    flex-wrap: wrap;
-}
-
+/* CSS for Add real estate.  */
 .add-form{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-
 
 #images-add{
     height: 100px;
@@ -619,6 +600,7 @@ footer .footer-right {
     width: 100%;
 }
 
-.justify-content-center{
-    height: 100vh;
+.image-real-estate{
+    display: inline-flex;
+    flex-wrap: wrap;
 }
