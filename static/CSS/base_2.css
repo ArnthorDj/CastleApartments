@@ -5,16 +5,12 @@
     background-color: #343a40;
     height: 100%;
     width: 100%;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     padding-top: 15px;
     padding-bottom: 15px;
-
 }
-
 
 .form-login{
     border: #19865C;

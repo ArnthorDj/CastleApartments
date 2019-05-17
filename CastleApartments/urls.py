@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 
-# Starting Urls
+# Starting urls for the web page
 urlpatterns = [
     path("", include("Home.urls")),
     path("home/", include("Home.urls")),

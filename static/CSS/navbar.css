@@ -1,4 +1,4 @@
-/* Navbar */
+/* Navbar. */
 .ul_first {
     display: flex;
     justify-content: center;
@@ -38,35 +38,33 @@
 .active {
   background-color: #4CAF50;
 }
-/* Navbar End*/
 
-/* Drop down */
-
+/* Drop down. */
 .dropbtn {
     display: none;
-  background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5);
     width: 100%;
     height: 50px;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
 }
 
 .dropdown {
     width: 100%;
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(0,0,0,0.5);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     width: 100%;
     text-align: center;
-  z-index: 1;
+    z-index: 1;
 }
 
 .dropdown-content a {
@@ -79,25 +77,25 @@
 }
 .dropdown-content a:hover{
     color: white;
+    background-color: rgba(0,0,0,0.2);
 }
 
-.dropdown-content a:hover {background-color: rgba(0,0,0,0.2);}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {
+    background-color: rgba(0,0,0,0.6);
+}
 
-.dropdown:hover .dropbtn {background-color: rgba(0,0,0,0.6);}
-
-/* Drop down end */
-
-/* Swiching from navbar to dropdown */
-
+/* Switching from navbar to dropdown. */
 @media only screen and (max-width: 1158px) {
     #navbar {
         display: none;
     }
     .dropbtn {
         display: block;
-  }
+    }
 }
 
 @media only screen and (max-width: 1344px) {
