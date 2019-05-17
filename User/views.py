@@ -106,7 +106,7 @@ def user_history(request):
 def delete_history(request):
     """ Deletes user history. """
 
-    # Delets all information in the database with user_id equal to the current users id
+    # Deletes all information in the database with user_id equal to the current users id
     UserHistory.objects.filter(user_id=request.user).delete()
 
     # Goes to the user history web page
