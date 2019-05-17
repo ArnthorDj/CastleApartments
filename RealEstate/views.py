@@ -194,18 +194,19 @@ def payment_information(request, id):
     #CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
 
     if CreditCard.objects.filter(user_id=request.user.profile.id).count() == 0:
-        credit_card_form = CreatePaymentForm(data=request.POST)
         if request.method == "POST":
-            credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
-            if not credit_card_number.isdigit() or len(credit_card_number) != 16:
-                messages.warning(request, f'Card number is not valid (16 numbers)!')
-                return redirect('payment_information_index', id=id)
+            credit_card_form = CreatePaymentForm(data=request.POST)
+            if credit_card_form.is_valid():
+                credit_card_number = str(credit_card_form.cleaned_data.get('card_number'))
+                if not credit_card_number.isdigit() or len(credit_card_number) != 16:
+                    messages.warning(request, f'Card number is not valid (16 numbers)!')
+                    return redirect('payment_information_index', id=id)
 
-            credit_card_form2 = credit_card_form.save(commit=False)
-            credit_card_form2.user_id = request.user.profile.id
-            credit_card_form2.save()
+                credit_card_form2 = credit_card_form.save(commit=False)
+                credit_card_form2.user_id = request.user.profile.id
+                credit_card_form2.save()
 
-            return redirect('payment_confirmation', id=id)
+                return redirect('payment_confirmation', id=id)
         else:
             credit_card_form = CreatePaymentForm()
     else:
