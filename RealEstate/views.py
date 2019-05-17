@@ -74,6 +74,7 @@ def add_real_estate(request):
         if new_real_estate_form.is_valid():
             new_real_estate_form2 = new_real_estate_form.save(commit=False)
             new_real_estate_form2.on_sale = True
+            new_real_estate_form2.employee_id = request.user.id
             new_real_estate_form2.save()
 
             return redirect('real_estate_image', id=new_real_estate_form2.id)

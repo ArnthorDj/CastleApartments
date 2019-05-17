@@ -3,10 +3,7 @@
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
-    /*background: url("../Images/mountain.jpg") no-repeat center center;*/
-    border: 2px solid black;
-/*background: url("../Images/mountain.jpg") no-repeat center center;
-   */ height: 700px;
+    height: 700px;
 }
 
 .search{
